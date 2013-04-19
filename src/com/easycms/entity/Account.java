@@ -3,13 +3,13 @@ package com.easycms.entity;
 import java.io.Serializable;
 
 public class Account implements Serializable{
-	private int tid;
+	private int id;
 	private String username;
 	public int getTid() {
-		return tid;
+		return id;
 	}
-	public void setTid(int tid) {
-		this.tid = tid;
+	public void setTid(int id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;
