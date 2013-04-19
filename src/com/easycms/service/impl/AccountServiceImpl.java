@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.easycms.entity.Account;
 import com.easycms.service.AccountService;
 
-@Service
+@Service("accountServiceImpl")
 public class AccountServiceImpl implements AccountService {
 	@Override
 	public void addAccount(Account account) {
