@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.easycms.entity.Account;
 import com.easycms.service.AccountService;
 
-@Controller("accountController")
+@Controller
 @RequestMapping("/account")
 public class AccountController{
 	@Resource(name="accountServiceImpl")
@@ -17,7 +17,7 @@ public class AccountController{
 		Account acc = new Account();
 		acc.setUsername(req.getParameter("username"));
 		acc.setPassword(req.getParameter("password"));
-		as.addAccount(acc);
+		as.save(acc);
 		
 		req.setAttribute("name", req.getParameter("username"));
 		return "login";	

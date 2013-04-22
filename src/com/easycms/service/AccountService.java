@@ -1,12 +1,8 @@
 package com.easycms.service;
 
+import com.easycms.base.BaseDao;
 import com.easycms.entity.Account;
 
-public interface AccountService {
-	/**
-	 * 
-	 * @param account
-	 */
-	public void addAccount(Account account);
+public interface AccountService extends BaseDao<Account, Integer> {
 
 }
