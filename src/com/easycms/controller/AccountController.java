@@ -16,7 +16,9 @@ public class AccountController{
 	public String addAccount(HttpServletRequest req){
 		Account acc = new Account();
 		acc.setUsername(req.getParameter("username"));
+		acc.setPassword(req.getParameter("password"));
 		as.addAccount(acc);
+		
 		req.setAttribute("name", req.getParameter("username"));
 		return "login";	
 	}

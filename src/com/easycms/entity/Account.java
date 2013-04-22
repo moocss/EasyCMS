@@ -5,10 +5,11 @@ import java.io.Serializable;
 public class Account implements Serializable{
 	private int id;
 	private String username;
-	public int getTid() {
+	private String password;
+	public int getId() {
 		return id;
 	}
-	public void setTid(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getUsername() {
@@ -23,5 +24,5 @@ public class Account implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String password;
+
 }
