@@ -3,6 +3,7 @@
     <wb-module deploy-name="EasyCMS">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="EasyCMS"/>
         <property name="java-output-path" value="/EasyCMS/build/classes"/>
     </wb-module>

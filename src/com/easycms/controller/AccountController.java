@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.easycms.entity.Account;
 import com.easycms.service.AccountService;
 
-@Controller
+@Controller(value="accountController")
 @RequestMapping("/account")
 public class AccountController{
 	@Resource(name="accountServiceImpl")
