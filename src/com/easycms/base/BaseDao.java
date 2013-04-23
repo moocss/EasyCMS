@@ -2,6 +2,7 @@ package com.easycms.base;
 
 import java.io.Serializable;
 import java.util.List;
+import com.easycms.common.Pager;
 
 public interface BaseDao<T,PK extends Serializable> {
 	/**
@@ -30,5 +31,12 @@ public interface BaseDao<T,PK extends Serializable> {
 	 * @return
 	 */
 	public List<T> findAll();
+	/**
+	 * 
+	 * @param showPages
+	 * @param pageSize
+	 * @return
+	 */
+	public Pager<T> findByPage(int showPages,int pageSize);
 	
 }

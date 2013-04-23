@@ -23,4 +23,12 @@
 	<select id="findAll" resultType="account">
 	   select * from account
 	</select>
+	<!-- 分页查询 -->
+	<select id="findByPage" resultType="account" parameterType="map">
+	  select * from account limit #{showPages},#{pageSize}
+	</select>
+	<!-- 总页数 -->
+	<select id="findTotal" resultType="int" parameterType="int">
+	  select count(*) from account
+	</select>
 </mapper>

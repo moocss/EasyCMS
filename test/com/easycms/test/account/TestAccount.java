@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.easycms.entity.Account;
 import com.easycms.service.AccountService;
+import com.easycms.common.Pager;
 
 
 public class TestAccount {
@@ -23,13 +24,13 @@ public class TestAccount {
 	@Test
 	public void testAdd() {
       Account account = new Account();
-      account.setUsername("测试123");
+      account.setUsername("测试189555");
       account.setPassword("123");
       as.save(account);
 	}
 	@Test
 	public void testDelete() {
-      as.delete(7);
+      as.delete(8);
 	}
 	@Test
 	public void testFindById() {
@@ -43,6 +44,13 @@ public class TestAccount {
     	  System.out.println(a.getUsername());
       }
 	}
-	
+	@Test
+	public void testFindByPage() {
+		Pager<Account> pager = as.findByPage(2, 5);
+		System.out.println(pager.getTotal());
+		for(Account account : pager.getPageList()) {
+			System.out.println(account.getId()+"="+account.getUsername());
+		}
+	}
 
 }

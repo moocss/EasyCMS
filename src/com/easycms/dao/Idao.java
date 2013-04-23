@@ -3,6 +3,8 @@ package com.easycms.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import com.easycms.common.Pager;
+
 public interface Idao<T, PK extends Serializable> {
 	/**
 	 * 添加
@@ -33,4 +35,13 @@ public interface Idao<T, PK extends Serializable> {
 	 * @return
 	 */
 	public List<T> findAll(Class<T> entityClass);
+	
+	/**
+	 * 分页
+	 * @param entityClass
+	 * @param showPages
+	 * @param pageSize
+	 * @return
+	 */
+	public Pager<T> findByPage(Class<T> entityClass,int showPages,int pageSize);
 }
