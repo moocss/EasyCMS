@@ -36,5 +36,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</p>
   		</form>
   	</div>
+  	<p><a href="account/pager">用户列表</a></p>
   </body>
 </html>

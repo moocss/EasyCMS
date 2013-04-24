@@ -28,7 +28,7 @@ public class AccountController{
 	//分页查询
 	@RequestMapping("/pager")	
 	public String findByPage(HttpServletRequest req) {
-		int pageSize = 5;
+		int pageSize = 10;
 		int showPages = 0;
 		String sPageNo = req.getParameter("pager.offset");
 		if(sPageNo!=null) {
@@ -38,7 +38,7 @@ public class AccountController{
 		
 		req.setAttribute("pager", pager);
 		
-		return "pager";
+		return "pager-list";
 	}
 	
 }
