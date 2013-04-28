@@ -1,7 +1,6 @@
 package com.easycms.base;
 import java.io.Serializable;
 import java.util.List;
-
 import javax.annotation.Resource;
 import com.easycms.dao.Idao;
 import com.easycms.common.GetEntityClassUtil;
@@ -22,7 +21,6 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	@Override
 	public void update(T entity) {
 		idao.update(entity);
-		
 	}
 	@Override
 	public T findById(PK pk) {
