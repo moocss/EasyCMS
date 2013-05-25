@@ -1543,9 +1543,9 @@ NAMA 0 新宋体,8,N</a:FontList>
 </o:RelationshipSymbol>
 <o:RelationshipSymbol Id="o65">
 <a:CreationDate>1369453051</a:CreationDate>
-<a:ModificationDate>1369453051</a:ModificationDate>
-<a:Rect>((-2137,20843), (7088,22793))</a:Rect>
-<a:ListOfPoints>((-2137,20843),(7088,22793))</a:ListOfPoints>
+<a:ModificationDate>1369453080</a:ModificationDate>
+<a:Rect>((-2137,20843), (7163,23993))</a:Rect>
+<a:ListOfPoints>((-2137,20843),(7163,23993))</a:ListOfPoints>
 <a:ArrowStyle>4369</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1761,8 +1761,8 @@ EntityComment 0 新宋体,8,N</a:FontList>
 </o:EntitySymbol>
 <o:EntitySymbol Id="o66">
 <a:CreationDate>1369452845</a:CreationDate>
-<a:ModificationDate>1369453046</a:ModificationDate>
-<a:Rect>((5375,16731), (15699,28703))</a:Rect>
+<a:ModificationDate>1369453080</a:ModificationDate>
+<a:Rect>((5450,17931), (15774,29903))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3632,7 +3632,7 @@ NAMA 0 新宋体,8,N</a:FontList>
 <a:CreationDate>1369277636</a:CreationDate>
 <a:ModificationDate>1369277721</a:ModificationDate>
 <a:CenterTextOffset>(-225, -300)</a:CenterTextOffset>
-<a:Rect>((2401,-11057), (9451,1019))</a:Rect>
+<a:Rect>((2401,-10932), (9451,1019))</a:Rect>
 <a:ListOfPoints>((3015,1019),(2401,-10234),(9451,-10009),(7641,-931))</a:ListOfPoints>
 <a:ArrowStyle>4371</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
@@ -5007,9 +5007,9 @@ Shadow=0</a:DisplayPreferences>
 <c:Symbols>
 <o:RelationshipSymbol Id="o283">
 <a:CreationDate>1369368890</a:CreationDate>
-<a:ModificationDate>1369368918</a:ModificationDate>
-<a:Rect>((-13461,7920), (-1622,9520))</a:Rect>
-<a:ListOfPoints>((-13461,9402),(-1622,8037))</a:ListOfPoints>
+<a:ModificationDate>1369465673</a:ModificationDate>
+<a:Rect>((-13461,6612), (7153,9402))</a:Rect>
+<a:ListOfPoints>((-13461,9402),(7153,6612))</a:ListOfPoints>
 <a:ArrowStyle>4371</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -5047,8 +5047,8 @@ EntityComment 0 新宋体,8,N</a:FontList>
 </o:EntitySymbol>
 <o:EntitySymbol Id="o285">
 <a:CreationDate>1369368839</a:CreationDate>
-<a:ModificationDate>1369368918</a:ModificationDate>
-<a:Rect>((-1622,2975), (10246,18249))</a:Rect>
+<a:ModificationDate>1369465673</a:ModificationDate>
+<a:Rect>((7153,1550), (19021,16824))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -5979,9 +5979,9 @@ Shadow=0</a:DisplayPreferences>
 <o:RelationshipSymbol Id="o343">
 <a:CreationDate>1369307813</a:CreationDate>
 <a:ModificationDate>1369368747</a:ModificationDate>
-<a:Rect>((-23228,434), (-14004,13860))</a:Rect>
+<a:Rect>((-23116,434), (-14116,13860))</a:Rect>
 <a:ListOfPoints>((-18969,13860),(-18423,434))</a:ListOfPoints>
-<a:ArrowStyle>4371</a:ArrowStyle>
+<a:ArrowStyle>4881</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>DISPNAME 0 新宋体,8,N
@@ -6001,7 +6001,7 @@ NAMA 0 新宋体,8,N</a:FontList>
 <a:ModificationDate>1369368771</a:ModificationDate>
 <a:Rect>((-21753,6384), (-4815,19572))</a:Rect>
 <a:ListOfPoints>((-21753,19572),(-4815,6384))</a:ListOfPoints>
-<a:ArrowStyle>4371</a:ArrowStyle>
+<a:ArrowStyle>4881</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>DISPNAME 0 新宋体,8,N
@@ -6037,9 +6037,9 @@ NAMA 0 新宋体,8,N</a:FontList>
 </o:ExtendedDependencySymbol>
 <o:ExtendedDependencySymbol Id="o353">
 <a:CreationDate>1369307847</a:CreationDate>
-<a:ModificationDate>1369368771</a:ModificationDate>
-<a:Rect>((5387,-10839), (14876,6139))</a:Rect>
-<a:ListOfPoints>((14876,-10839),(5387,6139))</a:ListOfPoints>
+<a:ModificationDate>1369466371</a:ModificationDate>
+<a:Rect>((5387,-3039), (16751,6139))</a:Rect>
+<a:ListOfPoints>((16751,-3039),(5387,6139))</a:ListOfPoints>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -6096,8 +6096,8 @@ EntityComment 0 新宋体,8,N</a:FontList>
 </o:EntitySymbol>
 <o:EntitySymbol Id="o354">
 <a:CreationDate>1369307525</a:CreationDate>
-<a:ModificationDate>1369368769</a:ModificationDate>
-<a:Rect>((10055,-14875), (23469,-5377))</a:Rect>
+<a:ModificationDate>1369466371</a:ModificationDate>
+<a:Rect>((11930,-7075), (25344,2423))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -6169,7 +6169,7 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>配置</a:Code>
 <a:CreationDate>1369307520</a:CreationDate>
 <a:Creator>fuxin</a:Creator>
-<a:ModificationDate>1369308616</a:ModificationDate>
+<a:ModificationDate>1369466027</a:ModificationDate>
 <a:Modifier>fuxin</a:Modifier>
 <c:Attributes>
 <o:EntityAttribute Id="o361">
@@ -6452,7 +6452,7 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>站点</a:Code>
 <a:CreationDate>1369307526</a:CreationDate>
 <a:Creator>fuxin</a:Creator>
-<a:ModificationDate>1369368725</a:ModificationDate>
+<a:ModificationDate>1369466057</a:ModificationDate>
 <a:Modifier>fuxin</a:Modifier>
 <c:Attributes>
 <o:EntityAttribute Id="o411">
@@ -6633,7 +6633,7 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>FTP</a:Code>
 <a:CreationDate>1369307777</a:CreationDate>
 <a:Creator>fuxin</a:Creator>
-<a:ModificationDate>1369367717</a:ModificationDate>
+<a:ModificationDate>1369466057</a:ModificationDate>
 <a:Modifier>fuxin</a:Modifier>
 <c:Attributes>
 <o:EntityAttribute Id="o444">
@@ -6742,14 +6742,14 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <c:Relationships>
 <o:Relationship Id="o346">
 <a:ObjectID>1A26A014-5340-4ECC-876A-F53A8D579967</a:ObjectID>
-<a:Name>一个站点对应多个FTP配置</a:Name>
-<a:Code>一个站点对应多个FTP配置</a:Code>
+<a:Name>一个FTP配置对应多个站点</a:Name>
+<a:Code>一个FTP配置对应多个站点</a:Code>
 <a:CreationDate>1369307813</a:CreationDate>
 <a:Creator>fuxin</a:Creator>
-<a:ModificationDate>1369307907</a:ModificationDate>
+<a:ModificationDate>1369466057</a:ModificationDate>
 <a:Modifier>fuxin</a:Modifier>
-<a:Entity1ToEntity2RoleCardinality>0,n</a:Entity1ToEntity2RoleCardinality>
-<a:Entity2ToEntity1RoleCardinality>0,1</a:Entity2ToEntity1RoleCardinality>
+<a:Entity1ToEntity2RoleCardinality>0,1</a:Entity1ToEntity2RoleCardinality>
+<a:Entity2ToEntity1RoleCardinality>0,n</a:Entity2ToEntity1RoleCardinality>
 <c:Object1>
 <o:Entity Ref="o360"/>
 </c:Object1>
@@ -6759,14 +6759,14 @@ EntityComment 0 新宋体,8,N</a:FontList>
 </o:Relationship>
 <o:Relationship Id="o349">
 <a:ObjectID>7EECAE62-E279-447D-9B42-1BA70C4485B0</a:ObjectID>
-<a:Name>一个站点多个配置</a:Name>
-<a:Code>一个站点多个配置</a:Code>
+<a:Name>一个配置多个站点</a:Name>
+<a:Code>一个配置多个站点</a:Code>
 <a:CreationDate>1369307815</a:CreationDate>
 <a:Creator>fuxin</a:Creator>
-<a:ModificationDate>1369307874</a:ModificationDate>
+<a:ModificationDate>1369466027</a:ModificationDate>
 <a:Modifier>fuxin</a:Modifier>
-<a:Entity1ToEntity2RoleCardinality>0,n</a:Entity1ToEntity2RoleCardinality>
-<a:Entity2ToEntity1RoleCardinality>0,1</a:Entity2ToEntity1RoleCardinality>
+<a:Entity1ToEntity2RoleCardinality>0,1</a:Entity1ToEntity2RoleCardinality>
+<a:Entity2ToEntity1RoleCardinality>0,n</a:Entity2ToEntity1RoleCardinality>
 <c:Object1>
 <o:Entity Ref="o356"/>
 </c:Object1>
@@ -7831,7 +7831,7 @@ NAMA 0 新宋体,8,N</a:FontList>
 <o:RelationshipSymbol Id="o496">
 <a:CreationDate>1369298651</a:CreationDate>
 <a:ModificationDate>1369376825</a:ModificationDate>
-<a:Rect>((-1355,-9418), (7494,10412))</a:Rect>
+<a:Rect>((-1243,-9418), (7381,10412))</a:Rect>
 <a:ListOfPoints>((1585,10412),(4388,-9418))</a:ListOfPoints>
 <a:ArrowStyle>4371</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
@@ -7871,7 +7871,7 @@ NAMA 0 新宋体,8,N</a:FontList>
 <o:RelationshipSymbol Id="o502">
 <a:CreationDate>1369376952</a:CreationDate>
 <a:ModificationDate>1369376981</a:ModificationDate>
-<a:Rect>((-5904,19442), (2195,45542))</a:Rect>
+<a:Rect>((-5791,19442), (2083,45542))</a:Rect>
 <a:ListOfPoints>((-3262,45542),(-487,19442))</a:ListOfPoints>
 <a:ArrowStyle>4371</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
