@@ -14,9 +14,9 @@
     <context:component-scan base-package="com.easycms"></context:component-scan>
     
 	<mvc:annotation-driven/>
-	<mvc:resources mapping="/assets/**" location="/assets/css"/>
-	<mvc:resources mapping="/assets/**" location="/assets/js"/>
-	<mvc:resources mapping="/assets/**" location="/assets/images"/>
+	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/css"/>
+	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/js"/>
+	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/images"/>
     
 	<!-- 对控制器返回的逻辑路径指定对应的视图 -->
 	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
