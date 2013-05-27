@@ -64,6 +64,9 @@
   background:url('../images/icons/mini_refresh.png') no-repeat center center;
 }
 
+.icon-home{background: url('../images/icons/home.png') no-repeat 50% 50%;}
+.icon-user{background: url('../images/icons/user.png') no-repeat 50% 50%;}
+
 /* easyui */
 .panel {
   overflow: hidden;

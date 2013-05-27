@@ -25,48 +25,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a class="dl-log-quit" title="退出系统" href="###">[退出]</a>
       </div>
     </div><!-- /#header -->   
-    <div id="sidebar" data-options="region:'west',split:true,title:'2013年5月26日 星期日',iconCls:'icon-user'">
+    <div id="sidebar" data-options="region:'west',split:true,title:'2013年5月26日 星期日'">
       <div class="easyui-accordion" data-options="fit:true,border:false">
-        <div title="我的工作台" data-options="iconCls:'icon-gzt'">
+        <div title="我的工作台" data-options="iconCls:'icon-home'">
           <ul class="menu-list">
             <li><a href="javascript:;" data-url="main.html">我的工作台</a></li>
-            <li><a href="javascript:;" data-url="新增稿件.html">新增稿件</a></li>
-            <li><a href="javascript:;" data-url="退回稿件.html">退回稿件</a></li>
-            <li><a href="javascript:;" data-url="草稿稿件.html">草稿稿件</a></li>
-            <li><a href="javascript:;" data-url="待审核稿件.html">待审核稿件</a></li>
-            <li><a href="javascript:;" data-url="已发布稿件.html">已发布稿件</a></li>
             <li><a href="javascript:;" data-url="我的信息.html">我的信息</a></li>
           </ul><!-- /.menu-list -->
         </div>
-        <div title="站点管理" data-options="iconCls:'icon-zdgl'">
+
+        <div title="用户管理" data-options="iconCls:'icon-home'">
+          <ul class="menu-list">
+            <li><a  href="javascript:;" data-url="user/showUser.jsp">会员管理</a></li>
+            <li><a  href="javascript:;" data-url="user/showUserGroup.jsp">会员组管理</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">管理员(全站)</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">管理员(本站)</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">角色管理</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">部门管理</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">后台操作日志</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">登录成功日志</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">登录失败日志</a></li>
+            <li><a  href="javascript:;" data-url="用户.html">站内信管理</a></li>
+          </ul><!-- /.menu-list -->
+        </div>
+        <div title="站点管理" data-options="iconCls:'icon-home'">
                 <ul class="menu-list">
             <li><a  href="javascript:;" data-url="站点管理.html">站点管理</a></li>
           </ul><!-- /.menu-list -->
         </div>
-        <div title="网站管理" data-options="iconCls:'icon-wzgl'">
+        <div title="网站管理" data-options="iconCls:'icon-home'">
    		 <ul class="menu-list">
             <li><a href="javascript:;" data-url="网站管理.html">网站管理</a></li> 
             
           </ul><!-- /.menu-list -->
         </div>
-        <div title="栏目管理" data-options="iconCls:'icon-lmgl'">
+        <div title="栏目管理" data-options="iconCls:'icon-home'">
           <ul class="menu-list">
             <li><a  href="javascript:;" data-url="栏目操作.html">栏目操作</a></li>
           </ul><!-- /.menu-list -->
         </div>
-        <div title="模板管理" data-options="iconCls:'icon-mbgl'">
+        <div title="模板管理" data-options="iconCls:'icon-home'">
           <ul class="menu-list">
             <li><a  href="javascript:;" data-url="模板管理.html">模板管理</a></li>
           </ul><!-- /.menu-list -->
         </div>
-        <div title="内容管理" data-options="iconCls:'icon-nrgl'">
+        <div title="内容管理" data-options="iconCls:'icon-home'">
                    <ul class="menu-list">
             <li><a href="javascript:;" data-url="内容管理.html">内容管理</a></li>
             <li><a href="javascript:;" data-url="新增稿件.html">内容恢复</a></li>
             <li><a href="javascript:;" data-url="退回稿件.html">物理删除</a></li>
           </ul><!-- /.menu-list -->
         </div>
-        <div title="统计管理" data-options="iconCls:'icon-tjgl'">
+        <div title="统计管理" data-options="iconCls:'icon-home'">
            <ul class="menu-list">
             <li><a href="javascript:;" data-url="稿件数量统计.html">稿件数量统计</a></li>
             <li><a href="javascript:;" data-url="访问量统计.html">访问量统计</a></li>
@@ -75,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
           </ul><!-- /.menu-list -->
         </div>
-        <div title="系统设置" data-options="iconCls:'icon-xtsz'">
+        <div title="系统设置" data-options="iconCls:'icon-home'">
           <ul class="menu-list">
             <li><a href="javascript:;" data-url="用户管理.html"> 用户管理</a></li>
             <li><a href="javascript:;" data-url="角色管理.html">角色管理</a></li>
