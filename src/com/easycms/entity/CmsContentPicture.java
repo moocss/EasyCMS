@@ -1,4 +1,4 @@
-package com.easycms.entity;
+package com.easycms;
 
 import java.io.Serializable;
 /**

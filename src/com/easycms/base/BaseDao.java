@@ -2,6 +2,8 @@ package com.easycms.base;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+
 import com.easycms.common.Pager;
 
 public interface BaseDao<T,PK extends Serializable> {
@@ -38,5 +40,12 @@ public interface BaseDao<T,PK extends Serializable> {
 	 * @return
 	 */
 	public Pager<T> findByPage(int showPages,int pageSize);
-	
+	/**
+	  * 通过一个参数取到对应的对象
+	  * @param maps
+	  * @param operate
+	  * @return
+	  */
+	public T findByParam(Map<String, Object> maps,String operate);
+
 }

@@ -8,7 +8,7 @@ import com.easycms.entity.Account;
 import com.easycms.service.AccountService;
 import com.easycms.common.Pager;
 
-@Controller(value="accountController")
+@Controller
 @RequestMapping("/account")
 public class AccountController{
 	@Resource(name="accountServiceImpl")

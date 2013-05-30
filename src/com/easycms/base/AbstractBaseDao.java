@@ -1,6 +1,8 @@
 package com.easycms.base;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import com.easycms.dao.Idao;
 import com.easycms.common.GetEntityClassUtil;
@@ -34,5 +36,4 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	public Pager<T> findByPage(int showPages, int pageSize) {
 		return idao.findByPage(entityClass, showPages, pageSize);
 	}
-
 }
