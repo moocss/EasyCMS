@@ -50,4 +50,9 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 		 return pager;
 	 }
 
+	@Override
+	public T findByParam(Class<T> entityClass, Map<String, Object> maps, String operate) {
+		return getSqlSession().selectOne(entityClass.getName() + operate, maps);
+	}
+
 }

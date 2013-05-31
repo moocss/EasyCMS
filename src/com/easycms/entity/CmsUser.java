@@ -21,6 +21,9 @@ public class CmsUser implements Serializable{
 	private Set<CmsReceiverMessage> receiveReceiverMessage;// 接收站内收信
 	
 	//属性
+	private Integer group_id;
+	
+	//属性
 	private Integer id;
 	private String username;//用户名
 	private String email;//邮箱
@@ -175,5 +178,11 @@ public class CmsUser implements Serializable{
 	}
 	public void setDisabled(boolean disabled) {
 		this.disabled = disabled;
+	}
+	public Integer getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(Integer group_id) {
+		this.group_id = group_id;
 	}
 }

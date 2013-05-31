@@ -36,13 +36,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 		<!-- mapper配置路径 -->
-		<property name="mapperLocations" value="classpath:com/easycms/mapper/*-mapper.xml">
-			<!--<list>
-			    <value>classpath:com/easycms/**/*-mapper.xml</value>
-			    <value>classpath:com/easycms/mapper/*-mapper.xml</value>
-			    <value>classpath:com/easycms/mapper/account-mapper.xml</value>
-			</list>-->
-		</property>
+		<property name="mapperLocations" value="classpath:com/easycms/mapper/*-mapper.xml"></property>
 	</bean>
 
     <!-- 单独配置一个Mapper； 这种模式就是得给每个mapper接口配置一个bean (不推荐使用)-->

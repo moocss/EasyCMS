@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -29,89 +31,48 @@
 			</div>
 			<!-- /.mod-hd -->
 			<div class="bd">
-				<table class="ui-table">
-					<tbody>
-						<tr>
-							<td><span
-								class="pn-frequired">*</span>用户名:</td>
-							<td><input
-								type="text"
-								name="username" maxlength="100"></td>
-							<td>电子邮箱:</td>
-							<td><input
-								type="text" size="30" class="email" name="email"></td>
-						</tr>
-						<tr>
-							<td><span
-								class="pn-frequired">*</span>密码:</td>
-							<td><input
-								type="password" class="required" name="password" maxlength="100"
-								id="password" autocomplete="off"></td>
-							<td><span
-								class="pn-frequired">*</span>确认密码:</td>
-							<td><input
-								type="password" equalto="#password" autocomplete="off"></td>
-						</tr>
-						<tr>
-							<td><span
-								class="pn-frequired">*</span>会员组:</td>
-							<td><select
-								name="groupId"><option value="1">普通会员</option>
-									<option value="2">主站信息管理员组</option>
-									<option value="3">jeecms子站信息发布组</option></select></td>
-						</tr>
-						<tr>
-							<td>真实姓名:</td>
-							<td><input
-								type="text" name="realname" maxlength="100"></td>
-							<td>性别:</td>
-							<td><label><input
-									type="radio" name="gender" value="true">男</label> <label><input
-									type="radio" name="gender" value="false">女</label> <label><input
-									type="radio" name="gender" checked="checked" value="">保密</label></td>
-						</tr>
-						<tr>
-							<td>出生日期:</td>
-							<td><input
-								type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
-								class="Wdate" name="birthday"></td>
-							<td>来自:</td>
-							<td><input
-								type="text" name="comefrom" maxlength="150"></td>
-						</tr>
-						<tr>
-							<td>QQ:</td>
-							<td><input
-								type="text" name="qq" maxlength="100"></td>
-							<td>MSN:</td>
-							<td><input
-								type="text" name="msn" maxlength="100"></td>
-						</tr>
-						<tr>
-							<td>电话:</td>
-							<td><input
-								type="text" name="phone" maxlength="50"></td>
-							<td>手机:</td>
-							<td><input
-								type="text" name="mobile" maxlength="50"></td>
-						</tr>
-						<tr>
-							<td>来自:</td>
-							<td><input
-								type="text" size="70" name="comefrom" maxlength="150"></td>
-						</tr>
-						<tr>
-							<td>个人介绍:</td>
-							<td><textarea
-									maxlength="255" name="intro" rows="5" cols="70"></textarea></td>
-						</tr>
-						<tr>
-							<td><input type="submit"
-								class="submit" value="提交"> &nbsp; <input type="reset"
-									class="reset" value="重置"></td>
-						</tr>
-					</tbody>
-				</table>
+    		<table class="ui-table">
+    			<thead>
+    				<tr>
+						<td>
+							<input type="checkbox" name="" id="" />
+						</td>
+						<td>ID</td>
+						<td>用户名</td>
+						<td>电子邮箱</td>
+						<td>会员组</td>
+						<td>最后登录</td>
+						<td>登录</td>
+						<td>禁用</td>
+						<td>操作选项</td>
+    				</tr>
+    			</thead>
+    			<tbody>
+    			<c:forEach var="flag" items="${pager.pageList}" varStatus="status">
+    				<c:choose>
+    					<c:when test="${status.index % 2 ==0 }">
+    						<tr>
+    					</c:when>
+    					<c:otherwise>
+    						<tr class="even">
+    					</c:otherwise>
+    				</c:choose>
+    							<td><input type='checkbox' name='ck' value='${flag.id}' /></td>
+								<td>${flag.id}</td>
+								<td>${flag.username}</td>
+								<td>${flag.email}</td>
+								<td>${flag.group.name}</td>
+								<td>${flag.lastLoginTime}</td>
+								<td>${flag.loginCount}</td>
+								<td>${flag.disabled}</td>
+								<td>
+									<a class="btn" href="member/v_update.do?id=${flag.id}">修改</a> | 
+									<a class="btn" href="#">删除</a>
+								</td>
+	    					</tr>
+    			</c:forEach>
+    			</tbody>
+    		</table>
 			</div>
 			<!-- /.mod-bd -->
 			<div class="ft"></div>

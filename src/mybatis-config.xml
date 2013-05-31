@@ -6,5 +6,6 @@
 	<!-- 配置别名-->
 	<typeAliases>
 	   <typeAlias type="com.easycms.entity.Account" alias="account"></typeAlias>
+	   <typeAlias type="com.easycms.entity.CmsUser" alias="user"></typeAlias>
 	</typeAliases>
 </configuration>

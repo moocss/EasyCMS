@@ -16,5 +16,4 @@ public class CmsUserServiceImpl extends AbstractBaseDao<CmsUser, Integer> implem
 		maps.put("username", name);
 		return findByParam(maps, operate);
 	}
-
 }
