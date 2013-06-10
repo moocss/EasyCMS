@@ -22,7 +22,7 @@
 	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">	
 	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-	   <property name="prefix" value="/WEB-INF/pages/"></property>
+	   <property name="prefix" value="/admin/pages/"></property>
 	   <property name="suffix" value=".jsp"></property>
 	</bean>
 	

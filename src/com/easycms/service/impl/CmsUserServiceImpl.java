@@ -3,10 +3,12 @@ package com.easycms.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.easycms.base.AbstractBaseDao;
 import com.easycms.entity.CmsUser;
 import com.easycms.service.CmsUserService;
-
+@Service
 public class CmsUserServiceImpl extends AbstractBaseDao<CmsUser, Integer> implements CmsUserService{
 
 	@Override
@@ -16,4 +18,5 @@ public class CmsUserServiceImpl extends AbstractBaseDao<CmsUser, Integer> implem
 		maps.put("username", name);
 		return findByParam(maps, operate);
 	}
+	
 }

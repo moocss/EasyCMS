@@ -1,5 +1,4 @@
 package com.easycms.service;
-
 import com.easycms.base.BaseDao;
 import com.easycms.entity.CmsUser;
 
