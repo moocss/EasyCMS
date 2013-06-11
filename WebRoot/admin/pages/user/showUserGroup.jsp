@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -20,14 +21,10 @@
 				<a href="#">用户管理</a> -&gt; <a href="#">管理员（全站）</a> -&gt; <span>列表</span>
 			</div>
 			<div class="action">
-				<a href="#" class="btn">添加</a>
+				<a href="group/v_add.do" class="btn" target="_self">添加</a>
 			</div>
 		</div>
 		<div class="mod">
-			<div class="hd">
-				<h2 class="tc">会员列表</h2>
-			</div>
-			<!-- /.mod-hd -->
 			<div class="bd">
 				<table class="ui-table">
 					<thead>
@@ -45,21 +42,27 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="flag" items="${groups}">
 						<tr>
 							<td><input type="checkbox" name="" id="" /></td>
-							<td>1</td>
-							<td>普通会员</td>
-							<td>4096 KB</td>
-							<td>1024 KB</td>
-							<td><input type="text" value="10" name="priority" /> <input
-								type="hidden" value="1" name="wids" /></td>
-							<td><input type="radio" checked="checked" value="1"
-								name="regDefId" /></td>
-							<td>是</td>
-							<td>是</td>
-							<td><a href="#" class="btn">修改</a> <a href="#" class="btn">删除</a>
+							<td>${flag.id}</td>
+							<td>${flag.name}</td>
+							<td>${flag.allowPerDay}</td>
+							<td>${flag.allowMaxFile}</td>
+							<td>
+								<input type="text" value="${flag.priority}" name="priority" maxlength="5"/> 
+							</td>
+							<td>
+								<input type="radio" checked="checked" value="1" name="${flag.regDef}" />
+							</td>
+							<td>${flag.needCheck}</td>
+							<td>${flag.needCaptcha}</td>
+							<td class="tc">
+								<a href="group/v_update.do?id=${flag.id}" class="btn" target="_self">修改</a> 
+								<a href="group/o_delete.do?id=${flag.id}" class="btn" target="_self">删除</a>
 							</td>
 						</tr>
+					</c:forEach>	
 					</tbody>
 				</table>
 			</div>

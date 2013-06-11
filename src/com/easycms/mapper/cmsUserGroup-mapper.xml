@@ -5,8 +5,8 @@
 <mapper namespace="com.easycms.entity.CmsUserGroup">
     <!-- 插入操作 -->
 	<insert id="add" parameterType="userGroup">
-	 insert into ec_group(name, priority, allowPerDay, allowMaxFile, allowSuffix, needCaptcha, needCheck, regDef)
-	 values(#{name}, #{priority}, #{allowPerDay}, #{allowMaxFile}, #{allowSuffix}, #{needCaptcha}, #{needCheck}, #{regDef})
+	 insert into ec_group(name, priority, allowPerDay, allowMaxFile, allowSuffix, needCaptcha, needCheck)
+	 values(#{name}, #{priority}, #{allowPerDay}, #{allowMaxFile}, #{allowSuffix}, #{needCaptcha}, #{needCheck})
 	</insert>
 	<!-- 删除操作 -->
 	<delete id="delete" parameterType="int">
@@ -14,7 +14,7 @@
 	</delete>
 	<!-- 修改操作 -->
 	<update id="update" parameterType="userGroup">
-	  update ec_group set name=#{name}, priority=#{priority}, allowPerDay=#{allowPerDay}, allowMaxFile=#{allowMaxFile}, allowSuffix=#{allowSuffix}, needCaptcha=#{needCaptcha}, needCheck=#{needCheck}, regDef=#{regDef} where id=#{id}
+	  update ec_group set name=#{name}, priority=#{priority}, allowPerDay=#{allowPerDay}, allowMaxFile=#{allowMaxFile}, allowSuffix=#{allowSuffix}, needCaptcha=#{needCaptcha}, needCheck=#{needCheck} where id=#{id}
 	</update>
 	<!--  查询操作-->
 	<select id="findById" parameterType="int" resultType="userGroup">

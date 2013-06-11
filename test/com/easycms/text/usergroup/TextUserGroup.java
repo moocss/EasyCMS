@@ -21,15 +21,25 @@ public class TextUserGroup {
 
 	@Test
 	public void testAdd() {
-
+		CmsUserGroup cug = new CmsUserGroup();
+		cug.setName("某某人3");
+		cug.setPriority(2);
+		cug.setAllowPerDay(3);
+		cug.setAllowMaxFile(1500);
+		cug.setAllowSuffix(".png");
+		cug.setNeedCaptcha(1);
+		cug.setNeedCheck(1);
+		cug.setRegDef(0);
+		cs.save(cug);
 	}
 	@Test
 	public void testDelete() {
-
+		cs.delete(4);
 	}
 	@Test
 	public void testFindById() {
-
+		CmsUserGroup cug = cs.findById(2);
+		System.out.print(cug.getName());
 	}
 	@Test
 	public void testFindAll() {

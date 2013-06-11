@@ -19,9 +19,9 @@ public class CmsUserGroup implements Serializable{
 	private Integer allowPerDay;// 允许每日上传KB
 	private Integer allowMaxFile;// 每个文件的最大KB
 	private String allowSuffix;// 允许上传的后缀
-	private boolean needCaptcha;// 是否需要验证码
-	private boolean needCheck;// 是否需要审核
-	private boolean regDef;// 是否默认会员组
+	private Integer needCaptcha;// 是否需要验证码
+	private Integer needCheck;// 是否需要审核
+	private Integer regDef;// 是否默认会员组
 	
 	public Set<CmsChannel> getViewChannels() {
 		return viewChannels;
@@ -71,23 +71,22 @@ public class CmsUserGroup implements Serializable{
 	public void setAllowSuffix(String allowSuffix) {
 		this.allowSuffix = allowSuffix;
 	}
-	public boolean isNeedCaptcha() {
+	public Integer getNeedCaptcha() {
 		return needCaptcha;
 	}
-	public void setNeedCaptcha(boolean needCaptcha) {
+	public void setNeedCaptcha(Integer needCaptcha) {
 		this.needCaptcha = needCaptcha;
 	}
-	public boolean isNeedCheck() {
+	public Integer getNeedCheck() {
 		return needCheck;
 	}
-	public void setNeedCheck(boolean needCheck) {
+	public void setNeedCheck(Integer needCheck) {
 		this.needCheck = needCheck;
 	}
-	public boolean isRegDef() {
+	public Integer getRegDef() {
 		return regDef;
 	}
-	public void setRegDef(boolean regDef) {
+	public void setRegDef(Integer regDef) {
 		this.regDef = regDef;
 	}
-	
 }
