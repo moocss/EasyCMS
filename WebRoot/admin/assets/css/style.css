@@ -325,7 +325,7 @@ a:hover {
 	background: #FCF8E3;
 }
 .ui-table-form tbody th{text-align: right;}
-
+.ui-table .w40{width: 40px;}
 /* pager */
 .pager {
 	margin: 10px 0 0;

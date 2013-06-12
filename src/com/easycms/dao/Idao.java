@@ -66,4 +66,9 @@ public interface Idao<T, PK extends Serializable> {
 	 */
 	public T findByParam(Class<T> entityClass, Map<String, Object> maps, String operate);
 	
+	/**
+	 * 排序
+	 * @param entity
+	 */
+	public void updateOrder(T entity);
 }

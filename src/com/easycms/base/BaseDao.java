@@ -53,5 +53,11 @@ public interface BaseDao<T,PK extends Serializable> {
 	  * @return
 	  */
 	public T findByParam(Map<String, Object> maps,String operate);
+	
+	/**
+	 * 排序
+	 * @param entity
+	 */
+	public void updateOrder(T entity);
 
 }

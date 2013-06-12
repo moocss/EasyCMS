@@ -40,4 +40,8 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	public T findByParam(Map<String, Object> maps,String operate) {
 		return idao.findByParam(entityClass, maps, operate);
 	}
+	
+	public void updateOrder(T entity){
+		idao.updateOrder(entity);
+	}
 }
