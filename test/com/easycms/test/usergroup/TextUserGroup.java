@@ -1,4 +1,4 @@
-package com.easycms.text.usergroup;
+package com.easycms.test.usergroup;
 import java.util.ArrayList;
 import java.util.List;
 

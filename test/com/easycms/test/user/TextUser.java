@@ -1,4 +1,4 @@
-package com.easycms.text.user;
+package com.easycms.test.user;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
