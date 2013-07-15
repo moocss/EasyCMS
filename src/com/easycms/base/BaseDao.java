@@ -21,6 +21,13 @@ public interface BaseDao<T,PK extends Serializable> {
 	public void delete(PK pk);
 	
 	/**
+	 * 批量删除
+	 * @param pks
+	 */
+	
+	public void deleteIn(List<String> list);
+	 
+	/**
 	 * 更新
 	 * @param entity
 	 */

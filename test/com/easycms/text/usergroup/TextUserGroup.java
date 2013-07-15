@@ -1,5 +1,5 @@
 package com.easycms.text.usergroup;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.easycms.common.Pager;
+import com.easycms.entity.Account;
 import com.easycms.entity.CmsUserGroup;
 import com.easycms.service.CmsUserGroupService;
 
@@ -37,6 +39,13 @@ public class TextUserGroup {
 		cs.delete(4);
 	}
 	@Test
+	public void testDeleteIn() {
+		List<String> list= new ArrayList<String>();
+		list.add("1");
+		list.add("2");
+        cs.deleteIn(list);
+	}
+	@Test
 	public void testFindById() {
 		CmsUserGroup cug = cs.findById(2);
 		System.out.print(cug.getName());
@@ -50,7 +59,11 @@ public class TextUserGroup {
 	}
 	@Test
 	public void testFindByPage() {
-
+		Pager<CmsUserGroup> pager = cs.findByPage(2, 5);
+		System.out.println(pager.getTotal());
+		for(CmsUserGroup cug : pager.getPageList()) {
+			System.out.println(cug.getId()+"="+cug.getName());
+		}
 	}
 
 }

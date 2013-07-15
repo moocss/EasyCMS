@@ -21,12 +21,17 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	public void delete(Class<T> entityClass, Serializable pk) {
 		getSqlSession().delete(entityClass.getName()+".delete", pk);
 	}
-
+	
+	@Override
+	public void deleteIn(Class<T> entityClass, List<String> list) {
+		getSqlSession().delete(entityClass.getName()+".deleteIn", list);
+	}
+	
 	@Override
 	public void update(T entity) {
 		getSqlSession().update(entity.getClass().getName()+".update",entity);
 	}
-
+	
 	@Override
 	public T findById(Class<T> entityClass, Serializable pk) {
 		return getSqlSession().selectOne(entityClass.getName()+".findById", pk);
@@ -59,5 +64,4 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	public void updateOrder(T entity) {
 		getSqlSession().update(entity.getClass().getName()+".updateOrder",entity);
 	}
-
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
@@ -93,7 +93,7 @@
 							</td>
 							<td class="tc">
 							<c:choose>
-								<c:when test="${flag.needCheck == '1'}">
+								<c:when test="${flag.needCheck == 1}">
 									是
 								</c:when>
 								<c:otherwise>
@@ -103,7 +103,7 @@
 							</td>
 							<td class="tc">
 							<c:choose>
-								<c:when test="${flag.needCaptcha == '1'}">
+								<c:when test="${flag.needCaptcha == 1}">
 									是
 								</c:when>
 								<c:otherwise>
@@ -122,7 +122,7 @@
 					<tfoot>
 						<tr>
 							<td colspan="10">
-								<a href="javascript:;" class="btn">删除</a>
+								<a href="javascript:;" class="btn">批量删除</a>
 								<a href="javascript:;" class="btn" onclick="optPriority();">保存排列顺序</a>
 							</td>
 						</tr>

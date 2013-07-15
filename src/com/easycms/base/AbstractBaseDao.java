@@ -21,9 +21,14 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 		idao.delete(entityClass,pk);
 	}
 	@Override
+	public void deleteIn(List<String> list) {
+		idao.deleteIn(entityClass, list);
+	}
+	@Override
 	public void update(T entity) {
 		idao.update(entity);
 	}
+
 	@Override
 	public T findById(PK pk) {
 		return idao.findById(entityClass, pk);

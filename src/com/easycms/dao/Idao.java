@@ -21,7 +21,11 @@ public interface Idao<T, PK extends Serializable> {
 	 * @param pk
 	 */
 	public void delete(Class<T> entityClass, PK pk);
-
+	/**
+	 * 批量删除
+	 * @param entityClass
+	 */
+    public void deleteIn(Class<T> entityClass, List<String> list);
 	/**
 	 * 更新
 	 * 

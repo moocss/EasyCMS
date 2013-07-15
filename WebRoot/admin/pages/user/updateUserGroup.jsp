@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -53,35 +52,19 @@
 						<tr>
 							<th>允许上传的后缀：</th>
 							<td colspan="3">
-								<input type="text" name="allowSuffix" id="allowSuffix" value="${group.allowSuffix}"/>留空则不限制，多个用","分开
+								<input type="text" name="allowSuffix" id="allowSuffix" value=".jpg/.jpeg/.png/.bmp"/>留空则不限制，多个用","分开
 							</td>
 						</tr>
 						<tr>
 							<th>评论需要审核：</th>
 							<td>
-							<c:choose>
-								<c:when test="${group.needCheck == '1'}">
-									<input type="radio" name="needCheck" value="1" checked="checked"/>是 
-									<input type="radio" name="needCheck" value="0"/>否
-								</c:when>
-								<c:otherwise>
-									<input type="radio" name="needCheck" value="1"/>是 
-									<input type="radio" name="needCheck" value="0" checked="checked"/>否
-								</c:otherwise>
-							</c:choose>
+								<input type="radio" name="needCheck" value="1"/>是 
+								<input type="radio" name="needCheck" value="0"/>否
 							</td>
 							<th>评论需要验证：</th>
 							<td>
-							<c:choose>
-								<c:when test="${group.needCaptcha == '1'}">
-									<input type="radio" name="needCaptcha" value="1" checked="checked"/>是 
-									<input type="radio" name="needCaptcha" value="0"/>否
-								</c:when>
-								<c:otherwise>
-									<input type="radio" name="needCaptcha" value="1"/>是 
-									<input type="radio" name="needCaptcha" value="0" checked="checked"/>否
-								</c:otherwise>
-							</c:choose>
+								<input type="radio" name="needCaptcha" value="1"/>是 
+								<input type="radio" name="needCaptcha" value="0"/>否
 							</td>
 						</tr>
 						<tr>

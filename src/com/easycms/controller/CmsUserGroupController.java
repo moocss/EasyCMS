@@ -39,10 +39,17 @@ public class CmsUserGroupController {
 		return list(req, model);
 	}
 	
-	//删除数据
+	// 删除数据
 	@RequestMapping("/o_delete.do")
-	public String delete(HttpServletRequest req, ModelMap model, Integer id){
+	public String delete(HttpServletRequest req, ModelMap model, Integer id) {
 		cus.delete(id);
+		return list(req, model);
+	}
+	
+	//批量删除
+	@RequestMapping("/o_delete_in.do")
+	public String deleteIn(HttpServletRequest req, ModelMap model, List<String> list){
+		cus.deleteIn(list);
 		return list(req, model);
 	}
 	

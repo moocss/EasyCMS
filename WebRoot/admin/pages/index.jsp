@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div title="用户管理" data-options="iconCls:'icon-home'">
           <ul class="menu-list">
-            <li><a  href="javascript:;" data-url="user/showUser.jsp">会员管理</a></li>
+            <li><a  href="javascript:;" data-url="<%=basePath%>member/v_list.do">会员管理</a></li>
             <li><a  href="javascript:;" data-url="<%=basePath%>group/v_list.do">会员组管理</a></li>
             <li><a  href="javascript:;" data-url="用户.html">管理员(全站)</a></li>
             <li><a  href="javascript:;" data-url="用户.html">管理员(本站)</a></li>
