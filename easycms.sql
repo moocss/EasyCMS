@@ -13,15 +13,16 @@ create table ec_user(
   id int primary key auto_increment,
   group_id int not null,
   username varchar(100) not null,
+  password varchar(100) not null,
   email varchar(100) not null,
-  registerTime datetime not null,
+  registerTime timestamp not null,
   registerIP varchar(50) default '127.0.0.1',
-  lastLoginTime datetime not null,
+  lastLoginTime datetime,
   lastLoginIp varchar(50) default '127.0.0.1',
   loginCount int(11) not null  default '0',
   rank int(11) not null default '0',
   uploadSize int(11) not null default '0',
-  uploadDate datetime not null,
+  uploadDate datetime,
   admin tinyint(1) not null default '0',
   viewonlyAdmin tinyint(1) not null default '0',
   selfAdmin tinyint(1) not null default '0',
@@ -29,10 +30,11 @@ create table ec_user(
   foreign key(group_id) references bf_group(id)
 );
 create table ec_user_ext(
-  id int primary key,
+  id int primary key auto_increment,
+  uid int,
   realname varchar(100),
   gender tinyint(1),
-  birthday datetime,
+  birthday varchar(255),
   intro varchar(255),
   comefrom varchar(150),
   qq varchar(100),
@@ -41,5 +43,5 @@ create table ec_user_ext(
   mobile varchar(50),
   userImg varchar(255),
   userSignature varchar(255),
-  foreign key(id) references bf_user(id)
+  foreign key(uid) references bf_user(id)
 );

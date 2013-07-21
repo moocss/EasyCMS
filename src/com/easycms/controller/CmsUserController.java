@@ -1,14 +1,11 @@
 package com.easycms.controller;
-
 import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.easycms.common.Pager;
 import com.easycms.entity.CmsUser;
 import com.easycms.entity.CmsUserExt;
@@ -20,6 +17,7 @@ import com.easycms.service.CmsUserService;
 @Controller
 @RequestMapping("/member")
 public class CmsUserController {
+	private static final Logger logger = Logger.getLogger(CmsUserController.class);
 	@Resource(name = "cmsUserServiceImpl")
 	private CmsUserService us;
 	@Resource(name = "cmsUserGroupServiceImpl")
@@ -89,6 +87,11 @@ public class CmsUserController {
 		//System.out.println(user.getId());
 		//System.out.println(userExt.getId());
 		//System.out.println(user.getGroup_id());
+
+		//log it
+		if(logger.isDebugEnabled()){
+			logger.debug(model);
+		}
 		return list(req, model);
 	}
 }
