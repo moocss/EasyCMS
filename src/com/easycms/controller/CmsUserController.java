@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.easycms.common.CaptchaServlet;
+import com.easycms.common.MD5;
 import com.easycms.common.Pager;
 import com.easycms.entity.CmsUser;
 import com.easycms.entity.CmsUserExt;
@@ -52,6 +55,7 @@ public class CmsUserController {
 	@RequestMapping("/o_add.do")
 	public String add(HttpServletRequest req, ModelMap model, CmsUser user, CmsUserExt userExt, Integer gid){
 		user.setGroup_id(gid);
+		user.setPassword(MD5.MD5Encode(user.getPassword()));
 		us.saveUser(user, userExt);
 		return list(req, model);
 	}
@@ -82,6 +86,7 @@ public class CmsUserController {
 	//修改
 	@RequestMapping("/o_update.do")
 	public String update(HttpServletRequest req, ModelMap model,CmsUser user, CmsUserExt userExt){
+		user.setPassword(MD5.MD5Encode(user.getPassword()));
 		us.update(user);
 		ues.update(userExt);
 		//System.out.println(user.getId());
@@ -93,5 +98,21 @@ public class CmsUserController {
 			logger.debug(model);
 		}
 		return list(req, model);
+	}
+	
+	//登陆
+	@RequestMapping("/login.do")
+	public String login(HttpServletRequest req, ModelMap model,CmsUser user,String verifyCode) {
+		String url = "../../index";
+		String captcha = CaptchaServlet.getStoredCaptchaString(req);
+		System.out.println("------->"+captcha);
+		System.out.println("=======>"+verifyCode);
+		if(verifyCode.equalsIgnoreCase(captcha)) {
+			CmsUser cu = us.login(user);
+			System.out.println(cu.getUsername());
+			req.getSession().setAttribute("user", cu);
+			url = "index";
+		}
+		return url;
 	}
 }

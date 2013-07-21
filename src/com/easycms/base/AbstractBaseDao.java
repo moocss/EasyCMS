@@ -49,4 +49,8 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	public void updateOrder(T entity){
 		idao.updateOrder(entity);
 	}
+	
+	public T login(T entity) {
+		return idao.login(entity);
+	}
 }

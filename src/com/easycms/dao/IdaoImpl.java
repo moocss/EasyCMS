@@ -64,4 +64,9 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	public void updateOrder(T entity) {
 		getSqlSession().update(entity.getClass().getName()+".updateOrder",entity);
 	}
+
+	@Override
+	public T login(T entity) {
+		return getSqlSession().selectOne(entity.getClass().getName()+".login", entity);
+	}
 }

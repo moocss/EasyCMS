@@ -453,3 +453,6 @@ button.btn-sm{*height:24px;*line-height:18px;}
 button.btn-min{*height:20px;_line-height:16px;}
 .btn-min,.btn-min:hover{color:#205EA2;text-decoration:none;}
 .btn-min:hover,.btn-min:focus,.btn-min:active{border: 1px solid #0081cb;background: #d1eff5 url(../images/btn_bg.png) repeat-x 0 -130px;color: #000;}
+
+.login-box{width: 200px;margin: 0 auto;padding-top: 40px;}
+.login-box p{padding: 5px 0;}

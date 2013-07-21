@@ -12,7 +12,15 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-
+	<!-- 验证图片Servlet -->
+	<servlet>
+	    <servlet-name>VerifyCodeServlet</servlet-name>
+	    <servlet-class>com.easycms.common.CaptchaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>VerifyCodeServlet</servlet-name>
+	    <url-pattern>/captcha</url-pattern>
+	</servlet-mapping>
 	<!-- 配置Spring中央控制器 -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>

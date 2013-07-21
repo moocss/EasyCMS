@@ -66,5 +66,10 @@ public interface BaseDao<T,PK extends Serializable> {
 	 * @param entity
 	 */
 	public void updateOrder(T entity);
-
+	/**
+	 * 登录
+	 * @param entity
+	 * @return
+	 */
+	public T login(T entity);
 }

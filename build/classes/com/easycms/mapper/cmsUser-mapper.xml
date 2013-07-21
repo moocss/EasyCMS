@@ -59,8 +59,10 @@
 	  	ec_user u, ec_group g 
 	  where 
 	  	u.group_id=g.id
+	  order by 
+	  	id desc
 	  limit 
-	    #{showPages},#{pageSize}
+	    #{showPages},#{pageSize} 
 	</select>
 	<!-- 总页数 -->
 	<select id="findTotal" resultType="int" parameterType="int">
@@ -69,5 +71,9 @@
     <!-- 根据用户名获得对象 -->
 	<select id="findByName" resultType="user" parameterType="map">
 	  select * from ec_user where username=#{username}
+	</select>
+	<!-- 登陆操作 -->
+	<select id="login" resultType="user" parameterType="user">
+	  select * from ec_user where username=#{username} and password=#{password}
 	</select>
 </mapper>    

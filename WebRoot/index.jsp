@@ -2,27 +2,17 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE html>
+%><!DOCTYPE html>
 <html>
   <head>
     <base href="<%=basePath%>">
-    
-    <title>EasyCMS 首页</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+    <title>EasyCMS 用户登录</title>
+	<link type="text/css" rel="stylesheet" href="admin/assets/css/style.css"/>
   </head>
   
   <body>
   	<div class="login-box">
-  		<form action="account/add" method="post">
+  		<form action="member/login.do" method="post">
   			<p>
   				<label for="username">用户名：</label>
   				<input type="text" id="username" name="username"/>
@@ -32,11 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<input type="password" id="password" name="password"/>
   			</p>
   			<p>
+  				<label for="password">&emsp;验证码：</label>
+  				<input type="text" maxlength="4" id="verifyCode" name="verifyCode"/>
+  				<img id="img_vcode" alt="..." src="captcha?complexity=99&size=36&length=4" width="80" height="36"/>
+            	<script language='javascript'>function _rvi(){document.getElementById('img_vcode').src = 'captcha?complexity=80&size=36&length=4&t='+Math.random(1000);}</script>
+  				
+  				<span><a href="javascript:_rvi()">换一张图</a></span>
+  				
+  			</p>
+  			<p class="tc">
   			<button type="submit">登录</button>
   			</p>
   		</form>
   	</div>
-  	<p><a href="account/pager">用户列表</a></p>
-  	<p><a href="admin/pages/index.jsp">后台</a></p>
   </body>
 </html>
