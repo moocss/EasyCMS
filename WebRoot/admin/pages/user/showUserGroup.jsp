@@ -41,6 +41,7 @@
 		        }
 			}
 		}
+		
 	</script>
 </head>
 <body>
@@ -58,7 +59,7 @@
 				<table class="ui-table">
 					<thead>
 						<tr>
-							<th width="30"><input type="checkbox" name="ck_all" id="ck_all" /></th>
+							<th width="30"><input type="checkbox" name="ck_all" c id="ck_all" onclick="Pony.checkboxSlt('ck',this.checked);"/></th>
 							<th>ID</th>
 							<th>名称</th>
 							<th>每日附件总尺寸</th>

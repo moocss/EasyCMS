@@ -9,12 +9,13 @@ import java.util.Date;
  */
 public class CmsUserExt implements Serializable{
 	//关系
-	private CmsUser user;
+	//private CmsUser user;
+	private Integer uid;
 	
 	private Integer id;
 	private String realname;//真实姓名
-	private boolean gender;//性别
-	private Date birthday; //出生年月
+	private Integer gender;//性别
+	private String birthday; //出生年月
 	private String intro;//自我介绍
 	private String comefrom;//来自地方
 	private String qq;
@@ -24,12 +25,19 @@ public class CmsUserExt implements Serializable{
 	private String userAvatar;//用户头像
 	private String userSignature;//用户个性签名
 	
-	public CmsUser getUser() {
+	
+	public Integer getUid() {
+		return uid;
+	}
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+	/*public CmsUser getUser() {
 		return user;
 	}
 	public void setUser(CmsUser user) {
 		this.user = user;
-	}
+	}*/
 	public Integer getId() {
 		return id;
 	}
@@ -42,16 +50,16 @@ public class CmsUserExt implements Serializable{
 	public void setRealname(String realname) {
 		this.realname = realname;
 	}
-	public boolean isGender() {
+	public Integer getGender() {
 		return gender;
 	}
-	public void setGender(boolean gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getIntro() {

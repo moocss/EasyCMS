@@ -17,8 +17,22 @@
 	/**
 	 * 选中复选框.
 	 */
-	Pony.checkbox = function(name, checked) {
-		
+	Pony.checkboxSlt = function(name, checked) {
+		var cks = document.getElementsByName(name);
+		var len = cks.length;
+		if(checked == true){
+			for(var i=0; i<len; i++) { 
+				if((cks[i].type == "checkbox") && (cks[i].name == name)) { 
+					cks[i].checked = true; 
+				} 
+			}
+		}else{
+			for(var i=0; i<len; i++) { 
+				if((cks[i].type == "checkbox") && (cks[i].name == name)) { 
+					cks[i].checked = false; 
+				} 
+			}
+		}
 	};
 	/**
 	 * 复选框选中的个数

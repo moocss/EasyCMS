@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.easycms.entity.CmsUserExt">
+    <!-- 插入操作 -->
+	<insert id="add" parameterType="userExt">
+	  insert into ec_user_ext(uid,realname,gender,birthday,intro,comefrom,qq,msn,phone,mobile) values(#{uid},#{realname},#{gender},#{birthday},#{intro},#{comefrom},#{qq},#{msn},#{phone},#{mobile})
+	</insert>
+	<!-- 删除操作 -->
+	<delete id="delete" parameterType="int">
+	  delete from ec_user_ext where id=#{id}
+	</delete>
+	<!-- 批量删除 -->
+	<delete id="deleteIn" parameterType="java.util.List">
+	  delete from ec_user_ext where id in
+	  <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+	      ${item}
+	  </foreach>
+	</delete>
+	<!-- 修改操作 -->
+	<update id="update" parameterType="userExt">
+	  update ec_user_ext set realname=#{realname},gender=#{gender},birthday=#{birthday},comefrom=#{comefrom},qq=#{qq},msn=#{msn},phone=#{phone},mobile=#{mobile},intro=#{intro} where id=#{id}
+	</update>
+	<!--  查询操作-->
+	<select id="findById" resultType="userExt" parameterType="int">
+	  select * from ec_user_ext where id=#{id}
+	</select>
+	<!-- 查询全部 -->
+	<select id="findAll" resultType="userExt">
+	   select * from ec_user_ext
+	</select>
+</mapper>    

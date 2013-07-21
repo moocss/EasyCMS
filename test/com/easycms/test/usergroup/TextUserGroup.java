@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.easycms.common.Pager;
-import com.easycms.entity.Account;
+import com.easycms.entity.CmsUser;
 import com.easycms.entity.CmsUserGroup;
 import com.easycms.service.CmsUserGroupService;
 
@@ -48,7 +48,12 @@ public class TextUserGroup {
 	@Test
 	public void testFindById() {
 		CmsUserGroup cug = cs.findById(2);
-		System.out.print(cug.getName());
+		//一个用户组拥有多个用户
+		List<CmsUser> users = cug.getUsers();
+		for(CmsUser user : users){
+			System.out.println(user.getUsername());
+		}
+		System.out.println(cug.getName());
 	}
 	@Test
 	public void testFindAll() {

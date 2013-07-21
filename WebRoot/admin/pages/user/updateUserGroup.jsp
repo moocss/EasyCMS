@@ -58,12 +58,12 @@
 						<tr>
 							<th>评论需要审核：</th>
 							<td>
-								<input type="radio" name="needCheck" value="1"/>是 
+								<input type="radio" name="needCheck" value="1" checked="checked"/>是 
 								<input type="radio" name="needCheck" value="0"/>否
 							</td>
 							<th>评论需要验证：</th>
 							<td>
-								<input type="radio" name="needCaptcha" value="1"/>是 
+								<input type="radio" name="needCaptcha" value="1" checked="checked"/>是 
 								<input type="radio" name="needCaptcha" value="0"/>否
 							</td>
 						</tr>

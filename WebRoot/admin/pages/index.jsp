@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="main-content" data-options="region:'center'">
           <div id="tabs" class="easyui-tabs"  fit="true" border="false">
             <div data-options="title:'我的工作台'"> 
-                <iframe name="mainFrame" id="mainFrame" src="main.jsp" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+                <iframe name="mainFrame" id="mainFrame" src="main.jsp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
             </div>
         </div>
     </div><!-- /#main-content -->

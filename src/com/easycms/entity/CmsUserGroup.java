@@ -1,6 +1,7 @@
 package com.easycms.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -22,6 +23,9 @@ public class CmsUserGroup implements Serializable{
 	private Integer needCaptcha;// 是否需要验证码
 	private Integer needCheck;// 是否需要审核
 	private Integer regDef;// 是否默认会员组
+	
+	//一个用户组多个用户
+	private List<CmsUser> users;
 	
 	public Set<CmsChannel> getViewChannels() {
 		return viewChannels;
@@ -88,5 +92,11 @@ public class CmsUserGroup implements Serializable{
 	}
 	public void setRegDef(Integer regDef) {
 		this.regDef = regDef;
+	}
+	public List<CmsUser> getUsers() {
+		return users;
+	}
+	public void setUsers(List<CmsUser> users) {
+		this.users = users;
 	}
 }

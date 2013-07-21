@@ -9,8 +9,9 @@ import java.util.Set;
  */
 public class CmsUser implements Serializable{
 	// 关系
-	private CmsUserGroup userGroup; // 用户组
-
+	private CmsUserGroup userGroup; // 用户组，多个用户一个用户组
+	private Integer group_id;
+	
 	private Set<CmsUserExt> userExtSet;// 用户扩展
 	private Set<CmsUserSite> userSites;// 用户站点
 	private Set<CmsContent> collectContents;// 用户对应的内容
@@ -21,11 +22,9 @@ public class CmsUser implements Serializable{
 	private Set<CmsReceiverMessage> receiveReceiverMessage;// 接收站内收信
 	
 	//属性
-	private Integer group_id;
-	
-	//属性
 	private Integer id;
 	private String username;//用户名
+	private String password;
 	private String email;//邮箱
 	private Date registerTime;//注册时间
 	private String registerIP;//注册IP
@@ -100,6 +99,12 @@ public class CmsUser implements Serializable{
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getEmail() {
 		return email;

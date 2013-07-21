@@ -12,6 +12,7 @@
 	<delete id="delete" parameterType="int">
 	  delete from ec_group where id=#{id}
 	</delete>
+	<!-- 批量删除 -->
 	<delete id="deleteIn" parameterType="java.util.List">
 	  delete from ec_group where id in
 	  <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
@@ -27,9 +28,25 @@
 	   update ec_group set priority=#{priority} where id=#{id}
 	</update>
 	<!--  查询操作-->
-	<select id="findById" parameterType="int" resultType="userGroup">
-	  select * from ec_group where id=#{id}
+	<select id="findById" parameterType="int" resultMap="groupMap">
+	  select 
+	  	g.id, g.name, g.priority, g.allowPerDay, g.allowMaxFile, g.allowSuffix, g.needCaptcha, g.needCheck, u.username
+	  from 
+	  	ec_group g, ec_user u 
+	  where 
+	  	g.id=#{id} and g.id = u.group_id
 	</select>
+	<resultMap type="userGroup" id="groupMap">
+	    <id property="id" column="id"/>
+	    <result property="name" column="name"/>
+	    <result property="priority" column="priority"/>
+	    <result property="allowPerDay" column="allowPerDay"/>
+	    <result property="allowMaxFile" column="allowMaxFile"/>
+	    <result property="allowSuffix" column="allowSuffix"/>
+	    <result property="needCaptcha" column="needCaptcha"/>
+	    <result property="needCheck" column="needCheck"/>
+	    <collection property="users" resultMap="com.easycms.entity.CmsUser.userMap"></collection>
+	</resultMap>
 	<!-- 查询全部 -->
 	<select id="findAll" resultType="userGroup">
 	   select * from ec_group order by priority asc

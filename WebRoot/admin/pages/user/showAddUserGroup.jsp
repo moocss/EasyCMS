@@ -33,24 +33,24 @@
 				<table class="ui-table ui-table-form">
 					<tbody>
 						<tr>
-							<th><span class="required">*</span>名称:</th>
+							<th><span class="required">*</span><label for="name">名称:</label></th>
 							<td><input type="text" name="name" id="name"/></td>
-							<th><span class="required">*</span>排列顺序:</th>
+							<th><span class="required">*</span><label for="priority">排列顺序:</label></th>
 							<td><input type="text" name="priority" id="priority" /></td>
 						</tr>
 						<tr>
-							<th><span class="required">*</span>每日附件总尺寸:</th>
+							<th><span class="required">*</span><label for="allowPerDay">每日附件总尺寸:</label></th>
 							<td>
 								<input type="text" name="allowPerDay" id="allowPerDay" />0不限制,单位(kb)
 							</td>
 							<th>
-								<span class="required">*</span>最大附件尺寸：</th>
+								<span class="required">*</span><label for="allowMaxFile"></label>最大附件尺寸：</th>
 							<td>
 								<input type="text" name="allowMaxFile" id="allowMaxFile" />0不限制,单位(kb)
 							</td>
 						</tr>
 						<tr>
-							<th>允许上传的后缀：</th>
+							<th><label for="allowSuffix"></label>允许上传的后缀：</th>
 							<td colspan="3">
 								<input type="text" name="allowSuffix" id="allowSuffix" value=".jpg/.jpeg/.png/.bmp"/>留空则不限制，多个用","分开
 							</td>
