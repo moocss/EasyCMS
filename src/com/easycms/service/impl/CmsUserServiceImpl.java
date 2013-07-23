@@ -2,11 +2,8 @@ package com.easycms.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
 import com.easycms.base.AbstractBaseDao;
 import com.easycms.entity.CmsUser;
 import com.easycms.entity.CmsUserExt;
@@ -39,6 +36,5 @@ public class CmsUserServiceImpl extends AbstractBaseDao<CmsUser, Integer> implem
 		ues.delete(id);
 		//然后再删除user表中的数据
 		delete(id);
-	}
-	
+	}	
 }

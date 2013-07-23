@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.easycms.common.CaptchaServlet;
 import com.easycms.common.MD5;
 import com.easycms.common.Pager;
@@ -102,17 +101,24 @@ public class CmsUserController {
 	
 	//登陆
 	@RequestMapping("/login.do")
-	public String login(HttpServletRequest req, ModelMap model,CmsUser user,String verifyCode) {
-		String url = "../../index";
+	public String login(HttpServletRequest req, ModelMap model,CmsUser user, String verifyCode) {
 		String captcha = CaptchaServlet.getStoredCaptchaString(req);
-		System.out.println("------->"+captcha);
-		System.out.println("=======>"+verifyCode);
+		//System.out.println("------->"+captcha);
+		//System.out.println("=======>"+verifyCode);
+		//System.out.println("user="+);
 		if(verifyCode.equalsIgnoreCase(captcha)) {
 			CmsUser cu = us.login(user);
-			System.out.println(cu.getUsername());
+			//System.out.println(cu.getUsername());
 			req.getSession().setAttribute("user", cu);
-			url = "index";
+			return "index";
+		}else{
+			return "../../index";
 		}
-		return url;
+	}
+	//注销
+	@RequestMapping("/logout.do")
+	public String logout(HttpServletRequest req, ModelMap model){
+		req.getSession().invalidate();
+		return "../../index";
 	}
 }

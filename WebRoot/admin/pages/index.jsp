@@ -7,14 +7,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
+  <base href="<%=basePath%>">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>EasyCMS</title>
-  <link type="text/css" rel="stylesheet" href="../assets/css/easyui.css"/>
-  <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/easyui.css"/>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/style.css"/>
   <!--javascript start-->
-  <script type="text/javascript" src="../assets/js/libs/jquery-1.8.0.min.js"></script>
-  <script type="text/javascript" src="../assets/js/libs/jquery.easyui.min.js"></script>
-  <script type="text/javascript" src="../assets/js/jquery.custom.js"></script>
+  <script type="text/javascript" src="admin/assets/js/libs/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="admin/assets/js/libs/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="admin/assets/js/jquery.custom.js"></script>
   <!--javascript end-->
 </head>
 <body id="home" class="easyui-layout">
@@ -22,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h1 class="logo">EasyCMS</h1>
         <div class="dl-log">
           欢迎您，<span class="dl-log-user">moocss@gmail.com</span>
-          <a class="dl-log-quit" title="退出系统" href="###">[退出]</a>
+          <a class="dl-log-quit" title="退出系统" href="member/logout.do">[退出]</a>
       </div>
     </div><!-- /#header -->   
     <div id="sidebar" data-options="region:'west',split:true,title:'2013年5月26日 星期日'">
@@ -101,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="main-content" data-options="region:'center'">
           <div id="tabs" class="easyui-tabs"  fit="true" border="false">
             <div data-options="title:'我的工作台'"> 
-                <iframe name="mainFrame" id="mainFrame" src="main.jsp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
+                <iframe name="mainFrame" id="mainFrame" src="admin/pages/main.jsp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
             </div>
         </div>
     </div><!-- /#main-content -->

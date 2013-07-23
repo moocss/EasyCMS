@@ -23,5 +23,4 @@ public interface CmsUserService extends BaseDao<CmsUser, Integer>{
 	 * @param id
 	 */
 	public void deleteById(Integer id);
-	
 }
