@@ -1,11 +1,19 @@
 package com.easycms.controller;
+import java.util.Collections;
 import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.easycms.common.CaptchaServlet;
 import com.easycms.common.MD5;
 import com.easycms.common.Pager;
@@ -103,22 +111,34 @@ public class CmsUserController {
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest req, ModelMap model,CmsUser user, String verifyCode) {
 		String captcha = CaptchaServlet.getStoredCaptchaString(req);
-		//System.out.println("------->"+captcha);
-		//System.out.println("=======>"+verifyCode);
-		//System.out.println("user="+);
-		if(verifyCode.equalsIgnoreCase(captcha)) {
-			CmsUser cu = us.login(user);
-			//System.out.println(cu.getUsername());
-			req.getSession().setAttribute("user", cu);
-			return "index";
-		}else{
-			return "../../index";
+		//验证码不能为空
+		if(StringUtils.isNotBlank(captcha)){
+			if(captcha.equalsIgnoreCase(verifyCode)) {
+				CmsUser cu = us.login(user);
+				HttpSession session = req.getSession();
+				session.setAttribute("user", cu);
+				//设置session超时时间
+				//session.setMaxInactiveInterval(100);
+				return "index";
+			}else{
+				return "login";
+			}
 		}
+		return "login";
 	}
+	
+
+	@RequestMapping(value="/logoutpage",method=RequestMethod.GET)
+	public String logpage(){
+		return "login";
+	}
+	
 	//注销
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest req, ModelMap model){
-		req.getSession().invalidate();
-		return "../../index";
+		HttpSession session = req.getSession();
+		session.removeAttribute("user");
+		session.invalidate();
+		return "redirect:/member/logoutpage";
 	}
 }

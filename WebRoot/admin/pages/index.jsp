@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="header" data-options="region:'north',border:false">
         <h1 class="logo">EasyCMS</h1>
         <div class="dl-log">
-          欢迎您，<span class="dl-log-user">moocss@gmail.com</span>
+          欢迎您，<span class="dl-log-user">moocss</span>
           <a class="dl-log-quit" title="退出系统" href="member/logout.do">[退出]</a>
       </div>
     </div><!-- /#header -->   
