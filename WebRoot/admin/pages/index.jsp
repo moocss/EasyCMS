@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="header" data-options="region:'north',border:false">
         <h1 class="logo">EasyCMS</h1>
         <div class="dl-log">
-          欢迎您，<span class="dl-log-user">moocss</span>
+          欢迎您，<span class="dl-log-user">${user.username}</span>
           <a class="dl-log-quit" title="退出系统" href="member/logout.do">[退出]</a>
       </div>
     </div><!-- /#header -->   
@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a  href="javascript:;" data-url="<%=basePath%>group/v_list.do">会员组管理</a></li>
             <li><a  href="javascript:;" data-url="用户.html">管理员(全站)</a></li>
             <li><a  href="javascript:;" data-url="用户.html">管理员(本站)</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">角色管理</a></li>
+            <li><a  href="javascript:;" data-url="<%=basePath%>role/v_list.do">角色管理</a></li>
             <li><a  href="javascript:;" data-url="用户.html">部门管理</a></li>
             <li><a  href="javascript:;" data-url="用户.html">后台操作日志</a></li>
             <li><a  href="javascript:;" data-url="用户.html">登录成功日志</a></li>

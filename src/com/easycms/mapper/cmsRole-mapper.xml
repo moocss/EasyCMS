@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.easycms.entity.CmsRole">
+    <!-- 插入操作 -->
+	<insert id="add" parameterType="role">
+	    insert into ec_role (name,priority,m_super) values (#{name},#{priority},#{m_super})
+	</insert>
+	<!-- 删除操作 -->
+	<delete id="delete" parameterType="int">
+	  delete from ec_role where id=#{id}
+	</delete>
+	<!-- 修改操作 -->
+	<update id="update" parameterType="role">
+	    update ec_role set name = #{name}, priority = #{priority}, m_super = #{m_super} where id=#{id}
+	</update>
+	<!--  查询操作-->
+	<select id="findById" parameterType="int" resultType="role">
+	  select * from ec_role where id=#{id}
+	</select>
+	<!-- 查询全部 -->
+	<select id="findAll" resultType="role">
+	   select * from ec_role order by priority asc
+	</select>
+	<!-- 分页查询 -->
+	<select id="findByPage" resultType="role" parameterType="map">
+	  select * from ec_role limit #{showPages},#{pageSize}
+	</select>
+	<!-- 总页数 -->
+	<select id="findTotal" resultType="int" parameterType="int">
+	  select count(*) from ec_role
+	</select>
+</mapper>    

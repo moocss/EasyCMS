@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -58,13 +59,25 @@
 						<tr>
 							<th>评论需要审核：</th>
 							<td>
-								<input type="radio" name="needCheck" value="1" checked="checked"/>是 
-								<input type="radio" name="needCheck" value="0"/>否
+							<c:if test="${group.needCheck == 1}">
+								<label><input type="radio" name="needCheck" value="1" checked="checked"/>是 </label>
+								<label><input type="radio" name="needCheck" value="0"/>否</label>
+							</c:if>	
+							<c:if test="${group.needCheck == 0}">
+								<label><input type="radio" name="needCheck" value="1" />是 </label>
+								<label><input type="radio" name="needCheck" value="0" checked="checked"/>否</label>
+							</c:if>
 							</td>
 							<th>评论需要验证：</th>
 							<td>
-								<input type="radio" name="needCaptcha" value="1" checked="checked"/>是 
-								<input type="radio" name="needCaptcha" value="0"/>否
+							<c:if test="${group.needCaptcha == 1}">
+								<label><input type="radio" name="needCaptcha" value="1" checked="checked"/>是 </label>
+								<label><input type="radio" name="needCaptcha" value="0"/>否</label>
+							</c:if>
+							<c:if test="${group.needCaptcha == 0}">
+								<label><input type="radio" name="needCaptcha" value="1"/>是 </label>
+								<label><input type="radio" name="needCaptcha" value="0" checked="checked"/>否</label>
+							</c:if>	
 							</td>
 						</tr>
 						<tr>

@@ -114,8 +114,6 @@
 				</form>
 			</div>
 			<!-- /.mod-bd -->
-			<div class="ft"></div>
-			<!-- /.mod-ft -->
 		</div>
 		<!-- /.mod -->
 	</div>

@@ -45,3 +45,10 @@ create table ec_user_ext(
   userSignature varchar(255),
   foreign key(uid) references bf_user(id)
 );
+create table ec_role(
+  id int primary key auto_increment,
+  name varchar(100),
+  priority int not null default '1',
+  m_super tinyint(1) not null default '0',
+  siteId int(11)
+);

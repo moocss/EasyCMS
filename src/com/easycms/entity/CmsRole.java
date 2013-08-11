@@ -10,8 +10,9 @@ import java.io.Serializable;
 public class CmsRole implements Serializable{
 	// 关系
 	private CmsSite site; // 站点
+	private Integer siteId;
 	
-	private int id;
+	private Integer id;
 	private String name; // 角色名称
 	private int priority;// 排列顺序
 	private boolean m_super; // 拥有所有权限
@@ -22,10 +23,16 @@ public class CmsRole implements Serializable{
 	public void setSite(CmsSite site) {
 		this.site = site;
 	}
-	public int getId() {
+	public Integer getSiteId() {
+		return siteId;
+	}
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {

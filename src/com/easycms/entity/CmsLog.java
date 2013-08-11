@@ -13,6 +13,9 @@ public class CmsLog implements Serializable{
 	private CmsUser user;
 	private CmsSite site;
 	
+	private String uasername;
+	private Integer siteid;
+	
 	private Integer id;
 	private Integer category;// 日志类型
 	private Date time; // 日志时间
@@ -31,6 +34,18 @@ public class CmsLog implements Serializable{
 	}
 	public void setSite(CmsSite site) {
 		this.site = site;
+	}
+	public String getUasername() {
+		return uasername;
+	}
+	public void setUasername(String uasername) {
+		this.uasername = uasername;
+	}
+	public Integer getSiteid() {
+		return siteid;
+	}
+	public void setSiteid(Integer siteid) {
+		this.siteid = siteid;
 	}
 	public Integer getId() {
 		return id;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.easycms.entity.CmsLog">
+    <!-- 插入操作 -->
+	<insert id="add" parameterType="log">
+	</insert>
+	<!-- 分页查询 -->
+	<select id="findByPage" resultType="log" parameterType="map">
+	  select * from ec_log where category = #{category} limit #{showPages},#{pageSize}
+	</select>
+	<!-- 总页数 -->
+	<select id="findTotal" resultType="int" parameterType="int">
+	  select count(*) from ec_log
+	</select>
+</mapper>    

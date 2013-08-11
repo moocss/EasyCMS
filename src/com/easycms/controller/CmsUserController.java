@@ -114,7 +114,9 @@ public class CmsUserController {
 		//验证码不能为空
 		if(StringUtils.isNotBlank(captcha)){
 			if(captcha.equalsIgnoreCase(verifyCode)) {
+				user.setPassword(MD5.MD5Encode(user.getPassword()));
 				CmsUser cu = us.login(user);
+				System.out.println("pwd="+user.getPassword());
 				HttpSession session = req.getSession();
 				session.setAttribute("user", cu);
 				//设置session超时时间
