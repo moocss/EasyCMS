@@ -5,36 +5,42 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.easycms.entity.CmsUserGroup;
+import com.easycms.service.CmsLogService;
 import com.easycms.service.CmsUserGroupService;
 
 @Controller
 @RequestMapping("/group")
 public class CmsUserGroupController {
+	private static final Logger log = Logger.getLogger(CmsUserController.class);
 	@Resource(name="cmsUserGroupServiceImpl")
 	private CmsUserGroupService cus;
-	
+	@Resource(name="cmsLogServiceImpl")
+	private CmsLogService ls;
 	//查询
 	@RequestMapping("/v_list.do")
 	public String list(HttpServletRequest req, ModelMap model){
 		List<CmsUserGroup> groups = cus.findAll();
 		model.addAttribute("groups", groups);
-		return "user/showUserGroup";
+		return "group/showUserGroup";
 	}
 	
 	//显示添加
 	@RequestMapping("/v_add.do")
 	public String showAdd(){
-		return "user/showAddUserGroup";
+		return "group/showAddUserGroup";
 	}
 	
 	//添加数据
 	@RequestMapping("/o_add.do")
 	public String add(HttpServletRequest req, ModelMap model, CmsUserGroup cgu){
+		log.info("add CmsUserGroup name={"+ cgu.getName() +"}");
+		ls.operating(req, "添加用户组操作", "添加的 : name=" + cgu.getName());
 		cus.save(cgu);
 		return list(req, model);
 	}
@@ -58,7 +64,7 @@ public class CmsUserGroupController {
 	public String showUpdate(HttpServletRequest req, ModelMap model, Integer id){
 		CmsUserGroup cug = cus.findById(id);
 		model.addAttribute("group", cug);
-		return "user/updateUserGroup";
+		return "group/updateUserGroup";
 	}
 	
 	//修改

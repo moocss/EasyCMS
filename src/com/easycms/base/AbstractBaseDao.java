@@ -28,11 +28,11 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	public void update(T entity) {
 		idao.update(entity);
 	}
-
 	@Override
 	public T findById(PK pk) {
 		return idao.findById(entityClass, pk);
 	}
+	
 	@Override
 	public List<T> findAll() {
 		return idao.findAll(entityClass);
@@ -44,6 +44,10 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 	
 	public T findByParam(Map<String, Object> maps,String operate) {
 		return idao.findByParam(entityClass, maps, operate);
+	}
+	
+	public Pager<T> findByPage(int showPages, int pageSize,Object key){
+		return idao.findByPage(entityClass, showPages, pageSize, key);
 	}
 	
 	public void updateOrder(T entity){

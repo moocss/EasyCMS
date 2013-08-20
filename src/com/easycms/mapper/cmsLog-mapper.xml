@@ -5,6 +5,7 @@
 <mapper namespace="com.easycms.entity.CmsLog">
     <!-- 插入操作 -->
 	<insert id="add" parameterType="log">
+	    insert into ec_log (category,time,ip,url,title,content,username) values(#{category},#{time},#{ip},#{url},#{title},#{content},#{username})
 	</insert>
 	<!-- 分页查询 -->
 	<select id="findByPage" resultType="log" parameterType="map">

@@ -9,11 +9,14 @@ import java.util.Date;
  *
  */
 public class CmsLog implements Serializable{
+	public static final Integer ALL_LOG = 3;
+	public static final int LOGIN_SUCCESS_LOG = 1;
+	public static final int LOGIN_FAILURE_LOG = 2;
 	// 关系
 	private CmsUser user;
 	private CmsSite site;
 	
-	private String uasername;
+	private String username;
 	private Integer siteid;
 	
 	private Integer id;
@@ -35,11 +38,11 @@ public class CmsLog implements Serializable{
 	public void setSite(CmsSite site) {
 		this.site = site;
 	}
-	public String getUasername() {
-		return uasername;
+	public String getUsername() {
+		return username;
 	}
-	public void setUasername(String uasername) {
-		this.uasername = uasername;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public Integer getSiteid() {
 		return siteid;

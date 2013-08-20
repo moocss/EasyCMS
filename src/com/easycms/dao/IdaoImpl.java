@@ -43,18 +43,36 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	}
 
 	@Override
-	 public Pager<T> findByPage(Class<T> entityClass,int showPages,int pageSize) {
-		 Pager<T> pager = new Pager<T>();
-		 Map<String, Object> maps = new HashMap<String, Object>();
-		 maps.put("showPages", showPages);
-		 maps.put("pageSize", pageSize);
-		 List<T> pageList = getSqlSession().selectList(entityClass.getName()+".findByPage", maps);
-		 int total = getSqlSession().selectOne(entityClass.getName()+".findTotal");
-		 pager.setPageList(pageList);
-		 pager.setTotal(total);
-		 return pager;
-	 }
-
+	public Pager<T> findByPage(Class<T> entityClass,int showPages,int pageSize) {
+		return findByPage(entityClass,showPages,pageSize,null);
+	}
+	
+	@Override
+	public Pager<T> findByPage(Class<T> entityClass, int showPages, int pageSize, Object key) {
+		Pager<T> pager = new Pager<T>();
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("showPages", showPages);
+		maps.put("pageSize", pageSize);
+		if(key != null){
+			 maps.put("category", key);
+		}
+		List<T> pageList = getSqlSession().selectList(entityClass.getName()+".findByPage", maps);
+		int total = getTotalNum(entityClass,key);
+		pager.setPageList(pageList);
+		pager.setTotal(total);
+		return pager;
+	}
+	
+	private int getTotalNum(Class<T> entityClass,Object key){
+		 int total = 0;
+		 if(key != null) {
+			 total =  getSqlSession().selectOne(entityClass.getName()+".findTotal",key);
+		 } else {
+			 total =  getSqlSession().selectOne(entityClass.getName()+".findTotal");
+		 }
+		 return total;
+	}
+	
 	@Override
 	public T findByParam(Class<T> entityClass, Map<String, Object> maps, String operate) {
 		return getSqlSession().selectOne(entityClass.getName() + operate, maps);

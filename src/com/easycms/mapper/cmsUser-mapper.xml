@@ -69,7 +69,7 @@
 	  select count(*) from ec_user
 	</select>
     <!-- 根据用户名获得对象 -->
-	<select id="findByName" resultType="user" parameterType="map">
+	<select id="findByName" resultType="user" parameterType="user">
 	  select * from ec_user where username=#{username}
 	</select>
 	<!-- 登陆操作 -->

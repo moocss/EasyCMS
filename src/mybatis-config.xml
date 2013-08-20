@@ -5,10 +5,10 @@
 <configuration>
 	<!-- 配置别名-->
 	<typeAliases>
-	   <typeAlias type="com.easycms.entity.Account" alias="account"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsUser" alias="user"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsUserExt" alias="userExt"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsUserGroup" alias="userGroup"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsRole" alias="role"></typeAlias>
+	   <typeAlias type="com.easycms.entity.CmsLog" alias="log"></typeAlias>
 	</typeAliases>
 </configuration>

@@ -46,12 +46,22 @@ public interface BaseDao<T,PK extends Serializable> {
 	public List<T> findAll();
 	
 	/**
-	 * 
+	 * 分页
 	 * @param showPages
 	 * @param pageSize
 	 * @return
 	 */
 	public Pager<T> findByPage(int showPages,int pageSize);
+	
+	/**
+	 * 带有一个条件的分页
+	 * @param entityClass
+	 * @param showPages
+	 * @param pageSize
+	 * @param key
+	 * @return
+	 */
+	public Pager<T> findByPage(int showPages, int pageSize,Object key);
 	
 	/**
 	  * 通过一个参数取到对应的对象

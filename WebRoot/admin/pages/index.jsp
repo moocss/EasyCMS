@@ -43,10 +43,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a  href="javascript:;" data-url="用户.html">管理员(全站)</a></li>
             <li><a  href="javascript:;" data-url="用户.html">管理员(本站)</a></li>
             <li><a  href="javascript:;" data-url="<%=basePath%>role/v_list.do">角色管理</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">部门管理</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">后台操作日志</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">登录成功日志</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">登录失败日志</a></li>
+            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_log.do">后台操作日志</a></li>
+            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_success.do">登录成功日志</a></li>
+            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_failure.do">登录失败日志</a></li>
             <li><a  href="javascript:;" data-url="用户.html">站内信管理</a></li>
           </ul><!-- /.menu-list -->
         </div>

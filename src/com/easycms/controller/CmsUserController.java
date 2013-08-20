@@ -1,12 +1,9 @@
 package com.easycms.controller;
-import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -43,7 +40,7 @@ public class CmsUserController {
 		 String sPageNo = req.getParameter("pager.offset");
 		 if(sPageNo!=null) {
 			   pageNo = Integer.parseInt(sPageNo);
-		   }
+		 }
 		 Pager<CmsUser> userPager = us.findByPage(pageNo, pageSize);
 		 model.addAttribute("userPager", userPager);
 		return "user/showUser";
@@ -111,12 +108,36 @@ public class CmsUserController {
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest req, ModelMap model,CmsUser user, String verifyCode) {
 		String captcha = CaptchaServlet.getStoredCaptchaString(req);
-		//验证码不能为空
 		if(StringUtils.isNotBlank(captcha)){
 			if(captcha.equalsIgnoreCase(verifyCode)) {
+				CmsUser cu = us.findByName(user.getUsername());
+				logger.info(cu+"------->"+cu.getUsername()+"-->"+cu.getPassword()+"=="+MD5.MD5Encode(user.getPassword()));
+				
+				if(cu.getPassword().equals(MD5.MD5Encode(user.getPassword()))){
+					//CmsUser cus = us.login(user);
+					logger.info("登录密码："+cu.getUsername() +"用户名：" +cu.getPassword());
+					HttpSession session = req.getSession();
+					session.setAttribute("user", cu);
+					return "index";
+				}else{
+					return "login";
+				}	
+			}else{
+				return "login";
+			}
+		}else{
+			return "login";
+		}
+
+
+
+		//验证码不能为空
+		/*if(StringUtils.isNotBlank(captcha)){
+			if(captcha.equalsIgnoreCase(verifyCode)) {
 				user.setPassword(MD5.MD5Encode(user.getPassword()));
+				user.setUsername(user.getUsername());
 				CmsUser cu = us.login(user);
-				System.out.println("pwd="+user.getPassword());
+				logger.info("登录密码："+cu.getUsername() +"用户名：" +cu.getPassword());
 				HttpSession session = req.getSession();
 				session.setAttribute("user", cu);
 				//设置session超时时间
@@ -125,8 +146,8 @@ public class CmsUserController {
 			}else{
 				return "login";
 			}
-		}
-		return "login";
+		}*/
+		//return "login";
 	}
 	
 

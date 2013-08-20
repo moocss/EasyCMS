@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.easycms.entity.CmsRole;
-import com.easycms.entity.CmsUserGroup;
 import com.easycms.service.CmsRoleService;
 
 @Controller
@@ -21,12 +20,12 @@ public class CmsRoleController{
 	public String list(HttpServletRequest req, ModelMap model) {
 		 List<CmsRole> roles = rs.findAll();
 		 model.addAttribute("roles", roles);
-		 return "user/showRole";
+		 return "role/showRole";
 	}
 	//显示添加
 	@RequestMapping("/v_add.do")
 	public String showAdd(HttpServletRequest req, ModelMap model){
-		return "user/showAddRole";
+		return "role/showAddRole";
 	}
 	//添加数据
 	@RequestMapping("/o_add.do")
@@ -45,7 +44,7 @@ public class CmsRoleController{
 	public String showUpdate(HttpServletRequest req, ModelMap model, Integer id){
 		CmsRole role = rs.findById(id);
 		model.addAttribute("role", role);
-		return "user/updateRole";
+		return "role/updateRole";
 	}
 	//修改
 	@RequestMapping("/o_update.do")

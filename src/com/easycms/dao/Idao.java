@@ -41,7 +41,7 @@ public interface Idao<T, PK extends Serializable> {
 	 * @return
 	 */
 	public T findById(Class<T> entityClass, PK pk);
-
+	
 	/**
 	 * 查询全部信息
 	 * 
@@ -59,7 +59,18 @@ public interface Idao<T, PK extends Serializable> {
 	 * @return
 	 */
 	public Pager<T> findByPage(Class<T> entityClass, int showPages, int pageSize);
+	
+	/**
+	 * 带有一个条件的分页
+	 * @param entityClass
+	 * @param showPages
+	 * @param pageSize
+	 * @param key
+	 * @return
+	 */
+	public Pager<T> findByPage(Class<T> entityClass, int showPages, int pageSize,Object key);
 
+	
 	/**
 	 * 通过一个参数取到对应的对象
 	 * 
