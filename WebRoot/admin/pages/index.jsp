@@ -3,111 +3,453 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+%><!DOCTYPE html>
+<!--[if IE 6]><html class="ie6 lte9 lte8 lte7" lang="zh-CN"><![endif]-->
+<!--[if IE 8]><html class="ie8 lte9 lte8" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="ie9 lte9" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="ie7 lte9 lte8 lte7" lang="zh-CN"><![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8) | !(IE 9)  ]><!--><html lang="zh-CN"><!--<![endif]-->
 <head>
-  <base href="<%=basePath%>">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>EasyCMS</title>
+  <base href="<%=basePath%>"/>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <!--[if IE 6]>
+  <meta http-equiv="refresh" content="0;url=ie6.html" />
+  <![endif]-->
+  <title>EasyCMS 内容发布系统</title>
   <link type="text/css" rel="stylesheet" href="admin/assets/css/easyui.css"/>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/font-awesome.min.css"/>
+  <!--[if IE 7]>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/base.css"/>
   <link type="text/css" rel="stylesheet" href="admin/assets/css/style.css"/>
-  <!--javascript start-->
-  <script type="text/javascript" src="admin/assets/js/libs/jquery-1.8.0.min.js"></script>
-  <script type="text/javascript" src="admin/assets/js/libs/jquery.easyui.min.js"></script>
-  <script type="text/javascript" src="admin/assets/js/jquery.custom.js"></script>
-  <!--javascript end-->
 </head>
-<body id="home" class="easyui-layout">
+<body id="home" class="easyui-layout bg">
+    <!--<div id="preloader">
+      <div id="status">页面加载中...</div>
+    </div>--><!-- /#preloader -->
     <div id="header" data-options="region:'north',border:false">
-        <h1 class="logo">EasyCMS</h1>
-        <div class="dl-log">
-          欢迎您，<span class="dl-log-user">${user.username}</span>
-          <a class="dl-log-quit" title="退出系统" href="member/logout.do">[退出]</a>
-      </div>
+      <div id="header-inner">
+        <h1 class="logo"><span>EasyCMS 内容发布系统</span></h1>
+        <ul class="top-nav group">
+          <li><a href="javascript:;" title=""><i class="icon-tasks"></i><span class="badge badge-warning">4</span></a></li>
+          <li><a href="javascript:;" title=""><i class="icon-volume-up"></i><span class="badge badge-important">5</span></a></li>
+          <li><a href="javascript:;" title=""><i class="icon-bell-alt"></i><span class="badge badge-success">3</span></a></li>
+          <li><a href="javascript:;" title="系统设置"><i class="icon-cogs"></i></a></li>
+          <li><a href="javascript:;" title="系统退出" onclick="quitLogin()"><i class="icon-signout"></i></a></li>
+        </ul>
+        <div class="date-box-bar">
+          <i class="icon-time"></i> 系统日期：<span id="timedate"></span>
+        </div>
+      </div><!-- /#header-inner -->
     </div><!-- /#header -->   
-    <div id="sidebar" data-options="region:'west',split:true,title:'2013年5月26日 星期日'">
-      <div class="easyui-accordion" data-options="fit:true,border:false">
-        <div title="我的工作台" data-options="iconCls:'icon-home'">
-          <ul class="menu-list">
-            <li><a href="javascript:;" data-url="main.html">我的工作台</a></li>
-            <li><a href="javascript:;" data-url="我的信息.html">我的信息</a></li>
-          </ul><!-- /.menu-list -->
+    <div id="sidebar" data-options="region:'west',split:false, border:false">
+        <div class="sidebar-wrapper">
+            <div class="mini-profile group">
+                <div class="mini-user-avatar">
+                  <a href="#" title="欢迎您，moocss@gmail.com !"><img class="img-circle" alt="头像" src="admin/assets/images/avatar.jpg" width="32" height="32"></a>
+                </div>
+                <div class="mini-profile-options">
+                  <a title="系统设置" href="javascript:;"><i class="icon-cog"></i></a>
+                  <a title="查看用户" href="javascript:;"><i class="icon-user"></i></a>
+                  <a title="查看首页" href="javascript:;"><i class="icon-home"></i></a>
+                  <a title="退出系统" href="javascript:;"><i class="icon-signout"></i></a>
+                </div>
+            </div>
+            <div id="mainnav">
+              <div id="mainnav-hd">
+                <h2>导航菜单</h2>
+                <a id="sidebar-toggler" href="javascript:;" title="隐藏/显示 导航菜单"><span></span></a>
+              </div>
+              <div id="navlist-wraper">
+                <ul id="navlist" class="nav nav-list">
+                  <li class="current hasSub">
+                    <a href="javascript:;" data-nbid="1" title="用户管理" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">用户管理</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>member/v_list.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">会员管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>group/v_list.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">会员组管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">管理员(全站)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">管理员(全站)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>role/v_list.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">角色管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>log/v_list_log.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">后台操作日志</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_success.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">登录成功日志</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_failure.do">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">登录失败日志</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="javascript:;" data-url="">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">站内信管理</span>
+                        </a>
+                      </li>
+                    </ul>  
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="2" title="栏目" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">栏目</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="栏目管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">栏目管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="3" title="内容" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">内容</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="内容管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">内容管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="内容类型.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">内容类型</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="专题管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">专题管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="4" title="模板" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">模板</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="模板管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">模板管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="5" title="资源" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">资源</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="资源管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">资源管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="6" title="辅助" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">辅助</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="评论管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">评论管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="投票管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">投票管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="留言管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">留言管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="留言类别.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">留言类别</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="广告管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">广告管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="广告版位.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">广告版位</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="友情链接管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">友情链接管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="友情链接类别.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">友情链接类别</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="7" title="维护" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">维护</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="专题管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">专题管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="TAG管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">TAG管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="关键词管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">关键词管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="敏感词管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">敏感词管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="内容回收站.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">内容回收站</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="8" title="消息提醒" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">消息提醒</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="消息提醒.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">消息提醒</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="9" title="生成" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">生成</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="首页静态化.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">首页静态化</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="栏目页静态化.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">栏目页静态化</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="内容页静态化.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">内容页静态化</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="全文检索.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">全文检索</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="采集管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">采集管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="hasSub">
+                    <a href="javascript:;" data-nbid="10" title="配置" class="notExpand">
+                      <i class="icon"></i>
+                      <span class="txt">配置</span>
+                      <span class="more"><i class="icon-caret-down"></i></span>
+                    </a>
+                    <ul class="sub-nav">
+                      <li>
+                        <a href="javascript:;" data-url="全局设置.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">全局设置</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="站点设置.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">站点设置</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="模型管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">模型管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="内容类型.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">内容类型</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="FTP管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">FTP管理</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;" data-url="站点管理.html">
+                          <i class="icon icon-circle"></i>
+                          <span class="txt">站点管理</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul><!-- /.nav-list -->
+              </div>
+              <div id="nav-list-pan" class="fn-usn"></div>
+            </div><!-- /.mainnav -->
         </div>
-
-        <div title="用户管理" data-options="iconCls:'icon-home'">
-          <ul class="menu-list">
-            <li><a  href="javascript:;" data-url="<%=basePath%>member/v_list.do">会员管理</a></li>
-            <li><a  href="javascript:;" data-url="<%=basePath%>group/v_list.do">会员组管理</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">管理员(全站)</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">管理员(本站)</a></li>
-            <li><a  href="javascript:;" data-url="<%=basePath%>role/v_list.do">角色管理</a></li>
-            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_log.do">后台操作日志</a></li>
-            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_success.do">登录成功日志</a></li>
-            <li><a  href="javascript:;" data-url="<%=basePath%>log/v_list_login_failure.do">登录失败日志</a></li>
-            <li><a  href="javascript:;" data-url="用户.html">站内信管理</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="站点管理" data-options="iconCls:'icon-home'">
-                <ul class="menu-list">
-            <li><a  href="javascript:;" data-url="站点管理.html">站点管理</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="网站管理" data-options="iconCls:'icon-home'">
-   		 <ul class="menu-list">
-            <li><a href="javascript:;" data-url="网站管理.html">网站管理</a></li> 
-            
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="栏目管理" data-options="iconCls:'icon-home'">
-          <ul class="menu-list">
-            <li><a  href="javascript:;" data-url="栏目操作.html">栏目操作</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="模板管理" data-options="iconCls:'icon-home'">
-          <ul class="menu-list">
-            <li><a  href="javascript:;" data-url="模板管理.html">模板管理</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="内容管理" data-options="iconCls:'icon-home'">
-                   <ul class="menu-list">
-            <li><a href="javascript:;" data-url="内容管理.html">内容管理</a></li>
-            <li><a href="javascript:;" data-url="新增稿件.html">内容恢复</a></li>
-            <li><a href="javascript:;" data-url="退回稿件.html">物理删除</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="统计管理" data-options="iconCls:'icon-home'">
-           <ul class="menu-list">
-            <li><a href="javascript:;" data-url="稿件数量统计.html">稿件数量统计</a></li>
-            <li><a href="javascript:;" data-url="访问量统计.html">访问量统计</a></li>
-            <li><a href="javascript:;" data-url="审稿数统计.html">审稿数统计</a></li>
-            <li><a href="javascript:;" data-url="专题统计.html">专题统计</a></li>
-            
-          </ul><!-- /.menu-list -->
-        </div>
-        <div title="系统设置" data-options="iconCls:'icon-home'">
-          <ul class="menu-list">
-            <li><a href="javascript:;" data-url="用户管理.html"> 用户管理</a></li>
-            <li><a href="javascript:;" data-url="角色管理.html">角色管理</a></li>
-            <li><a href="javascript:;" data-url="权限管理.html">权限管理</a></li>
-            <li><a href="javascript:;" data-url="资源管理.html">资源管理</a></li>
-            <li><a href="javascript:;" data-url="热词管理.html">热词管理</a></li>
-            <li><a href="javascript:;" data-url="模块管理.html">模块管理</a></li>
-            <li><a href="javascript:;" data-url="日志管理.html">系统日志</a></li>
-          </ul><!-- /.menu-list -->
-        </div>
-      </div>
     </div><!-- /#sidebar -->
-    <div id="main-content" data-options="region:'center'">
-          <div id="tabs" class="easyui-tabs"  fit="true" border="false">
-            <div data-options="title:'我的工作台'"> 
-                <iframe name="mainFrame" id="mainFrame" src="admin/pages/main.jsp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
+    <div id="content" data-options="region:'center',border:false">
+        <div id="tabs" class="easyui-tabs" data-options="fit:true,border:false">
+            <div data-options="title:'我的工作台'">
+              <div id="iframe-wraper"><iframe name="mainFrame" id="mainFrame" src="admin/pages/main.jsp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe></div>
             </div>
         </div>
-    </div><!-- /#main-content -->
+    </div><!-- /#content -->
     <div id="footer" data-options="region:'south',border:false">
-    	<p class="copyright">技术支持</p>
+      <div id="footer-inner" class="group">
+        <p class="fl usercount"><i class="icon-foursquare"></i> 当前有 <span class="badge">5</span> 条未处理的信息</p>
+        <p class="fl copyright">2013 &copy; EasyCMS Admin System</p>
+        <ul class="fr bottom-nav">
+          <li><a href="javascript:;" title="邮件"><i class="icon-envelope"></i> 邮件 <span class="badge">2</span></a></li>
+          <li><a href="javascript:;" title="事务提醒"><i class="icon-bullhorn"></i> 事务提醒 <span class="badge">3</span></a></li>
+          <li><a href="javascript:;" title="留言"><i class="icon-meh"></i> 留言 <span class="badge">41</span></a></li>
+        </ul>
+      </div><!-- /#footer-inner -->
     </div><!-- /#footer -->
+
+    <!--javascript start-->
+    <script type="text/javascript" src="admin/assets/js/libs/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="admin/assets/js/libs/jquery.easyui.custom.min.js"></script>
+    <script type="text/javascript" src="admin/assets/js/jquery.easyui.extend.js"></script>
+    <script type="text/javascript" src="admin/assets/js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="admin/assets/js/jquery.syadmin.js"></script>
+    <script type="text/javascript">
+        function quitLogin(){
+          $.messager.confirm('系统提示', '确认退出当前系统？', function(data){
+            if(data){
+               window.location.href="login.html"
+            }
+          });
+        }
+
+        //测试dialog
+        function emailDialog(){
+          $('#email-dialog').dialog({  
+              title: '邮件',  
+              width: 500,  
+              height: 300, 
+              shadow:false, 
+              closed: false,  
+              cache: false,  
+              href: 'test.html',  
+              modal: true
+          });
+        }
+      
+    </script>
+    <!--javascript end-->
+
 </body>
 </html>

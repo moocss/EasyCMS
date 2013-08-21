@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* 
+ * @title           登录页面样式     
+ * @author          moocss
+ * @email           moocss@gmail.com
+ * @version         1.0
+ * @update          $Date: 2013-8-13 $
+ */
+
+/*----------------------------------------------
+	primary styles
+----------------------------------------------*/
+html, body{height: 100%;}
+body{background: #fff url(../images/login/debut_light.png) 0 0 repeat;}
+#login{position: absolute;left: 50%;top: 50%;width: 380px;margin: -200px 0 0 -190px;border: 1px solid #C9C9C9;background-color: #fff;}
+#login-inner{position: relative;}
+#login-bar{width: 80px;position: absolute;right: -82px;top: -1px;background-color: #fff;border: 1px solid #C9C9C9;}
+.logo-mini{position: absolute;left: 0;top: -30px;width: 380px;height: 30px;line-height: 30px;text-align: center;font-size: 16px;}
+#login-box{}
+#register-box{display: none;}
+#forgot-box{display: none;}
+
+/* header
+----------------------------------------------*/
+
+/* footer 
+----------------------------------------------*/

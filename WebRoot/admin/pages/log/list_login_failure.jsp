@@ -6,13 +6,17 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+%><!DOCTYPE html>
+<!--[if IE 6]><html class="ie6 lte9 lte8 lte7" lang="zh-CN"><![endif]-->
+<!--[if IE 8]><html class="ie8 lte9 lte8" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="ie9 lte9" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="ie7 lte9 lte8 lte7" lang="zh-CN"><![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8) | !(IE 9)  ]><!--><html lang="zh-CN"><!--<![endif]-->
 <head>
 	<base href="<%=basePath%>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>登录失败日志列表</title>
+	<link rel="stylesheet" type="text/css" href="admin/assets/css/base.css" />
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/style.css" />
 	<script src="admin/assets/js/common.js" type="text/javascript"></script>
 	<script type="text/javascript">

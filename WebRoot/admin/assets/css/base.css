@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* 
+ * @title           重置和公共类      
+ * @author          moocss
+ * @email           moocss@gmail.com
+ * @version         1.0
+ * @update          $Date: 2013-8-13 $
+ */
+
+/*-----------------------------------------------
+	reset styles
+-----------------------------------------------*/
+
+html{color:#333;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body,div,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,code,form,fieldset,legend,button,input,textarea,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,address,time,mark,audio,video{margin:0;padding:0;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}audio:not([controls]),[hidden]{display:none;}iframe{display:block;}body,button,input,select,textarea,legend{font:12px/1.5 tahoma,arial,'Hiragino Sans GB','Microsoft YaHei','\5b8b\4f53',sans-serif;}html,body,fieldset,img,iframe,abbr{border:0;}code,kbd,pre,samp{font-family:inherit;}address,cite,dfn,em,var,i{font-style:normal;}ol,ul{list-style:none;}h1,h2,h3,h4,h5,h6,small{font-size:100%;}b,strong{font-weight:bold;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}:focus{outline:0;}img{color:transparent;font-size:0;vertical-align:middle;-ms-interpolation-mode:bicubic;}table{border-collapse:collapse;border-spacing:0;vertical-align:middle;}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle;}legend{*margin-left:-7px;color:#000;}a,ins{text-decoration:none;}del{text-decoration:line-through;}acronym,abbr{border-bottom:1px dotted;font-variant:normal;}abbr{cursor:help;}a:hover{text-decoration:underline;}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}sub,sup{font-size:83%;line-height:0;position:relative;vertical-align:baseline;}sub{bottom:-0.25em;}sup{top:-0.5em;}button,input,select,textarea{font-size:100%;vertical-align:baseline;*vertical-align:middle;}input,button{*overflow:visible;line-height:normal;}input::-moz-focus-inner,button::-moz-focus-inner{padding:0;border:0;}button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}*html button{cursor:pointer;}input[type="search"]{box-sizing:content-box;-webkit-appearance:textfield;}input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;resize:vertical;}
+a{color:#000;}
+a:hover{text-decoration: none;color:#1b4d79;}
+
+/*-----------------------------------------------
+	common styles
+-----------------------------------------------*/
+
+/* text align */
+
+.tc{ text-align:center; }
+.tr{ text-align:right; }
+.tj{ text-align:justify;text-justify:inter-ideograph; }
+
+/* float and clear */
+
+.fl{ float:left;display:inline; }
+.fr{ float:right;display:inline;}
+
+/* function */
+
+.fn-tid{text-indent: 2em;}
+.fn-ib{ display:inline-block;*display:inline;*zoom:1; }
+.fn-ff0{ font-family:arial,'\5b8b\4f53'; }
+.fn-ff1{ font-family:'Microsoft YaHei','\5fae\8f6f\96c5\9ed1',arial,'\5b8b\4f53'; }
+.fn-pre{ overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all; }
+.fn-wwb{ white-space:normal;word-wrap:break-word;word-break:break-all; }
+.fn-toe{ overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis; }
+.fn-usn{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none; }
+
+/* clear */
+
+.clear { clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0; }
+
+/* images hide text */
+
+.hide-text { font: 0/0 a;color: transparent;text-shadow: none;background-color: transparent;border: 0;visibility: hidden; }
+
+/* contain floats */
+
+.group:before,
+.group:after,.layout:before,.layout:after{ content: "\0020"; display: block; height: 0; overflow: hidden; }
+.group:after,.layout:after{ clear: both; }
+.group,.layout{ zoom: 1; }

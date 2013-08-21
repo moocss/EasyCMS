@@ -2,19 +2,19 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+%><!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>EasyCMS</title>
-  <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
-  <!--javascript start-->
-  <script type="text/javascript" src="../assets/js/libs/jquery-1.8.0.min.js"></script>
-  <!--javascript end-->
+  <base href="<%=basePath%>"/>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>EasyCMS 内容发布系统</title>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/base.css"/>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/style.css"/>
 </head>
 <body>
-工作台
+    <div id="container">
+
+    </div>
 </body>
 </html>
