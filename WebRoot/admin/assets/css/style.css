@@ -76,13 +76,13 @@ html, body{height: 100%;}
 #mainnav .panel-icon{margin-left: 5px;}
 #mainnav .panel-title{padding-left: 40px;}
 .slimScrollBar{cursor: move;}
-#mainnav #navlist-wraper{font-size: 14px;}
+#mainnav #navlist-wraper{overflow: hidden;font-size: 14px;}
 /*#mainnav #navlist-wraper.hasScroll{margin-bottom: 60px;margin-top: 30px;}*/
 #mainnav .nav-list{margin-bottom: 30px;}
 #mainnav .nav-list li .icon{width: 24px;height: 24px;background-position: -2px -324px;margin-left: -2px;}
-#mainnav .nav-list li .icon-circle,#mainnav .nav-list li .icon-dot{width: 18px;height: 18px;margin-top: -2px;}
-#mainnav .nav-list li .icon-circle{background: url(../images/m_dot.png) 50% 50% no-repeat;}
-#mainnav .nav-list li .icon-dot{background: url(../images/dot.png) 50% 50% no-repeat;}
+#mainnav .nav-list li .icon-circle,#mainnav .nav-list li .icon-dot{width: 18px;height: 18px;}
+/*#mainnav .nav-list li .icon-circle{background: url(../images/m_dot.png) 50% 50% no-repeat;}
+#mainnav .nav-list li .icon-dot{background: url(../images/dot.png) 50% 50% no-repeat;}*/
 #mainnav .nav-list li a{display: block;color: #666;}
 #mainnav .nav-list li a:hover{display: block;color: #D61A0E;}
 #mainnav .nav-list > li {display: block;position: relative; border-top: 1px solid #D3DBE2;}

@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="navlist" class="nav nav-list">
                   <li class="current hasSub">
                     <a href="javascript:;" data-nbid="1" title="用户管理" class="notExpand">
-                      <i class="icon"></i>
+                      <i class="icon icon-user"></i>
                       <span class="txt">用户管理</span>
                       <span class="more"><i class="icon-caret-down"></i></span>
                     </a>
