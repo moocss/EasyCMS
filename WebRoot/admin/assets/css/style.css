@@ -86,9 +86,9 @@ html, body{height: 100%;}
 #mainnav .nav-list li a{display: block;color: #666;}
 #mainnav .nav-list li a:hover{display: block;color: #D61A0E;}
 #mainnav .nav-list > li {display: block;position: relative; border-top: 1px solid #D3DBE2;}
+#mainnav .nav-list > li > a > .icon{font-size: 18px;}
 #mainnav .nav-list > li > a {display: block;height: 36px;line-height: 36px;padding-left: 10px;background-color: #E4E9ED;color: #555;}
 #mainnav .nav-list > li > a:hover{background-color: #555;color: #fff;}
-#mainnav .nav-list > li > a:hover > .icon{ transition: all .5s;-moz-transition: all .5s; -webkit-transition: all .5s;-o-transition: all .5s;-moz-transform: rotate(360deg);-webkit-transform: rotate(360deg);-o-transform: rotate(360deg); transform: rotate(360deg);}
 #mainnav .nav-list > li > .sub-nav, #mainnav .nav-list > li > .sub-nav > li .sub-nav {display: none;position: relative;background-color: #FBFBFB;}
 #mainnav .nav-list > li > .sub-nav > li{border-top: 1px solid #FBFBFB;border-bottom: 1px solid #E2E2E2;}
 #mainnav .nav-list > li > .sub-nav > li > a{height: 26px;line-height: 26px;padding-left: 20px;background-color: #eee;}
@@ -149,6 +149,10 @@ html, body{height: 100%;}
 /* content
 -------------------------*/
 #iframe-wraper{height: 100%;}
+.crumbs{height: 30px;line-height: 30px;margin: -10px -10px 0;padding: 0 10px;border-bottom: 1px solid #D4D4D4;background-color: #1E8CBE; color: #fff;font-family:'\5b8b\4f53';}
+	.crumbs a{color: #fff;}
+	.crumbs a:hover{color: #000;}
+.toolbar .action{padding: 10px 0;}	
 /* tabs */
 #tabs .tabs{height: 40px;padding: 0;}
 #tabs .tabs-header{padding: 0;}
@@ -246,10 +250,6 @@ html, body{height: 100%;}
 	border-left: 1px solid #ddd;
 }
 
-.ui-table td {
-	padding: 4px 5px;
-}
-
 .ui-table th:first-child,.ui-table td:first-child {
 	border-left: 0 none;
 }
@@ -257,9 +257,9 @@ html, body{height: 100%;}
 .ui-table th {
 	font-weight: bold;
 	text-align: center;
-	background: #ccc;
+	background: #f5f5f5;
 }
-
+.ui-table thead th{height: 30px;line-height: 30px;font-size: 14px;}
 .ui-table tbody tr.even {
 	background: #f0f0f0;
 }
@@ -269,6 +269,8 @@ html, body{height: 100%;}
 }
 .ui-table-form tbody th{text-align: right;}
 .ui-table .w40{width: 40px;}
+
+
 /* pager */
 .pager {
 	margin: 10px 0 0;

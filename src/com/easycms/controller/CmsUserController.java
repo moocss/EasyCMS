@@ -157,11 +157,23 @@ public class CmsUserController {
 	}
 	
 	//注销
-	@RequestMapping("/logout.do")
+	@RequestMapping("/logout")
 	public String logout(HttpServletRequest req, ModelMap model){
 		HttpSession session = req.getSession();
 		session.removeAttribute("user");
 		session.invalidate();
 		return "redirect:/member/logoutpage";
+	}
+	
+	//注册
+	@RequestMapping("/register")
+	public String register(HttpServletRequest req, ModelMap model){
+		return "register";
+	}
+	
+	//找回密码
+	@RequestMapping("/forgot")
+	public String forgot(HttpServletRequest req, ModelMap model){
+		return "forgot";
 	}
 }

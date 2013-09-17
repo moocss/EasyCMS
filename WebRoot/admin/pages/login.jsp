@@ -9,107 +9,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <title>EasyCMS 登录</title>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/font-awesome.min.css"/>
+  <!--[if IE 7]>
+  <link type="text/css" rel="stylesheet" href="admin/assets/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
   <link type="text/css" rel="stylesheet" href="admin/assets/css/base.css"/>
   <link type="text/css" rel="stylesheet" href="admin/assets/css/login.css"/>
 </head>
 <body>
     <div id="login" class="group">
         <div id="login-inner" data-active="login">
-            <h1 class="logo-mini">EasyCMS 内容发布系统</h1>
-            <div id="login-box">
-                <form id="login-form" action="member/login.do" id="login" name="login" method="post">
-                    <p class="control-group">
-                        <label for="">用户名：</label>
-                        <input type="text"  placeholder="用户名" id="username" name="username"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">密码：</label>
-                        <input type="password" placeholder="密码" id="password" name="password"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">验证码：</label>
-                        <input type="text" placeholder="验证码" id="verifyCode" name="verifyCode"/>
-                        <img id="img_vcode" alt="..." src="captcha?complexity=99&size=36&length=4" width="80" height="36"/>
-                        <script language='javascript'>
-                          function _rvi(){document.getElementById('img_vcode').src = 'captcha?complexity=80&size=36&length=4&t='+Math.random(1000);}
-                        </script>
-                        <a href="javascript:_rvi()">换一张图</a>
-                    </p>
-                    <p class="form-actions">
-                        <button type="submit">现在登录</button>
-                        <a href="#">找回登录密码?</a>
-                    </p>
-                </form>
-                <p> 没有帐号? <a id="register" href="#">注册新用户</a></p>
-            </div>
-            <div id="register-box">
-                <form id="register-form" action="">
-                    <p class="control-group">
-                        <label for="">用户名：</label>
-                        <input type="text"  placeholder="用户名" id="username" name="username"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">密码：</label>
-                        <input type="password" placeholder="密码" id="password" name="password"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">确认密码：</label>
-                        <input type="password" placeholder="密码" id="password-again" name="password"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">电子邮箱：</label>
-                        <input type="text" placeholder="电子邮箱" id="email" name="email"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">验证码：</label>
-                        <input type="text" placeholder="验证码" id="verifyCode" name="verifyCode"/>
-                        <img id="img_vcode" alt="..." src="captcha?complexity=99&size=36&length=4" width="80" height="36"/>
-                        <script language='javascript'>
-                          function _rvi(){document.getElementById('img_vcode').src = 'captcha?complexity=80&size=36&length=4&t='+Math.random(1000);}
-                        </script>
-                        <a href="javascript:_rvi()">换一张图</a>
-                    </p>
-                    <p class="form-actions">
-                        <button type="submit">注册新用户</button>
-                    </p>
-                </form>
-            </div>
-            <div id="forgot-box">
-                <form id="forgot-form" action="">
-                    <p class="control-group">
-                        <label for="">用户名：</label>
-                        <input type="text"  placeholder="用户名" id="username" name="username"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">邮箱：</label>
-                        <input type="text"  placeholder="邮箱" id="email" name="email"/>
-                    </p>
-                    <p class="control-group">
-                        <label for="">验证码：</label>
-                        <input type="text" placeholder="验证码" id="verifyCode" name="verifyCode"/>
-                        <img id="img_vcode" alt="..." src="captcha?complexity=99&size=36&length=4" width="80" height="36"/>
-                        <script language='javascript'>
-                          function _rvi(){document.getElementById('img_vcode').src = 'captcha?complexity=80&size=36&length=4&t='+Math.random(1000);}
-                        </script>
-                        <a href="javascript:_rvi()">换一张图</a>
-                    </p>
-                    <div class="form-actions"> 
-                        <button class="btn btn-large btn-block btn-success" type="submit">给我发送找回密码的链接 &gt;</button> 
-                    </div>
-                </form>
+            <h1 class="logo-mini"><span>EasyCMS</span> Content Admin System</h1>
+            <div id="login-box" class="box">
+            	<div class="hd">
+            		<h2>用户登录</h2>
+            	</div>
+            	<div class="bd">
+	                <form id="login-form" action="member/login.do" name="login" method="post" novalidate="true">
+	                    <p class="control-group">
+	                        <label for="username"><i class="icon-user"></i><span>用户名：</span></label>
+	                        <input class="ipt w278" type="text" placeholder="用户名" id="username" name="username" required maxlength="20"/>
+	                    </p>
+	                    <p class="control-group">
+	                        <label for="password"><i class="icon-lock"></i><span>密码：</span></label>
+	                        <input class="ipt w278" type="password" placeholder="密码" id="password" name="password" required maxlength="15"/>
+	                    </p>
+	                    <p class="control-group">
+	                        <label for="verifyCode"><i class="icon-key"></i><span>验证码：</span></label>
+	                        <input class="ipt w191" type="text" placeholder="验证码" id="verifyCode" name="verifyCode" required min="1" max="4" maxlength="4"/>
+	                        <img id="img_vcode" alt="..." src="captcha?complexity=99&size=30&length=4" width="80" height="30" onclick="javascript:_rvi()"/>
+	                        <script language='javascript'>
+	                          function _rvi(){document.getElementById('img_vcode').src = 'captcha?complexity=80&size=36&length=4&t='+Math.random(1000);}
+	                        </script>
+	                    </p>
+	                    <p class="form-actions tc">
+	                        <button class="btn" type="submit">现在登录</button>
+	                    </p>
+	                </form>
+	                <p class="line tc"> 
+		                <a class="forgot-link" href="member/forgot">找回登录密码?</a>
+		                &emsp;&emsp;
+		                <a id="register" href="member/register">注册新用户?</a>
+	                </p>
+            	</div>
             </div>
         </div><!-- /#login-inner -->
-        <ul id="login-bar" data-active="login">
-            <li><a href="#">登录</a></li>
-            <li><a href="#">注册</a></li>
-            <li><a href="#">找回密码</a></li>
-        </ul><!-- /#login-bar -->
     </div><!-- /#login -->
     <!--javascript start-->
     <script type="text/javascript" src="admin/assets/js/libs/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="admin/assets/js/validator.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(function(){
-        
+		  $('#login-form').validator();
       });
     </script>
     <!--javascript end-->
