@@ -39,7 +39,7 @@ public class CmsUserController {
 	// 分页显示列表
 	@RequestMapping("/v_list.do")
 	public String list(HttpServletRequest req, ModelMap model) {
-		 int pageSize = 3;
+		 int pageSize = 10;
 		 int pageNo = 0;
 		 String sPageNo = req.getParameter("pager.offset");
 		 if(sPageNo!=null) {

@@ -53,6 +53,7 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("showPages", showPages);
 		maps.put("pageSize", pageSize);
+		//定义的太死BUG
 		if(key != null){
 			 maps.put("category", key);
 		}

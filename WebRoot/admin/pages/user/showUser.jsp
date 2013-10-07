@@ -90,7 +90,7 @@
 			</div>
 			<!-- /.mod-bd -->
 			<div class="ft">
-		    	<pg:pager items="${userPager.total}" maxPageItems="10" maxIndexPages="1" url="member/v_list.do" export="currentPageNo = pageNumber">
+		    	<pg:pager items="${userPager.total}" maxPageItems="10" maxIndexPages="10" url="member/v_list.do" export="currentPageNo = pageNumber">
 		    		<pg:index export="totalItems = itemCount">
 		    		<div class="pager">
 					    <pg:page export="firstItem, lastItem">

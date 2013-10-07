@@ -65,6 +65,8 @@ public class CmsUserGroupController {
 				list.add(id);
 			}
 			cus.deleteIn(list);
+			logger.info("delete CmsUserGroup name={"+ ids +"}");
+			ls.operating(req, "批量删除一些用户组", "删除的 : id=" + ids);
 		}
 		return list(req, model);
 	}

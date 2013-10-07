@@ -1,5 +1,7 @@
 package com.easycms.service;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.easycms.base.BaseDao;
@@ -28,4 +30,11 @@ public interface CmsLogService extends BaseDao<CmsLog,Integer>{
 	  * @param content
 	  */
 	 public void loginFailureLog(HttpServletRequest request, String title, String content);
+	 
+	 /**
+	  * 保存日志
+	  * @param log
+	 * @return 
+	  */
+	 public void saveLog(Integer category, String username, String url, String ip, Date date, String title, String content);
 }

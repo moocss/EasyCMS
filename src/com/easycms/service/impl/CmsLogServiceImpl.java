@@ -26,7 +26,7 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		UrlPathHelper helper = new UrlPathHelper();
 		String url =helper.getOriginatingQueryString(request);
 		Date date = new Date();
-		
+		/*
 		CmsLog log = new CmsLog();
 		log.setCategory(CmsLog.ALL_LOG);
 		log.setIp(ip);
@@ -36,7 +36,8 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		log.setTitle(title);
 		log.setContent(content);
 		
-		save(log);
+		save(log);*/
+		saveLog(CmsLog.ALL_LOG,username,url,ip,date,title,content);
 	}
 
 	@Override
@@ -46,14 +47,16 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		CmsUser user = (CmsUser) request.getSession().getAttribute("user");
 		String username = user.getUsername();
 		Date date = new Date();
-		CmsLog log = new CmsLog();
+		
+		/*CmsLog log = new CmsLog();
 		log.setCategory(CmsLog.LOGIN_SUCCESS_LOG);
 		log.setIp(ip);
 		log.setUsername(username);
 		log.setTime(date);
 		log.setTitle(title);
 		
-		save(log);
+		save(log);*/
+		saveLog(CmsLog.LOGIN_SUCCESS_LOG,username,null,ip,date,title,null);
 	}
 
 	@Override
@@ -64,7 +67,7 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		UrlPathHelper helper = new UrlPathHelper();
 		String url =helper.getOriginatingQueryString(request);
 		Date date = new Date();
-		
+		/*
 		CmsLog log = new CmsLog();
 		log.setCategory(CmsLog.LOGIN_FAILURE_LOG);
 		log.setIp(ip);
@@ -73,7 +76,24 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		log.setTitle(title);
 		log.setContent(content);
 		
+		save(log);*/
+		saveLog(CmsLog.LOGIN_FAILURE_LOG,null,url,ip,date,title,content);
+	}
+
+	@Override
+	public void saveLog(Integer category, String username, String url, String ip, Date date, String title, String content) {
+		
+		CmsLog log = new CmsLog();
+		log.setCategory(category);
+		log.setIp(ip);
+		log.setUsername(username);
+		log.setUrl(url);
+		log.setTime(date);
+		log.setTitle(title);
+		log.setContent(content);
+		
 		save(log);
+		
 	}
 
 }
