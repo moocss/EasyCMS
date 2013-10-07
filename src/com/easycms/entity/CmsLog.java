@@ -10,8 +10,8 @@ import java.util.Date;
  */
 public class CmsLog implements Serializable{
 	public static final Integer ALL_LOG = 3;
-	public static final int LOGIN_SUCCESS_LOG = 1;
-	public static final int LOGIN_FAILURE_LOG = 2;
+	public static final Integer LOGIN_SUCCESS_LOG = 1;
+	public static final Integer LOGIN_FAILURE_LOG = 2;
 	// 关系
 	private CmsUser user;
 	private CmsSite site;

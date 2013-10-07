@@ -9,10 +9,21 @@
 	</insert>
 	<!-- 分页查询 -->
 	<select id="findByPage" resultType="log" parameterType="map">
-	  select * from ec_log where category = #{category} limit #{showPages},#{pageSize}
+	  select * from ec_log where category = #{category} order by id desc limit #{showPages},#{pageSize} 
 	</select>
 	<!-- 总页数 -->
 	<select id="findTotal" resultType="int" parameterType="int">
-	  select count(*) from ec_log
+	  select count(*) from ec_log where category = #{category}
 	</select>
+	<!-- 删除操作 -->
+	<delete id="delete" parameterType="int">
+	  delete from ec_log where id=#{id}
+	</delete>
+	<!-- 批量删除 -->
+	<delete id="deleteIn" parameterType="java.util.List">
+	  delete from ec_log where id in
+	  <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+	      ${item}
+	  </foreach>
+	</delete>
 </mapper>    

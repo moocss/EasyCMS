@@ -232,6 +232,7 @@ html, body{height: 100%;}
 .mod .hd {
 	height: 30px;
 	line-height: 30px;
+	padding: 10px 0;
 }
 
 .mod .hd h2 {

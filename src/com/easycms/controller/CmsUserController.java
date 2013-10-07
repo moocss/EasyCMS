@@ -1,4 +1,5 @@
 package com.easycms.controller;
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import com.easycms.common.Pager;
 import com.easycms.entity.CmsUser;
 import com.easycms.entity.CmsUserExt;
 import com.easycms.entity.CmsUserGroup;
+import com.easycms.service.CmsLogService;
 import com.easycms.service.CmsUserExtService;
 import com.easycms.service.CmsUserGroupService;
 import com.easycms.service.CmsUserService;
@@ -31,6 +33,8 @@ public class CmsUserController {
 	private CmsUserGroupService ugs;
 	@Resource(name = "cmsUserExtServiceImpl")
 	private CmsUserExtService ues;
+	@Resource(name = "cmsLogServiceImpl")
+	private CmsLogService ls;
 	
 	// 分页显示列表
 	@RequestMapping("/v_list.do")
@@ -111,21 +115,29 @@ public class CmsUserController {
 		if(StringUtils.isNotBlank(captcha)){
 			if(captcha.equalsIgnoreCase(verifyCode)) {
 				CmsUser cu = us.findByName(user.getUsername());
-				logger.info(cu+"------->"+cu.getUsername()+"-->"+cu.getPassword()+"=="+MD5.MD5Encode(user.getPassword()));
-				
-				if(cu.getPassword().equals(MD5.MD5Encode(user.getPassword()))){
-					//CmsUser cus = us.login(user);
-					logger.info("登录密码："+cu.getUsername() +"用户名：" +cu.getPassword());
-					HttpSession session = req.getSession();
-					session.setAttribute("user", cu);
-					return "index";
+				if(cu != null){
+					if(cu.getPassword().equals(MD5.MD5Encode(user.getPassword()))){
+						//CmsUser cus = us.login(user);
+						logger.info("登录密码："+cu.getUsername() +"用户名：" +cu.getPassword());
+						HttpSession session = req.getSession();
+						session.setAttribute("user", cu);
+						ls.loginSucssessLog(req, "登录成功！");
+						return "index";
+					}else{
+						ls.loginFailureLog(req, "登录失败！","登录密码："+user.getUsername() +"用户名：" +user.getPassword());
+						return "login";
+					}
 				}else{
+					ls.loginFailureLog(req, "登录失败！","登录密码："+user.getUsername() +"用户名：" +user.getPassword());
 					return "login";
-				}	
+				}
+				
 			}else{
+				ls.loginFailureLog(req, "登录失败！","登录密码："+user.getUsername() +"用户名：" +user.getPassword());
 				return "login";
 			}
 		}else{
+			ls.loginFailureLog(req, "登录失败！","登录密码："+user.getUsername() +"用户名：" +user.getPassword());
 			return "login";
 		}
 

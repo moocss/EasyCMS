@@ -30,6 +30,20 @@
 			}
 			window.location = "<%=basePath%>group/o_delete.do?id="+id;
 		}
+		//批量删除数据
+		function optDeleteIn() {
+			if(Pony.checkedCount("ck") <= 0) {
+				alert("请选择您要操作的数据!");
+				return;
+			}
+			if(!confirm("您确定删除吗？")) {
+				return;
+			}
+			
+			var ids = Pony.checkIn("ck");
+			console.log(ids);
+			window.location = "<%=basePath%>group/o_delete_in.do?ids="+ids;
+		}
 		//排序
 		function optPriority() {
 			var ck = document.getElementsByName("ck");
@@ -63,7 +77,7 @@
 				<table class="ui-table">
 					<thead>
 						<tr>
-							<th width="30"><input type="checkbox" name="ck_all" c id="ck_all" onclick="Pony.checkboxSlt('ck',this.checked);"/></th>
+							<th width="30"><input type="checkbox" name="ck_all" id="ck_all" onclick="Pony.checkboxSlt('ck',this.checked);"/></th>
 							<th>ID</th>
 							<th>名称</th>
 							<th>每日附件总尺寸</th>
@@ -127,7 +141,7 @@
 					<tfoot>
 						<tr>
 							<td colspan="10">
-								<a href="javascript:;" class="btn">批量删除</a>
+								<a href="javascript:;" class="btn" onclick="optDeleteIn();">批量删除</a>
 								<a href="javascript:;" class="btn" onclick="optPriority();">保存排列顺序</a>
 							</td>
 						</tr>

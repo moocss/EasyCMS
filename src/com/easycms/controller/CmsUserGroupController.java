@@ -1,5 +1,6 @@
 package com.easycms.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,7 +18,7 @@ import com.easycms.service.CmsUserGroupService;
 @Controller
 @RequestMapping("/group")
 public class CmsUserGroupController {
-	private static final Logger log = Logger.getLogger(CmsUserController.class);
+	private static final Logger logger = Logger.getLogger(CmsUserGroupController.class);
 	@Resource(name="cmsUserGroupServiceImpl")
 	private CmsUserGroupService cus;
 	@Resource(name="cmsLogServiceImpl")
@@ -39,9 +40,9 @@ public class CmsUserGroupController {
 	//添加数据
 	@RequestMapping("/o_add.do")
 	public String add(HttpServletRequest req, ModelMap model, CmsUserGroup cgu){
-		log.info("add CmsUserGroup name={"+ cgu.getName() +"}");
-		ls.operating(req, "添加用户组操作", "添加的 : name=" + cgu.getName());
 		cus.save(cgu);
+		logger.info("add CmsUserGroup name={"+ cgu.getName() +"}");
+		ls.operating(req, "添加用户组操作", "添加的 : name=" + cgu.getName());
 		return list(req, model);
 	}
 	
@@ -49,13 +50,22 @@ public class CmsUserGroupController {
 	@RequestMapping("/o_delete.do")
 	public String delete(HttpServletRequest req, ModelMap model, Integer id) {
 		cus.delete(id);
+		logger.info("delete CmsUserGroup name={"+ id +"}");
+		ls.operating(req, "删除一个用户组操作", "删除的 : id=" + id);
 		return list(req, model);
 	}
 	
 	//批量删除
 	@RequestMapping("/o_delete_in.do")
-	public String deleteIn(HttpServletRequest req, ModelMap model, List<String> list){
-		cus.deleteIn(list);
+	public String deleteIn(HttpServletRequest req, ModelMap model){
+		String[] ids = req.getParameterValues("ids");
+		if (ids != null) {
+			List<String> list= new ArrayList<String>();
+			for (String id : ids) {
+				list.add(id);
+			}
+			cus.deleteIn(list);
+		}
 		return list(req, model);
 	}
 	
@@ -71,6 +81,8 @@ public class CmsUserGroupController {
 	@RequestMapping("/o_update.do")
 	public String update(HttpServletRequest req, ModelMap model, CmsUserGroup cug){
 		cus.update(cug);
+		logger.info("update CmsUserGroup id={}."+ cug.getId());
+		ls.operating(req, "更新了一个用户组操作", "更新的 : id=" + cug.getId());
 		return list(req, model);
 	}
 	

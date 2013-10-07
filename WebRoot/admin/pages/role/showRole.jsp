@@ -48,7 +48,7 @@
 					<thead>
 						<tr>
 							<th width="20">
-								<input type="checkbox" name="ck_all" c id="ck_all" onclick="Pony.checkboxSlt('ck',this.checked);"/>
+								<input type="checkbox" name="ck_all" id="ck_all" onclick="Pony.checkboxSlt('ck',this.checked);"/>
 							</th>
 							<th>ID</th>
 							<th>角色名</th>

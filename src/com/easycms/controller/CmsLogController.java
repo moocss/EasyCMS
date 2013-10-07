@@ -1,7 +1,11 @@
 package com.easycms.controller;
 
+import java.util.*;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +17,14 @@ import com.easycms.service.CmsLogService;
 @Controller
 @RequestMapping("/log")
 public class CmsLogController {
+	private static final Logger logger = Logger.getLogger(CmsLogController.class);
 	@Resource(name = "cmsLogServiceImpl")
 	private CmsLogService ls;
 
 	// 显示后台操作
 	@RequestMapping("/v_list_log.do")
-	public String list(HttpServletRequest req, ModelMap model) {
-		int pageSize = 3;
+	public String listOperating(HttpServletRequest req, ModelMap model) {
+		int pageSize = 10;
 		int pageNo = 0;
 		String sPageNo = req.getParameter("pager.offset");
 		if (sPageNo != null) {
@@ -32,8 +37,8 @@ public class CmsLogController {
 
 	// 显示登陆成功操作
 	@RequestMapping("/v_list_login_success.do")
-	public String list_success(HttpServletRequest req, ModelMap model) {
-		int pageSize = 3;
+	public String listLoginSuccess(HttpServletRequest req, ModelMap model) {
+		int pageSize = 10;
 		int pageNo = 0;
 		String sPageNo = req.getParameter("pager.offset");
 		if (sPageNo != null) {
@@ -46,8 +51,8 @@ public class CmsLogController {
 
 	// 显示登陆失败操作
 	@RequestMapping("/v_list_login_failure.do")
-	public String list_fail(HttpServletRequest req, ModelMap model) {
-		int pageSize = 3;
+	public String listLoginFailure(HttpServletRequest req, ModelMap model) {
+		int pageSize = 10;
 		int pageNo = 0;
 		String sPageNo = req.getParameter("pager.offset");
 		if (sPageNo != null) {
@@ -56,5 +61,56 @@ public class CmsLogController {
 		Pager<CmsLog> logPager = ls.findByPage(pageNo, pageSize, CmsLog.LOGIN_FAILURE_LOG);
 		model.addAttribute("logPager", logPager);
 		return "log/list_login_failure";
+	}
+	
+	//删除后台操作日志
+	@RequestMapping("/o_delete_operating.do")
+	public String deleteOperating(HttpServletRequest req,ModelMap model,Integer id){
+		ls.delete(id);
+		return listOperating(req, model);
+	}
+	//批量删除后台操作日志
+	@RequestMapping("/o_delete_operating_in.do")
+	public String deleteOperatingIn(HttpServletRequest req,ModelMap model,String[] ids){
+		List<String> list = new ArrayList<String>();
+		for (String id : ids) {
+			list.add(id);
+		}
+		ls.deleteIn(list);
+		return listOperating(req, model);
+	}
+	
+	//登陆成功日志的删除
+	@RequestMapping("/o_delete_login_success.do")
+	public String deleteLoginSuccess(HttpServletRequest req,ModelMap model,Integer id){
+		ls.delete(id);
+		return listLoginSuccess(req, model);
+	}
+	//登陆成功日志的批量删除
+	@RequestMapping("/o_delete_login_success_in.do")
+	public String deleteLoginSuccessIn(HttpServletRequest req,ModelMap model,String[] ids){
+		List<String> list = new ArrayList<String>();
+		for (String id : ids) {
+			list.add(id);
+		}
+		ls.deleteIn(list);
+		return listLoginSuccess(req, model);
+	}
+	
+	//登陆失败日志的删除
+	@RequestMapping("/o_delete_login_failure.do")
+	public String deleteLoginFailure(HttpServletRequest req,ModelMap model,Integer id){
+		ls.delete(id);
+		return listLoginFailure(req, model);
+	}
+	//登陆失败日志的批量删除
+	@RequestMapping("/o_delete_login_failure_in.do")
+	public String deleteLoginFailureIn(HttpServletRequest req,ModelMap model,String[] ids){
+		List<String> list = new ArrayList<String>();
+		for (String id : ids) {
+			list.add(id);
+		}
+		ls.deleteIn(list);	
+		return listLoginFailure(req, model);
 	}
 }

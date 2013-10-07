@@ -47,5 +47,19 @@
 		}
 		return count;
 	};
+	/**
+	 * 多个复选框的值
+	 */
+	Pony.checkIn = function(name){
+		var batchChecks = document.getElementsByName(name);
+		var cks = [];
+		for (var i = 0;i < batchChecks.length; i++) {
+			if (batchChecks[i].checked) {
+			    cks.push(batchChecks[i].value);
+			}
+		}
+		return cks;
+	};
+	
 	window.Pony = Pony;
 })(window);
