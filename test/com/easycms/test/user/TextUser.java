@@ -23,9 +23,9 @@ public class TextUser {
 	@Test
 	public void testAdd() {
 		CmsUser user = new CmsUser();
-		user.setUsername("测试名！");
-		user.setGroup_id(10);
-		user.setPassword("123456");
+		user.setUsername("test");
+		user.setGroup_id(1);
+		user.setPassword("116518");
 		user.setEmail("测试名@163.com");
 		CmsUserExt userExt = new CmsUserExt();
 		userExt.setRealname("李明");

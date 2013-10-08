@@ -57,10 +57,10 @@
 		</div>
 		<div class="mod">
 			<div class="hd">
-				<form method="post" action="log/v_list_log.do">
-					<label for="">用户: </label><input type="text" name="queryUsername"/>
-					<label for="">标题: </label><input type="text" name="queryTitle"/>
-					<label for="">IP: </label><input type="text" name="queryIp"/>
+				<form method="post" action="log/find_log.do">
+					<label for="">用户: </label><input type="text" name="username"/>
+					<label for="">标题: </label><input type="text" name="title"/>
+					<label for="">IP: </label><input type="text" name="ip"/>
 					<button type="submit">查询</button>
 				</form>
 			</div>

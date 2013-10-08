@@ -53,7 +53,7 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("showPages", showPages);
 		maps.put("pageSize", pageSize);
-		//定义的太死BUG
+		//定义的太死BUG,最好改成findByKey()的方式
 		if(key != null){
 			 maps.put("category", key);
 		}
@@ -88,4 +88,25 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	public T login(T entity) {
 		return getSqlSession().selectOne(entity.getClass().getName()+".login", entity);
 	}
+	
+	//多条件查询 得到集合
+	@Override
+	public Pager<T> findByKey(Class<T> entityClass, Map<String, Object> maps,
+			String operate) {
+		Pager<T> pager = new Pager<T>();
+		List<T> pageList = getSqlSession().selectList(
+				entityClass.getName() + operate, maps);
+		int totalNum = getTotal(entityClass, maps, operate);
+		pager.setPageList(pageList);
+		pager.setTotal(totalNum);
+		return pager;
+	}
+	//多条件的查询 得到总和
+	private int getTotal(Class<T> entityClass, Map<String, Object> maps,
+			String operate){
+		int total = 0;
+		total = getSqlSession().selectOne(entityClass.getName() + operate + "Total", maps);
+		return total;
+	}
+	
 }

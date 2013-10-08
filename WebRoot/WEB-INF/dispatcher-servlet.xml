@@ -13,12 +13,13 @@
     <!-- 扫描组件 (管理所有使用注解的类)-->
     <context:component-scan base-package="com.easycms"></context:component-scan>
     
+    <!-- 通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter --> 
 	<mvc:annotation-driven/>
 	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/css"/>
 	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/js"/>
 	<mvc:resources mapping="/admin/assets/**" location="/admin/assets/images"/>
     
-	<!-- 对控制器返回的逻辑路径指定对应的视图 -->
+	<!--  视图解析器，对控制器返回的逻辑路径指定对应的视图 -->
 	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">	
 	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>

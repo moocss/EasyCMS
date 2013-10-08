@@ -25,7 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		<h2>用户注册</h2>
             	</div>
             	<div class="bd">
-                <form id="register-form" action="">
+                <form id="register-form" action="member/register.do" method="post">
+                    <input type="hidden" name="gid" id="gid" value="3"/>
                     <p class="control-group">
                         <label for=""><i class="icon-user"></i><span>用户名：</span></label>
                         <input class="ipt w278" type="text"  placeholder="用户名" id="username" name="username"/>
@@ -36,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                     <p class="control-group">
                         <label for=""><i class="icon-lock"></i><span>确认密码：</span></label>
-                        <input class="ipt w278" type="password" placeholder="密码" id="password-again" name="password"/>
+                        <input class="ipt w278" type="password" placeholder="密码" id="qzpassword" name="qzpassword"/>
                     </p>
                     <p class="control-group">
                         <label for=""><i class="icon-envelope"></i><span>电子邮箱：</span></label>

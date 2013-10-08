@@ -51,5 +51,15 @@ public class TextLog {
 			System.out.println(log.getCategory());
 		}
 	}
+	
+	@Test
+	public void testFindByKey() {
+		Pager<CmsLog> pager = ls.findByKey(CmsLog.ALL_LOG, "fuxin", "127.0.0.1", "添加", 5, 3);
+		System.out.println(pager.getTotal());
+		for(CmsLog log : pager.getPageList()) {
+			System.out.println(log.getUsername());
+			System.out.println(log.getCategory());
+		}
+	}
 
 }

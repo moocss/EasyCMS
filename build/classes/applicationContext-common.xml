@@ -64,5 +64,16 @@
 	<bean id="idao" class="com.easycms.dao.IdaoImpl">
 		<property name="sqlSessionTemplate" ref="sqlSession"></property>
 	</bean>
+	
+	<!-- 异常控制与美化 -->
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="/exception" />
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">/exception</prop>
+			</props>
+		</property>
+	</bean>
 
 </beans>

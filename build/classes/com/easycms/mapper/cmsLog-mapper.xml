@@ -15,6 +15,62 @@
 	<select id="findTotal" resultType="int" parameterType="int">
 	  select count(*) from ec_log where category = #{category}
 	</select>
+	<!-- 条件查询 -->
+	<select id="findByKey" resultType="log" parameterType="map">
+	  select * from ec_log where category = #{category} and username = #{username} and ip = #{ip} and title like #{title} limit #{showPages},#{pageSize}
+	  <!-- 	<choose>
+		<when test="username != null and ip != null and title != null">
+			and username = #{username} and ip = #{ip} and title like #{title}
+		</when>
+		<when test="username = null and ip != null and title != null">
+			and ip = #{ip} and title like #{title}
+		</when>
+		<when test="username != null and ip = null and title = null">
+			and username = #{username}
+		</when>
+		<when test="username != null and ip != null and title = null">
+			and username = #{username} and ip = #{ip}
+		</when>
+		<when test="username != null and ip = null and title != null">
+			and username = #{username} and title like #{title}
+		</when>
+		<when test="username = null and ip = null and title != null">
+			and title like #{title}
+		</when>
+		<when test="username = null and ip != null and title = null">
+			and ip = #{ip}
+		</when>
+		</choose> -->
+ 	 
+	</select>
+	<!-- 总数 -->
+	<select id="findByKeyTotal" resultType="int" parameterType="map">
+	  select count(*) from ec_log where category=#{category} and username = #{username} and ip = #{ip} and title like #{title}
+	  	<!-- <choose>
+		<when test="username != null and ip != null and title != null">
+			and username = #{username} and ip = #{ip} and title like #{title}
+		</when>
+		<when test="username = null and ip != null and title != null">
+			and ip = #{ip} and title like #{title}
+		</when>
+		<when test="username != null and ip = null and title = null">
+			and username = #{username}
+		</when>
+		<when test="username != null and ip != null and title = null">
+			and username = #{username} and ip = #{ip}
+		</when>
+		<when test="username != null and ip = null and title != null">
+			and username = #{username} and title like #{title}
+		</when>
+		<when test="username = null and ip = null and title != null">
+			and title like #{title}
+		</when>
+		<when test="username = null and ip != null and title = null">
+			and ip = #{ip}
+		</when>
+		</choose> -->
+	</select>
+	
 	<!-- 删除操作 -->
 	<delete id="delete" parameterType="int">
 	  delete from ec_log where id=#{id}

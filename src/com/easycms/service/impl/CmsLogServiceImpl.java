@@ -1,13 +1,16 @@
 package com.easycms.service.impl;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UrlPathHelper;
 
 import com.easycms.base.AbstractBaseDao;
+import com.easycms.common.Pager;
 import com.easycms.common.RequestUtils;
 import com.easycms.entity.CmsLog;
 import com.easycms.entity.CmsUser;
@@ -93,6 +96,59 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		log.setContent(content);
 		
 		save(log);
+		
+	}
+
+	@Override
+	public Pager<CmsLog> findByKey(Integer category, String username,
+			String ip, String title, int pageNo, int pageSize) {
+		String operate = ".findByPage";
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("pageNo", pageNo);
+		maps.put("pageSize", pageSize);
+		maps.put("category", category);
+		
+		if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isNotBlank(title)) {
+			maps.put("username",username);
+			maps.put("ip", ip);
+			maps.put("title", title);
+			operate = ".findByKey";
+		}else if(StringUtils.isBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isNotBlank(title)){
+			maps.put("username",null);
+			maps.put("ip", ip);
+			maps.put("title", title);
+			operate = ".findByKey";
+		}else if(StringUtils.isNotBlank(username) && StringUtils.isBlank(ip) && StringUtils.isBlank(title)){
+			maps.put("username",username);
+			maps.put("ip", null);
+			maps.put("title", null);
+			operate = ".findByKey";
+		}else if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isBlank(title)){
+			maps.put("username",username);
+			maps.put("ip", ip);
+			maps.put("title", null);
+			operate = ".findByKey";
+		}else if(StringUtils.isNotBlank(username) && StringUtils.isBlank(ip) && StringUtils.isNotBlank(title)){
+			maps.put("username",username);
+			maps.put("ip", null);
+			maps.put("title", title);
+			operate = ".findByKey";
+		}else if(StringUtils.isBlank(username) && StringUtils.isBlank(ip) && StringUtils.isNotBlank(title)){
+			maps.put("username",null);
+			maps.put("ip", null);
+			maps.put("title", title);
+			operate = ".findByKey";
+		}else if(StringUtils.isBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isBlank(title)){
+			maps.put("username",null);
+			maps.put("ip", ip);
+			maps.put("title", null);
+			operate = ".findByKey";
+		}	
+		
+		if(operate.equals(".findByPage")) {
+			return findByPage(pageNo, pageSize, category);
+		}
+		return findByKey(maps, operate);
 		
 	}
 

@@ -13,9 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	
-	
-	
-	<!-- 设置Spring容器加载配置文件路径 -->
+	<!-- 设置Spring容器加载配置文件路径，默认为/WEB-INF/applicationContext.xml -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:applicationContext-*.xml</param-value>

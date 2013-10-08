@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import com.easycms.base.BaseDao;
+import com.easycms.common.Pager;
 import com.easycms.entity.CmsLog;
 
 public interface CmsLogService extends BaseDao<CmsLog,Integer>{
@@ -16,6 +17,7 @@ public interface CmsLogService extends BaseDao<CmsLog,Integer>{
 	 * @return
 	 */
 	 public void operating(HttpServletRequest request, String title, String content);
+	 
 	 /**
 	  * 登录成功日志
 	  * @param request
@@ -23,6 +25,7 @@ public interface CmsLogService extends BaseDao<CmsLog,Integer>{
 	  * @param content
 	  */
 	 public void loginSucssessLog(HttpServletRequest request, String title);
+	 
 	 /**
 	  * 登录失败日志
 	  * @param request
@@ -37,4 +40,16 @@ public interface CmsLogService extends BaseDao<CmsLog,Integer>{
 	 * @return 
 	  */
 	 public void saveLog(Integer category, String username, String url, String ip, Date date, String title, String content);
+	 
+	 /**
+	  * 多条件查询
+	  * @param category
+	  * @param username
+	  * @param ip
+	  * @param title
+	  * @param pageNo
+	  * @param pageSize
+	  * @return
+	  */
+	 public Pager<CmsLog> findByKey(Integer category,String username, String ip,String title,int pageNo,int pageSize);
 }

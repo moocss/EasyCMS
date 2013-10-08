@@ -164,7 +164,7 @@ public class CmsUserController {
 	
 
 	@RequestMapping(value="/logoutpage",method=RequestMethod.GET)
-	public String logpage(){
+	public String logoutpage(){
 		return "login";
 	}
 	
@@ -177,15 +177,39 @@ public class CmsUserController {
 		return "redirect:/member/logoutpage";
 	}
 	
-	//注册
+	//注册跳转链接
 	@RequestMapping("/register")
 	public String register(HttpServletRequest req, ModelMap model){
 		return "register";
 	}
+	//用户注册操作
+	@RequestMapping("/register.do")
+	public String registerOperating(HttpServletRequest req, ModelMap model, CmsUser user, CmsUserExt userExt, Integer gid, String verifyCode){
+		String captcha = CaptchaServlet.getStoredCaptchaString(req);
+		if(StringUtils.isNotBlank(captcha)){
+			if(captcha.equalsIgnoreCase(verifyCode)) {
+				user.setGroup_id(gid);
+				user.setPassword(MD5.MD5Encode(user.getPassword()));
+				us.saveUser(user, userExt);
+				logger.info("有用户注册了 name={"+ user.getUsername() +"}");
+				return "login";
+			}else{
+				return "register";
+			}
+		}else{
+			return "register";
+		}
+	}
 	
-	//找回密码
+	//找回密码跳转链接
 	@RequestMapping("/forgot")
 	public String forgot(HttpServletRequest req, ModelMap model){
 		return "forgot";
+	}
+	
+	//找回密码操作
+	@RequestMapping("/forgot.do")
+	public String forgotOperating(HttpServletRequest req, ModelMap model){
+		return null;
 	}
 }

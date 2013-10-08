@@ -1,0 +1,5 @@
+.exception{border: 1px solid #ddd;width: 860px;padding: 10px;margin: 0 auto;margin-top: 100px;}
+.exception-hd{border: 1px solid #ccc;background-color: #eee;padding: 10px;}
+.exception-bd{padding: 10px;background-color: #f5f5f5;}
+.exception-action{background-color: #fff;padding: 10px;}
+	.exception-action a{color: red;}
