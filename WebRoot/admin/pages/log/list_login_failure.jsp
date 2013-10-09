@@ -57,9 +57,8 @@
 		</div>
 		<div class="mod">
 			<div class="hd">
-				<form method="post" action="log/v_list_login_failure.do">
-					<label for="">用户: </label><input type="text" name="queryUsername"/>
-					<label for="">IP: </label><input type="text" name="queryIp"/>
+				<form method="post" action="log/find_log_failure.do">
+					<label for="">IP: </label><input type="text" name="ip"  value="${ip}"/>
 					<button type="submit">查询</button>
 				</form>
 			</div>

@@ -17,58 +17,40 @@
 	</select>
 	<!-- 条件查询 -->
 	<select id="findByKey" resultType="log" parameterType="map">
-	  select * from ec_log where category = #{category} and username = #{username} and ip = #{ip} and title like #{title} limit #{showPages},#{pageSize}
-	  <!-- 	<choose>
-		<when test="username != null and ip != null and title != null">
-			and username = #{username} and ip = #{ip} and title like #{title}
-		</when>
-		<when test="username = null and ip != null and title != null">
-			and ip = #{ip} and title like #{title}
-		</when>
-		<when test="username != null and ip = null and title = null">
-			and username = #{username}
-		</when>
-		<when test="username != null and ip != null and title = null">
-			and username = #{username} and ip = #{ip}
-		</when>
-		<when test="username != null and ip = null and title != null">
-			and username = #{username} and title like #{title}
-		</when>
-		<when test="username = null and ip = null and title != null">
-			and title like #{title}
-		</when>
-		<when test="username = null and ip != null and title = null">
-			and ip = #{ip}
-		</when>
-		</choose> -->
- 	 
+	  SELECT * FROM ec_log
+	  <where>
+	    <if test="category !=null and category != ''">
+	         category = #{category} 
+	    </if>
+		<if test="username != null and username != ''">
+			and username like CONCAT('%',#{username},'%')
+		</if>
+		<if test="ip != null and ip !=''">
+			and ip like CONCAT('%',#{ip},'%')
+		</if>
+		<if test="title != null and title !=''">
+			and title like CONCAT('%',#{title},'%')
+		</if>
+		</where>
+		order by id desc LIMIT #{showPages},#{pageSize}
 	</select>
 	<!-- 总数 -->
 	<select id="findByKeyTotal" resultType="int" parameterType="map">
-	  select count(*) from ec_log where category=#{category} and username = #{username} and ip = #{ip} and title like #{title}
-	  	<!-- <choose>
-		<when test="username != null and ip != null and title != null">
-			and username = #{username} and ip = #{ip} and title like #{title}
-		</when>
-		<when test="username = null and ip != null and title != null">
-			and ip = #{ip} and title like #{title}
-		</when>
-		<when test="username != null and ip = null and title = null">
-			and username = #{username}
-		</when>
-		<when test="username != null and ip != null and title = null">
-			and username = #{username} and ip = #{ip}
-		</when>
-		<when test="username != null and ip = null and title != null">
-			and username = #{username} and title like #{title}
-		</when>
-		<when test="username = null and ip = null and title != null">
-			and title like #{title}
-		</when>
-		<when test="username = null and ip != null and title = null">
-			and ip = #{ip}
-		</when>
-		</choose> -->
+	  select count(*) from ec_log
+	  <where>
+	    <if test="category !=null and category != ''">
+	         category = #{category} 
+	    </if>
+		<if test="username != null and username != ''">
+			and username like CONCAT('%',#{username},'%')
+		</if>
+		<if test="ip != null and ip !=''">
+			and ip like CONCAT('%',#{ip},'%')
+		</if>
+		<if test="title != null and title !=''">
+			and title like CONCAT('%',#{title},'%')
+		</if>
+		</where>
 	</select>
 	
 	<!-- 删除操作 -->

@@ -29,17 +29,6 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		UrlPathHelper helper = new UrlPathHelper();
 		String url =helper.getOriginatingQueryString(request);
 		Date date = new Date();
-		/*
-		CmsLog log = new CmsLog();
-		log.setCategory(CmsLog.ALL_LOG);
-		log.setIp(ip);
-		log.setUsername(username);
-		log.setUrl(url);
-		log.setTime(date);
-		log.setTitle(title);
-		log.setContent(content);
-		
-		save(log);*/
 		saveLog(CmsLog.ALL_LOG,username,url,ip,date,title,content);
 	}
 
@@ -50,15 +39,6 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		CmsUser user = (CmsUser) request.getSession().getAttribute("user");
 		String username = user.getUsername();
 		Date date = new Date();
-		
-		/*CmsLog log = new CmsLog();
-		log.setCategory(CmsLog.LOGIN_SUCCESS_LOG);
-		log.setIp(ip);
-		log.setUsername(username);
-		log.setTime(date);
-		log.setTitle(title);
-		
-		save(log);*/
 		saveLog(CmsLog.LOGIN_SUCCESS_LOG,username,null,ip,date,title,null);
 	}
 
@@ -70,16 +50,6 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 		UrlPathHelper helper = new UrlPathHelper();
 		String url =helper.getOriginatingQueryString(request);
 		Date date = new Date();
-		/*
-		CmsLog log = new CmsLog();
-		log.setCategory(CmsLog.LOGIN_FAILURE_LOG);
-		log.setIp(ip);
-		log.setUrl(url);
-		log.setTime(date);
-		log.setTitle(title);
-		log.setContent(content);
-		
-		save(log);*/
 		saveLog(CmsLog.LOGIN_FAILURE_LOG,null,url,ip,date,title,content);
 	}
 
@@ -101,53 +71,17 @@ public class CmsLogServiceImpl extends AbstractBaseDao<CmsLog, Integer> implemen
 
 	@Override
 	public Pager<CmsLog> findByKey(Integer category, String username,
-			String ip, String title, int pageNo, int pageSize) {
-		String operate = ".findByPage";
+			String ip, String title, int showPages, int pageSize) {
+		String operate = ".findByKey";
 		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("pageNo", pageNo);
+		maps.put("showPages", showPages);
 		maps.put("pageSize", pageSize);
 		maps.put("category", category);
-		
-		if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isNotBlank(title)) {
-			maps.put("username",username);
-			maps.put("ip", ip);
-			maps.put("title", title);
-			operate = ".findByKey";
-		}else if(StringUtils.isBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isNotBlank(title)){
-			maps.put("username",null);
-			maps.put("ip", ip);
-			maps.put("title", title);
-			operate = ".findByKey";
-		}else if(StringUtils.isNotBlank(username) && StringUtils.isBlank(ip) && StringUtils.isBlank(title)){
-			maps.put("username",username);
-			maps.put("ip", null);
-			maps.put("title", null);
-			operate = ".findByKey";
-		}else if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isBlank(title)){
-			maps.put("username",username);
-			maps.put("ip", ip);
-			maps.put("title", null);
-			operate = ".findByKey";
-		}else if(StringUtils.isNotBlank(username) && StringUtils.isBlank(ip) && StringUtils.isNotBlank(title)){
-			maps.put("username",username);
-			maps.put("ip", null);
-			maps.put("title", title);
-			operate = ".findByKey";
-		}else if(StringUtils.isBlank(username) && StringUtils.isBlank(ip) && StringUtils.isNotBlank(title)){
-			maps.put("username",null);
-			maps.put("ip", null);
-			maps.put("title", title);
-			operate = ".findByKey";
-		}else if(StringUtils.isBlank(username) && StringUtils.isNotBlank(ip) && StringUtils.isBlank(title)){
-			maps.put("username",null);
-			maps.put("ip", ip);
-			maps.put("title", null);
-			operate = ".findByKey";
-		}	
-		
-		if(operate.equals(".findByPage")) {
-			return findByPage(pageNo, pageSize, category);
-		}
+
+		maps.put("username",username);
+		maps.put("ip", ip);
+		maps.put("title", title);
+
 		return findByKey(maps, operate);
 		
 	}

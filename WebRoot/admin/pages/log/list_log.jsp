@@ -58,9 +58,9 @@
 		<div class="mod">
 			<div class="hd">
 				<form method="post" action="log/find_log.do">
-					<label for="">用户: </label><input type="text" name="username"/>
-					<label for="">标题: </label><input type="text" name="title"/>
-					<label for="">IP: </label><input type="text" name="ip"/>
+					<label for="">用户: </label><input type="text" name="username" value="${username}"/>
+					<label for="">标题: </label><input type="text" name="title"  value="${title}"/>
+					<label for="">IP: </label><input type="text" name="ip"  value="${ip}"/>
 					<button type="submit">查询</button>
 				</form>
 			</div>

@@ -51,5 +51,5 @@ public interface CmsLogService extends BaseDao<CmsLog,Integer>{
 	  * @param pageSize
 	  * @return
 	  */
-	 public Pager<CmsLog> findByKey(Integer category,String username, String ip,String title,int pageNo,int pageSize);
+	 public Pager<CmsLog> findByKey(Integer category,String username, String ip,String title,int showPages, int pageSize);
 }

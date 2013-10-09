@@ -5,6 +5,7 @@ import java.util.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -117,28 +118,35 @@ public class CmsLogController {
 	//后台日志查询
 	@RequestMapping("/find_log.do")
 	public String queryLog(HttpServletRequest req, ModelMap model, String username, String ip, String title){
-		int pageSize = 10;
-		int pageNo = 0;
-		String sPageNo = req.getParameter("pager.offset");
-		if (sPageNo != null) {
-			pageNo = Integer.parseInt(sPageNo);
-		}
-		Pager<CmsLog> logPager = ls.findByKey(CmsLog.ALL_LOG, username, ip, title, pageNo, pageSize);
-		model.addAttribute("username",username);
-		model.addAttribute("ip", ip);
-		model.addAttribute("title", title);
-		model.addAttribute("logPager", logPager);
+		findLog(req, model, CmsLog.ALL_LOG, username, ip, title);
 		return "log/list_log";
 		
 	}
 	//登录成功日志查询
 	@RequestMapping("/find_log_success.do")
 	public String queryLogSuccess(HttpServletRequest req, ModelMap model, String username, String ip, String title){
+		findLog(req, model, CmsLog.LOGIN_SUCCESS_LOG, username, ip, null);
 		return "log/list_login_success"; 
 	}
 	//登录失败日志查询
 	@RequestMapping("/find_log_failure.do")
 	public String queryLogFailure(HttpServletRequest req, ModelMap model, String username, String ip, String title){
+		findLog(req, model, CmsLog.LOGIN_FAILURE_LOG, null, ip, null);
 		return "log/list_login_failure"; 
+	}
+	
+	//组合查询公共方法
+	private void findLog(HttpServletRequest req, ModelMap model, Integer category, String username, String ip, String title){
+		int pageSize = 10;
+		int pageNo = 0;
+		String sPageNo = req.getParameter("pager.offset");
+		if (sPageNo != null) {
+			pageNo = Integer.parseInt(sPageNo);
+		}
+		Pager<CmsLog> logPager = ls.findByKey(category,username, ip, title, pageNo, pageSize);
+		model.addAttribute("username",username);
+		model.addAttribute("ip", ip);
+		model.addAttribute("title", title);
+		model.addAttribute("logPager", logPager);
 	}
 }
