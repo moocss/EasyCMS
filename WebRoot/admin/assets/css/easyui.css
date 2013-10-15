@@ -981,3 +981,29 @@ a:hover.l-btn-plain-selected {
 .window-mask {
   background: #ccc;
 }
+
+
+/* window Æ¤·ô×Ô¶¨Òå
+--------------------------------------------------------*/
+.window{padding: 0px;border: 1px solid #fff;}
+.window .window-header{padding: 12px;background-color: #F3F3F3;}
+.window .window-header .panel-title{padding-left: 15px;font-size: 18px;color: #017EF3;font-weight: normal;background: url(../images/easyui/title_dot.png) 0 50% no-repeat;}
+.window .window-body{border-width: 0;}
+.window .window-header .panel-tool{padding-right: 9px;}
+.window .window-header .panel-icon, .window .window-header .panel-tool{margin-top: -9px;}
+.window .window-body .dialog-toolbar, .window .window-body .dialog-button{background: #ECECEC;}
+.window .dialog-button a.l-btn{font-size: 16px;}
+.window .window-body{background-color: #F6F6F6;font-size: 16px;}
+
+.window .messager-icon{width: 78px;height: 78px;background: url(../images/easyui/messager_icons2.png) 0 0 no-repeat;}
+.window .messager-error{background-position: 0 0;}
+.window .messager-info{background-position: -77px 0;}
+.window .messager-question{background-position: -232px 0;}
+.window .messager-warning{background-position: -154px 0;}
+.messager-text{padding: 15px 0 15px 0;}
+
+a.l-btn {background: #017EF3;color: #fff;border: 0 none;height: 38px;filter: none;}
+a.l-btn span.l-btn-left {background: none;}
+a:hover.l-btn {background: none;}
+a.l-btn:hover{border: 0 none;background: #75ACEE;color: #fff;}
+a.l-btn span span.l-btn-text{ height: 30px;line-height: 30px;font-size: 16px;}

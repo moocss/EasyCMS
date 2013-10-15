@@ -28,23 +28,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <form id="register-form" action="member/register.do" method="post">
                     <input type="hidden" name="gid" id="gid" value="3"/>
                     <p class="control-group">
-                        <label for=""><i class="icon-user"></i><span>用户名：</span></label>
+                        <label for="username"><i class="icon-user"></i><span>用户名：</span></label>
                         <input class="ipt w278" type="text"  placeholder="用户名" id="username" name="username"/>
                     </p>
                     <p class="control-group">
-                        <label for=""><i class="icon-lock"></i><span>密码：</span></label>
+                        <label for="password"><i class="icon-lock"></i><span>密码：</span></label>
                         <input class="ipt w278" type="password" placeholder="密码" id="password" name="password"/>
                     </p>
                     <p class="control-group">
-                        <label for=""><i class="icon-lock"></i><span>确认密码：</span></label>
+                        <label for="qzpassword"><i class="icon-lock"></i><span>确认密码：</span></label>
                         <input class="ipt w278" type="password" placeholder="密码" id="qzpassword" name="qzpassword"/>
                     </p>
                     <p class="control-group">
-                        <label for=""><i class="icon-envelope"></i><span>电子邮箱：</span></label>
+                        <label for="email"><i class="icon-envelope"></i><span>电子邮箱：</span></label>
                         <input class="ipt w278" type="email" placeholder="电子邮箱" id="email" name="email"/>
                     </p>
                     <p class="control-group">
-                        <label for=""><i class="icon-key"></i><span>验证码：</span></label>
+                        <label for="verifyCode"><i class="icon-key"></i><span>验证码：</span></label>
                         <input class="ipt w191" type="text" placeholder="验证码" id="verifyCode" name="verifyCode"/>
 	                    <img id="img_vcode" alt="..." src="captcha?complexity=99&size=30&length=4" width="80" height="30" onclick="javascript:_rvi()"/>
 	                    <script language='javascript'>
