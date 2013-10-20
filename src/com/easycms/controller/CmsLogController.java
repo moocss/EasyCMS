@@ -124,13 +124,13 @@ public class CmsLogController {
 	}
 	//登录成功日志查询
 	@RequestMapping("/find_log_success.do")
-	public String queryLogSuccess(HttpServletRequest req, ModelMap model, String username, String ip, String title){
+	public String queryLogSuccess(HttpServletRequest req, ModelMap model, String username, String ip){
 		findLog(req, model, CmsLog.LOGIN_SUCCESS_LOG, username, ip, null);
 		return "log/list_login_success"; 
 	}
 	//登录失败日志查询
 	@RequestMapping("/find_log_failure.do")
-	public String queryLogFailure(HttpServletRequest req, ModelMap model, String username, String ip, String title){
+	public String queryLogFailure(HttpServletRequest req, ModelMap model,String ip){
 		findLog(req, model, CmsLog.LOGIN_FAILURE_LOG, null, ip, null);
 		return "log/list_login_failure"; 
 	}

@@ -230,8 +230,6 @@ html, body{height: 100%;}
 /* mod
 -----------------------------------------------*/
 .mod .hd {
-	height: 30px;
-	line-height: 30px;
 	padding: 10px 0;
 }
 
@@ -379,3 +377,7 @@ html, body{height: 100%;}
 }
 .bottom-nav li a{display: block;padding: 0 15px;color: #fff;}
 
+.search-form{padding: 10px;background-color: #f1f1f1;}
+.search-form label{padding-right: 5px;}
+.search-form .ipt{border: 1px solid #ccc;padding: 2px;width: 160px;height: 20px;line-height: 20px;}
+.search-form .ipt:focus{border-color: #1E8CBE;}

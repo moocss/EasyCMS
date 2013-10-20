@@ -10,12 +10,16 @@ import java.util.Date;
  */
 public class CmsReceiverMessage implements Serializable{
 	// 关系
+	private Integer msg_receiver_user; // 收信人ID
+	private Integer msg_send_user;// 发信人ID
 	private CmsUser msgReceiverUser;// 收信人
 	private CmsUser msgSendUser;// 发信人
+	private Integer siteId; // 站点ID
 	private CmsSite site;// 站点
+	private Integer msg_id;//站内信ID
 	private CmsMessage message;// 站内信
 	
-	private Integer id;
+	private Integer receiver_id;
 	private String msgTitle;// 站内信标题
 	private String msgContent;// 站内信内容
 	private Date sendTime;// 发送时间
@@ -46,11 +50,35 @@ public class CmsReceiverMessage implements Serializable{
 	public void setMessage(CmsMessage message) {
 		this.message = message;
 	}
-	public Integer getId() {
-		return id;
+	public Integer getMsg_receiver_user() {
+		return msg_receiver_user;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setMsg_receiver_user(Integer msg_receiver_user) {
+		this.msg_receiver_user = msg_receiver_user;
+	}
+	public Integer getMsg_send_user() {
+		return msg_send_user;
+	}
+	public void setMsg_send_user(Integer msg_send_user) {
+		this.msg_send_user = msg_send_user;
+	}
+	public Integer getSiteId() {
+		return siteId;
+	}
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
+	}
+	public Integer getMsg_id() {
+		return msg_id;
+	}
+	public void setMsg_id(Integer msg_id) {
+		this.msg_id = msg_id;
+	}
+	public Integer getReceiver_id() {
+		return receiver_id;
+	}
+	public void setReceiver_id(Integer receiver_id) {
+		this.receiver_id = receiver_id;
 	}
 	public String getMsgTitle() {
 		return msgTitle;

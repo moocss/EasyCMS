@@ -27,7 +27,7 @@ create table ec_user(
   viewonlyAdmin tinyint(1) not null default '0',
   selfAdmin tinyint(1) not null default '0',
   disabled tinyint(1) not null default '0',
-  foreign key(group_id) references bf_group(id)
+  foreign key(group_id) references ec_group(id)
 );
 create table ec_user_ext(
   id int primary key auto_increment,
@@ -43,7 +43,7 @@ create table ec_user_ext(
   mobile varchar(50),
   userImg varchar(255),
   userSignature varchar(255),
-  foreign key(uid) references bf_user(id)
+  foreign key(uid) references ec_user(id)
 );
 create table ec_role(
   id int primary key auto_increment,
@@ -63,7 +63,34 @@ create table ec_log(
   username varchar(100)
 );
 
-
+create table ec_message(
+	msg_id int primary key auto_increment,
+	msg_title varchar(100),
+	msg_content varchar(255),
+	sendTime timestamp,
+	msg_staus  tinyint(1) not null default '0',
+	msg_box int(2) not null default '1',
+	site_id int(11) not null default '1',
+	msg_send_user int(11) not null default '1',
+	msg_receiver_user int(11) not null default '0',
+	foreign key(msg_send_user) references ec_user(id),
+	foreign key(msg_receiver_user) references ec_user(id)
+);
+create table ec_message_receiver(
+	receiver_id int primary key auto_increment,
+	msg_title varchar(100),
+	msg_content varchar(255),
+	sendTime timestamp,
+	msg_staus  tinyint(1) not null default '0',
+	msg_box int(2) not null default '1',
+	msg_id int(11),
+	site_id int(11) not null default '1',
+	msg_send_user int(11) not null default '1',
+	msg_receiver_user int(11) not null default '0',
+	foreign key(msg_send_user) references ec_user(id),
+	foreign key(msg_receiver_user) references ec_user(id),
+	foreign key(receiver_id) references ec_message(msg_id)
+);
 
 -- phpMyAdmin SQL Dump
 -- version 3.2.4

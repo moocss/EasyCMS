@@ -57,16 +57,15 @@
 		</div>
 		<div class="mod">
 			<div class="hd">
-				<form method="post" action="log/find_log.do">
-					<label for="">用户: </label><input type="text" name="username" value="${username}"/>
-					<label for="">标题: </label><input type="text" name="title"  value="${title}"/>
-					<label for="">IP: </label><input type="text" name="ip"  value="${ip}"/>
-					<button type="submit">查询</button>
+				<form class="search-form" method="post" action="log/find_log.do">
+					<label for="username">用户: </label><input class="ipt" type="text" id="username" name="username" value="${username}"/>
+					<label for="title">标题: </label><input  class="ipt" type="text" id="title" name="title"  value="${title}"/>
+					<label for="ip">IP: </label><input  class="ipt" type="text" id="ip" name="ip"  value="${ip}"/>
+					<button type="submit" class="btn">查询</button>
 				</form>
 			</div>
 			<!-- /.mod-hd -->
 			<div class="bd">
-				<form action="log/v_list_log.do" method="post">
 				<table class="ui-table">
 					<thead>
 						<tr>
@@ -113,10 +112,12 @@
 						</tr>
 					</tfoot>
 				</table>
-				</form>
 			</div><!-- /.mod-bd -->
 			<div class="mod-ft">
-		    	<pg:pager items="${logPager.total}" maxPageItems="10" maxIndexPages="10" url="log/v_list_log.do" export="currentPageNo = pageNumber">
+		    	<pg:pager items="${logPager.total}" maxPageItems="10" maxIndexPages="10" url="log/find_log.do" export="currentPageNo = pageNumber">
+		    		<pg:param name="" value=""/>
+		    		<pg:param name="" value=""/>
+		    		<pg:param name="" value=""/>
 		    		<pg:index export="totalItems = itemCount">
 		    		<div class="pager">
 					    <pg:page export="firstItem, lastItem">

@@ -28,11 +28,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                <form id="login-form" action="member/login.do" name="login" method="post" novalidate="true">
 	                    <p class="control-group">
 	                        <label for="username"><i class="icon-user"></i><span>用户名：</span></label>
-	                        <input class="ipt w278" type="text" placeholder="用户名" id="username" name="username" required maxlength="20"/>
+	                        <input class="ipt w278" type="text" placeholder="用户名" id="username" name="username" value="fuxin" required maxlength="20"/>
 	                    </p>
 	                    <p class="control-group">
 	                        <label for="password"><i class="icon-lock"></i><span>密码：</span></label>
-	                        <input class="ipt w278" type="password" placeholder="密码" id="password" name="password" required maxlength="15"/>
+	                        <input class="ipt w278" type="password" placeholder="密码" id="password" name="password" value="123456" required maxlength="15"/>
 	                    </p>
 	                    <p class="control-group">
 	                        <label for="verifyCode"><i class="icon-key"></i><span>验证码：</span></label>
