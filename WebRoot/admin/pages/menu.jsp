@@ -62,7 +62,7 @@
                         </a>
                       </li>
                       <li>
-                        <a  href="javascript:;" data-url="">
+                        <a  href="javascript:;" data-url="<%=basePath%>message/v_list.do">
                           <i class="icon icon-circle"></i>
                           <span class="txt">站内信管理</span>
                         </a>

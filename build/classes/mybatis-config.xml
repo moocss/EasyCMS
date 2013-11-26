@@ -10,5 +10,7 @@
 	   <typeAlias type="com.easycms.entity.CmsUserGroup" alias="userGroup"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsRole" alias="role"></typeAlias>
 	   <typeAlias type="com.easycms.entity.CmsLog" alias="log"></typeAlias>
+	   <typeAlias type="com.easycms.entity.CmsMessage" alias="message"></typeAlias>
+	   <typeAlias type="com.easycms.entity.CmsReceiverMessage" alias="reMessage"></typeAlias>
 	</typeAliases>
 </configuration>

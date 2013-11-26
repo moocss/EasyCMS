@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.easycms.entity.CmsMessage">
+<mapper namespace="com.easycms.entity.CmsReceiverMessage">
     <!-- 插入操作 -->
-	<insert id="add" parameterType="message">
+	<insert id="add" parameterType="reMessage">
 	    
 	</insert>
 	<!-- 分页查询 -->
-	<select id="findByPage" resultType="message" parameterType="map">
+	<select id="findByPage" resultType="reMessage" parameterType="map">
 	
 	</select>
 	<!-- 总页数 -->
@@ -16,7 +16,7 @@
 	
 	</select>
 	<!-- 条件查询 -->
-	<select id="findByKey" resultType="message" parameterType="map">
+	<select id="findByKey" resultType="reMessage" parameterType="map">
 
 	</select>
 	<!-- 总数 -->
