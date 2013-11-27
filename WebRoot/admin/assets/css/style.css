@@ -30,7 +30,9 @@ html, body{height: 100%;}
 -------------------------*/	
 #header-inner{width: 100%;background-color: #222;}
 .logo{float: left;display: inline;width: 210px;border-right: 1px solid #111;margin-right: 10px;text-align: center;font-size: 16px;color: #fff;}
-.date-box-bar{float: left;display: inline;height: 22px;line-height: 22px;margin: 14px 15px 0 0;padding: 0 10px;background-color: #1E8CBE;color: #fff;border-radius: 4px;}
+.date-box-bar,.usercount{float: left;display: inline;height: 22px;line-height: 22px;margin: 14px 15px 0 0;padding: 0 10px;background-color: #1E8CBE;color: #fff;border-radius: 4px;}
+.usercount {background-color: #fff;color: #333;}
+.usercount .badge{padding: 0 4px;font-weight: bold;color: #CC0000;}
 .top-nav{float: right;display: inline;border-right: 1px solid #111;margin-right: 14px;}
 	.top-nav li{float: left;display: inline;height: 50px;line-height: 50px;border-left: 1px solid #111;}
 		.top-nav li a{display: block;padding: 0 15px;color: #fff;}
@@ -353,12 +355,16 @@ html, body{height: 100%;}
 
 /* footer 
 -------------------------*/
-#footer-inner{height: 30px;line-height: 30px;overflow: hidden;background-color: #222;color: #fff;text-align: center;}
+#footer-inner{position: relative;z-index: 1;height: 30px;line-height: 30px;overflow: hidden;background-color: #222;color: #fff;text-align: center;}
 #footer-inner i{font-size: 14px;}
-.usercount{width: 20%;}
-.copyright{width: 60%;}
+.copyright{margin-right: 300px;}
 .bottom-nav{
-	width: 20%;text-align: right;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 8;
+	width: 300px;
+	text-align: right;
     letter-spacing: -0.31em;
     *letter-spacing: normal;
     *word-spacing: -0.43em;

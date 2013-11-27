@@ -42,6 +42,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="date-box-bar">
           <i class="icon-time"></i> 系统日期：<span id="timedate"></span>
         </div>
+        <div class="usercount">
+          <i class="icon-foursquare"></i> 当前有 <a href="#" class="badge">5</a> 条未处理的信息
+        </div>
       </div><!-- /#header-inner -->
     </div><!-- /#header -->   
     <div id="sidebar" data-options="region:'west',split:false, border:false">
@@ -69,9 +72,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div><!-- /#content -->
     <div id="footer" data-options="region:'south',border:false">
       <div id="footer-inner" class="group">
-        <p class="fl usercount"><i class="icon-foursquare"></i> 当前有 <span class="badge">5</span> 条未处理的信息</p>
-        <p class="fl copyright">2013 &copy; EasyCMS Admin System</p>
-        <ul class="fr bottom-nav">
+        <p class="copyright">2013 &copy; EasyCMS Admin System</p>
+        <ul class="bottom-nav">
           <li><a href="javascript:;" title="邮件"><i class="icon-envelope"></i> 邮件 <span class="badge">2</span></a></li>
           <li><a href="javascript:;" title="事务提醒"><i class="icon-bullhorn"></i> 事务提醒 <span class="badge">3</span></a></li>
           <li><a href="javascript:;" title="留言"><i class="icon-meh"></i> 留言 <span class="badge">41</span></a></li>
