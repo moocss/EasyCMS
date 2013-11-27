@@ -50,9 +50,14 @@ public abstract class AbstractBaseDao<T,PK extends Serializable> implements Base
 		return idao.findByParam(entityClass, maps, operate);
 	}
 	
+	public int isExist(Map<String, Object> maps,String operate){
+		return idao.isExist(entityClass, maps, operate);
+	}
+	
 	public Pager<T> findByPage(int showPages, int pageSize,Object key){
 		return idao.findByPage(entityClass, showPages, pageSize, key);
 	}
+	
 	
 	public void updateOrder(T entity){
 		idao.updateOrder(entity);

@@ -15,7 +15,7 @@
 <head>
 	<base href="<%=basePath%>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>站内信管理  - 收件箱管理</title>
+	<title>站内信管理  - 垃圾箱管理</title>
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/base.css" />
 	<link type="text/css" rel="stylesheet" href="admin/assets/css/font-awesome.min.css"/>
 	<!--[if IE 7]>
@@ -41,7 +41,7 @@
 	<div class="container">
 		<div class="toolbar">
 			<div class="crumbs">
-				<a href="#">站内信管理 </a> -&gt; <span>发送站内信</span>
+				<a href="#">站内信管理 </a> -&gt; <span>垃圾箱管理</span>
 			</div>
 			<div class="action tr">
 				<a class="btn send-message" href="<%=basePath%>/message/v_add.do"><i class="icon-envelope"></i> 发送站内信</a>

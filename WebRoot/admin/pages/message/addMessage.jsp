@@ -18,7 +18,9 @@
 	<title>站内信管理  - 收件箱管理</title>
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/base.css" />
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/style.css" />
+	<script src="admin/assets/js/libs/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="admin/assets/js/common.js" type="text/javascript"></script>
+	<script src="admin/assets/js/message.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		//删除一个数据
 		function optDelete(id) {
@@ -40,10 +42,7 @@
 				<a href="#">站内信管理 </a> -&gt; <span>收件箱管理</span>
 			</div>
 			<div class="action tr">
-				<a class="btn send-message" href="<%=basePath%>/message/v_add.do">发送站内信</a>
-				<a class="btn inbox" href="#">收件箱管理</a>
-				<a class="btn sendbox" href="#">发件箱管理</a>
-				<a class="btn trash" href="#">垃圾箱管理</a>
+				<a href="<%=basePath%>message/v_list.do" class="btn" target="_self">返回列表</a>
 			</div>
 		</div>
 		<div class="mod">
@@ -52,26 +51,26 @@
 					<table class="ui-table ui-table-form">
 						<tbody>
 							<tr>
-								<th width="150">发件人:</th>
+								<th width="150"><label for="">发件人：</label></th>
 								<td>
 									<input id="username"name="username"/> 
-									会员组选择
+									<label for="groupId">会员组选择：</label>
 									<select id="groupId" name="groupId">
 										<option value="-1">请选择</option>
 									</select> 
-									请填写收件人或者选择会员组（两者必选其一，选择会员组批量发送站内信）
+									<span class="tip">请填写收件人或者选择会员组（两者必选其一，选择会员组批量发送站内信）</span>
 								</td>
 							</tr>
 							<tr>
-								<th><span class="required">*</span>标题:</th>
+								<th><span class="required">*</span>标题：</th>
 								<td>
 								<input type="text" class="required" name="msgTitle" maxlength="100"/>
 								</td>
 							</tr>
 							<tr>
-								<th>内容:</th>
+								<th>内容：</th>
 								<td>
-								<textarea name="msgContent"></textarea>
+								<textarea name="msgContent" id="msgContent" cols="80" rows="5"></textarea>
 								</td>
 							</tr>
 							<tr>

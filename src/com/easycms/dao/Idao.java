@@ -80,6 +80,15 @@ public interface Idao<T, PK extends Serializable> {
 	public Pager<T> findByKey(Class<T> entityClass, Map<String, Object> maps,String operate);
 	
 	/**
+	 * 判断某个值是否存在
+	 * @param entityClass
+	 * @param maps
+	 * @param operate
+	 * @return
+	 */
+	public int isExist(Class<T> entityClass,Map<String, Object> maps,String operate);
+	
+	/**
 	 * 通过一个参数取到对应的对象
 	 * 
 	 * @param entityClass

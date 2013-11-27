@@ -108,5 +108,13 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 		total = getSqlSession().selectOne(entityClass.getName() + operate + "Total", maps);
 		return total;
 	}
+
+	@Override
+	public int isExist(Class<T> entityClass, Map<String, Object> maps,
+			String operate) {
+		int count = 0;
+		count = getSqlSession().selectOne(entityClass.getName() + operate, maps);
+		return count;
+	}
 	
 }

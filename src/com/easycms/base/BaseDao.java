@@ -62,6 +62,7 @@ public interface BaseDao<T,PK extends Serializable> {
 	 * @return
 	 */
 	public Pager<T> findByPage(int showPages, int pageSize,Object key);
+	
 	/**
 	 * 多条件的分页查询
 	 * @param maps
@@ -70,6 +71,15 @@ public interface BaseDao<T,PK extends Serializable> {
 	 */
     public Pager<T> findByKey(Map<String, Object> maps,String operate);
     
+	/**
+	 * 判断某个值是否存在
+	 * @param entityClass
+	 * @param maps
+	 * @param operate
+	 * @return
+	 */
+	public int isExist(Map<String, Object> maps,String operate);
+	
 	/**
 	  * 通过一个参数取到对应的对象
 	  * @param maps
