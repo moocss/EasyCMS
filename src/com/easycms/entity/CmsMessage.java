@@ -11,21 +11,32 @@ import java.util.Set;
  */
 public class CmsMessage implements Serializable{
 	// 关系
-	private Integer msg_receiver_user; // 收信人ID
-	private Integer msg_send_user;// 发信人ID
+	private Integer msgReceiverUserId; // 收信人ID
+	private Integer msgSendUserId;// 发信人ID
 	private CmsUser msgReceiverUser;// 收信人
 	private CmsUser msgSendUser;// 发信人
 	private Integer siteId; // 站点ID
 	private CmsSite site;// 站点
 	private Set<CmsReceiverMessage> receiverMsgs; //站内收信
 	
-	private Integer msg_id; //消息ID
+	private Integer msgId; //消息ID
 	private String msgTitle;// 站内信标题
 	private String msgContent;// 站内信内容
 	private Date sendTime;// 发送时间
 	private boolean msgStaus;// 消息状态  0 未读  1 已读
 	private Integer msgBox;// 0 收件箱  1 发件箱  2 草稿箱  3 垃圾箱
-	
+	public Integer getMsgReceiverUserId() {
+		return msgReceiverUserId;
+	}
+	public void setMsgReceiverUserId(Integer msgReceiverUserId) {
+		this.msgReceiverUserId = msgReceiverUserId;
+	}
+	public Integer getMsgSendUserId() {
+		return msgSendUserId;
+	}
+	public void setMsgSendUserId(Integer msgSendUserId) {
+		this.msgSendUserId = msgSendUserId;
+	}
 	public CmsUser getMsgReceiverUser() {
 		return msgReceiverUser;
 	}
@@ -37,6 +48,12 @@ public class CmsMessage implements Serializable{
 	}
 	public void setMsgSendUser(CmsUser msgSendUser) {
 		this.msgSendUser = msgSendUser;
+	}
+	public Integer getSiteId() {
+		return siteId;
+	}
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
 	}
 	public CmsSite getSite() {
 		return site;
@@ -50,29 +67,11 @@ public class CmsMessage implements Serializable{
 	public void setReceiverMsgs(Set<CmsReceiverMessage> receiverMsgs) {
 		this.receiverMsgs = receiverMsgs;
 	}
-	public Integer getMsg_receiver_user() {
-		return msg_receiver_user;
+	public Integer getMsgId() {
+		return msgId;
 	}
-	public void setMsg_receiver_user(Integer msg_receiver_user) {
-		this.msg_receiver_user = msg_receiver_user;
-	}
-	public Integer getMsg_send_user() {
-		return msg_send_user;
-	}
-	public void setMsg_send_user(Integer msg_send_user) {
-		this.msg_send_user = msg_send_user;
-	}
-	public Integer getSiteId() {
-		return siteId;
-	}
-	public void setSiteId(Integer siteId) {
-		this.siteId = siteId;
-	}
-	public Integer getMsg_id() {
-		return msg_id;
-	}
-	public void setMsg_id(Integer msg_id) {
-		this.msg_id = msg_id;
+	public void setMsgId(Integer msgId) {
+		this.msgId = msgId;
 	}
 	public String getMsgTitle() {
 		return msgTitle;

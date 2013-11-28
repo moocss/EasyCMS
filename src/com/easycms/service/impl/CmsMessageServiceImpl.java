@@ -12,14 +12,14 @@ import com.easycms.service.CmsMessageService;
 @Service
 public class CmsMessageServiceImpl extends AbstractBaseDao<CmsMessage, Integer> implements CmsMessageService{
 	@Override
-	public Pager<CmsMessage> findByBox(Integer msgBox, Integer sendUserId,
-			int pageNo, int pageSize) {
+	public Pager<CmsMessage> findByBox(Integer msgBox, Integer msgSendUserId,
+			int showPages, int pageSize) {
 		String operate = ".findByPage";
 		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("pageNo", pageNo);
+		maps.put("showPages", showPages);
 		maps.put("pageSize", pageSize);
 		maps.put("msgBox",msgBox);
-		maps.put("sendUserId", sendUserId);
+		maps.put("msgSendUserId", msgSendUserId);
 		return findByKey(maps, operate);
 	}
 

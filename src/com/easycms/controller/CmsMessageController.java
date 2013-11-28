@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.easycms.common.Pager;
+import com.easycms.entity.CmsMessage;
 import com.easycms.entity.CmsReceiverMessage;
 import com.easycms.entity.CmsUser;
 import com.easycms.service.CmsLogService;
@@ -36,37 +37,43 @@ public class CmsMessageController {
 	@RequestMapping("/v_list.do")
 	public String list(HttpServletRequest req,ModelMap model,Integer box) {
 		int pageSize = 10;
-		int pageNo = 0;
+		int showPages = 0;
 		String sPageNo = req.getParameter("pager.offset");
 		if (sPageNo != null) {
-			pageNo = Integer.parseInt(sPageNo);
+			showPages = Integer.parseInt(sPageNo);
 		}
 		if (box == null) {
 			box = 0;
 		}
-		logger.debug("box=====>" + box);
+		
 		String returnPage = "message/showMessage";
 		CmsUser user = (CmsUser)req.getSession().getAttribute("user");
-		Pager<CmsReceiverMessage> pagers = null;
+		Pager<CmsReceiverMessage> rmPagers = null;
+		Pager<CmsMessage> mPagers = null;
+		
+		logger.debug("box=====>" + box +"----------- user======>"+user.getId());
+		
 		if (box.equals(0)) {
 			// 收件箱
-			pagers = rms.findByBox(box, user.getId(), pageNo, pageSize);
+			rmPagers = rms.findByBox(box, user.getId(), showPages, pageSize);
+			model.addAttribute("pagers", rmPagers);
 			returnPage = "message/showMessage";
 		} else if (box.equals(1)) {
 			// 发件箱
-			pagers = rms.findByBox(box, user.getId(), pageNo, pageSize);
+			mPagers = ms.findByBox(box, user.getId(), showPages, pageSize);
+			model.addAttribute("pagers", mPagers);
 			returnPage = "message/sendMessage";
 		} else if (box.equals(2)) {
 			// 草稿箱
-			pagers = rms.findByBox(box, user.getId(), pageNo, pageSize);
+			rmPagers = rms.findByBox(box, user.getId(), showPages, pageSize);
+			model.addAttribute("pagers", rmPagers);
 			returnPage = "message/draftMessage";
 		} else if (box.equals(3)) {
 			// 垃圾箱(可能从收件箱或者从发件箱转过来)
-			pagers = rms.findByBox(box, user.getId(), pageNo, pageSize);
+			rmPagers = rms.findByBox(box, user.getId(), showPages, pageSize);
+			model.addAttribute("pagers", rmPagers);
 			returnPage = "message/trashMessage";
 		}
-	
-		model.addAttribute("pagers", pagers);
 		return returnPage;
 	}
 	

@@ -75,11 +75,11 @@
     						<tr class="even">
     					</c:otherwise>
     				</c:choose>
-    							<td class="tc"><input type='checkbox' name='ck' value='${flag.id}' /></td>
-								<td>${flag.id}</td>
-								<td></td>
-								<td></td>
-								<td></td>
+    							<td class="tc"><input type='checkbox' name='ck' value='${flag.receiverId}' /></td>
+								<td>${flag.receiverId}</td>
+								<td>${flag.msgTitle}</td>
+								<td>${flag.msgSendUser.username}</td>
+								<td>${flag.sendTime}</td>
 								<td>
 									<a href="#">查看</a>
 									<a href="#">删除</a>
@@ -91,7 +91,7 @@
 			</div>
 			<!-- /.mod-bd -->
 			<div class="ft">
-		    	<pg:pager items="${userPager.total}" maxPageItems="10" maxIndexPages="10" url="member/v_list.do" export="currentPageNo = pageNumber">
+		    	<pg:pager items="${pagers.total}" maxPageItems="10" maxIndexPages="10" url="message/v_list.do" export="currentPageNo = pageNumber">
 		    		<pg:index export="totalItems = itemCount">
 		    		<div class="pager">
 					    <pg:page export="firstItem, lastItem">

@@ -7,5 +7,5 @@ import com.easycms.common.Pager;
 import com.easycms.entity.CmsReceiverMessage;
 @Service
 public interface CmsReMessageService extends BaseDao<CmsReceiverMessage, Integer>{
-	public Pager<CmsReceiverMessage> findByBox(Integer msgBox,Integer receiverUserId,int pageNo,int pageSize);
+	public Pager<CmsReceiverMessage> findByBox(Integer msgBox,Integer msgReceiverUserId,int showPages,int pageSize);
 }

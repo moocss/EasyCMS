@@ -5,23 +5,30 @@
 <mapper namespace="com.easycms.entity.CmsMessage">
     <!-- 插入操作 -->
 	<insert id="add" parameterType="message">
-	    
-	</insert>
-	<!-- 分页查询 -->
-	<select id="findByPage" resultType="message" parameterType="map">
+	    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="msg_id"></selectKey>
+	    INSERT INTO ec_message (msgTitle, msgContent, sendTime, msgStaus, msgBox, siteId, msgSendUserId, msgReceiverUserId) VALUES (#{msgTitle}, #{msgContent}, #{sendTime}, #{msgStaus}, #{msgBox}, #{siteId}, #{msgSendUserId}, #{msgReceiverUserId})
+    </insert>
 	
+	<resultMap type="message" id="messageMap">
+	   <id property="msgId" column="msgId"/>
+	   <result property="msgTitle" column="msgTitle"/>
+	   <result property="msgContent" column="msgContent"/>
+	   <result property="sendTime" column="sendTime"/>
+	   <result property="msgStaus" column="msgStaus"/>
+	   <association property="msgReceiverUser" resultMap="com.easycms.entity.CmsUser.msgUserMap"></association>
+	</resultMap>
+	<!-- 分页查询 -->
+	<select id="findByPage" resultMap="messageMap" parameterType="map">
+		 SELECT 
+			m.msgID,m.msgTitle,m.msgContent,m.sendTime,m.msgStaus,u.username 
+		 FROM 
+			ec_message m,ec_user u 
+		 WHERE 
+			m.msgReceiverUserId=u.id AND msgSendUserId=#{msgSendUserId} AND msgBox=#{msgBox} LIMIT #{showPages},#{pageSize}
 	</select>
 	<!-- 总页数 -->
-	<select id="findTotal" resultType="int" parameterType="int">
-	
-	</select>
-	<!-- 条件查询 -->
-	<select id="findByKey" resultType="message" parameterType="map">
-
-	</select>
-	<!-- 总数 -->
-	<select id="findByKeyTotal" resultType="int" parameterType="map">
-
+	<select id="findByPageTotal" resultType="int" parameterType="int">
+		select count(*) from ec_message_receiver where msgBox=#{msgBox} and msgReceiverUserId=#{msgReceiverUserId}
 	</select>
 	
 	<!-- 删除操作 -->

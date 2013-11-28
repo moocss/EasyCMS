@@ -42,6 +42,12 @@
 	    <result property="email" column="email"/>
 	    <association property="userGroup" resultMap="com.easycms.entity.CmsUserGroup.groupMap"></association>
 	</resultMap>
+	
+	<resultMap type="user" id="msgUserMap">
+	    <id property="id" column="id"/>
+	    <result property="username" column="username"/>
+	</resultMap>
+	
 	<!-- 查询全部 -->
 	<select id="findAll" resultMap="userMap">
 	  select 

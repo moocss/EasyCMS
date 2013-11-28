@@ -62,34 +62,33 @@ create table ec_log(
   content varchar(100),
   username varchar(100)
 );
-
-create table ec_message(
-	msg_id int primary key auto_increment,
-	msg_title varchar(100),
-	msg_content varchar(255),
-	sendTime timestamp,
-	msg_staus  tinyint(1) not null default '0',
-	msg_box int(2) not null default '1',
-	site_id int(11) not null default '1',
-	msg_send_user int(11) not null default '1',
-	msg_receiver_user int(11) not null default '0',
-	foreign key(msg_send_user) references ec_user(id),
-	foreign key(msg_receiver_user) references ec_user(id)
+CREATE TABLE ec_message(
+	msgId INT PRIMARY KEY AUTO_INCREMENT,
+	msgTitle VARCHAR(100),
+	msgContent VARCHAR(255),
+	sendTime TIMESTAMP,
+	msgStaus  TINYINT(1) NOT NULL DEFAULT '0',
+	msgBox INT(2) NOT NULL DEFAULT '1',
+	siteId INT(11) NOT NULL DEFAULT '1',
+	msgSendUserId INT(11) NOT NULL DEFAULT '1',
+	msgReceiverUserId INT(11) NOT NULL DEFAULT '0',
+	FOREIGN KEY(msgSendUserId) REFERENCES ec_user(id),
+	FOREIGN KEY(msgReceiverUserId) REFERENCES ec_user(id)
 );
-create table ec_message_receiver(
-	receiver_id int primary key auto_increment,
-	msg_title varchar(100),
-	msg_content varchar(255),
-	sendTime timestamp,
-	msg_staus  tinyint(1) not null default '0',
-	msg_box int(2) not null default '1',
-	msg_id int(11),
-	site_id int(11) not null default '1',
-	msg_send_user int(11) not null default '1',
-	msg_receiver_user int(11) not null default '0',
-	foreign key(msg_send_user) references ec_user(id),
-	foreign key(msg_receiver_user) references ec_user(id),
-	foreign key(receiver_id) references ec_message(msg_id)
+CREATE TABLE ec_message_receiver(
+	receiverId INT PRIMARY KEY AUTO_INCREMENT,
+	msgTitle VARCHAR(100),
+	msgContent VARCHAR(255),
+	sendTime TIMESTAMP,
+	msgStaus  TINYINT(1) NOT NULL DEFAULT '0',
+	msgBox INT(2) NOT NULL DEFAULT '1',
+	msgId INT(11),
+	siteId INT(11) NOT NULL DEFAULT '1',
+	msgSendUserId INT(11) NOT NULL DEFAULT '1',
+	msgReceiverUserId INT(11) NOT NULL DEFAULT '0',
+	FOREIGN KEY(msgSendUserId) REFERENCES ec_user(id),
+	FOREIGN KEY(msgReceiverUserId) REFERENCES ec_user(id),
+	FOREIGN KEY(receiverId) REFERENCES ec_message(msgId)
 );
 
 -- phpMyAdmin SQL Dump

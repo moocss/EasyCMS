@@ -13,14 +13,14 @@ import com.easycms.service.CmsReMessageService;
 public class CmsReMessageServiceImpl extends AbstractBaseDao<CmsReceiverMessage, Integer> implements CmsReMessageService {
 
 	@Override
-	public Pager<CmsReceiverMessage> findByBox(Integer msgBox, Integer receiverUserId,
-			int pageNo, int pageSize) {
+	public Pager<CmsReceiverMessage> findByBox(Integer msgBox, Integer msgReceiverUserId,
+			int showPages, int pageSize) {
 		String operate = ".findByPage";
 		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("pageNo", pageNo);
+		maps.put("showPages", showPages);
 		maps.put("pageSize", pageSize);
 		maps.put("msgBox",msgBox);
-		maps.put("receiverUserId", receiverUserId);
+		maps.put("msgReceiverUserId", msgReceiverUserId);
 		return findByKey(maps, operate);
 	}
 

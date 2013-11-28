@@ -5,31 +5,52 @@
 <mapper namespace="com.easycms.entity.CmsReceiverMessage">
     <!-- 插入操作 -->
 	<insert id="add" parameterType="reMessage">
-	    
+		INSERT INTO ec_message_receiver (msgTitle, msgContent, sendTime, msgStaus, msgBox, msgId, siteId, msgSendUserId, msgReceiverUserId) VALUES (#{msgTitle}, #{msgContent}, #{sendTime}, #{msgStaus}, #{msgBox}, #{msgId}, #{siteId}, #{msgSendUserId}, #{msgReceiverUserId});
 	</insert>
-	<!-- 分页查询 -->
-	<select id="findByPage" resultType="reMessage" parameterType="map">
 	
+	<!-- 修改操作 -->
+	<update id="update" parameterType="reMessage">
+		UPDATE ec_message_receiver SET msgBox=#{msgBox} WHERE receiveId=#{receiveId}
+	</update>
+	
+	<resultMap type="reMessage" id="reMessageMap">
+	   <id property="receiveId" column="receiveId"/>
+	   <result property="msgTitle" column="msgTitle"/>
+	   <result property="msgContent" column="msgContent"/>
+	   <result property="sendTime" column="sendTime"/>
+	   <result property="msgStaus" column="msgStaus"/>
+	   <association property="msgSendUser" resultMap="com.easycms.entity.CmsUser.msgUserMap"></association>
+	</resultMap>
+	<!-- 分页查询 -->
+	<select id="findByPage" resultMap="reMessageMap" parameterType="map">
+		SELECT 
+			m.receiverId,m.msgTitle,m.msgContent,m.sendTime,m.msgStaus,u.username
+		FROM
+			ec_message_receiver m,ec_user u
+		WHERE
+			m.msgSendUserId=u.id AND msgReceiverUserId=#{msgReceiverUserId} AND msgBox=#{msgBox} 
+		LIMIT
+			#{showPages},#{pageSize}
 	</select>
 	<!-- 总页数 -->
-	<select id="findTotal" resultType="int" parameterType="int">
+	<select id="findByPageTotal" resultType="int" parameterType="int">
+	    SELECT COUNT(*) FROM ec_message_receiver WHERE msgBox=#{msgBox} AND msgReceiverUserId=#{msgReceiverUserId}
+	</select>
 	
-	</select>
-	<!-- 条件查询 -->
-	<select id="findByKey" resultType="reMessage" parameterType="map">
-
-	</select>
-	<!-- 总数 -->
-	<select id="findByKeyTotal" resultType="int" parameterType="map">
-
+	<!--  查询操作-->
+	<select id="findById" parameterType="int" resultType="reMessage">
+		SELECT * FROM ec_message_receiver WHERE receiveId=#{receiveId}
 	</select>
 	
 	<!-- 删除操作 -->
 	<delete id="delete" parameterType="int">
-	  
+		DELETE FROM ec_message_receiver WHERE receiverId=#{receiverId}
 	</delete>
 	<!-- 批量删除 -->
 	<delete id="deleteIn" parameterType="java.util.List">
-
+	  DELETE FROM ec_message_receiver WHERE  receiverId in
+	  <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+	      ${item}
+	  </foreach>
 	</delete>
 </mapper>    
